@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Student Name] - Future Licensed Professional Teacher</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Premium Custom styles */
+        :root {
+            --primary-bg: #FFFFFF;
+            --secondary-bg: #FEFEFE;
+            --accent: #FBF8F8;
+            --border: #F0F0F0;
+            --soft-border: rgba(0, 0, 0, 0.06);
+            --primary-text: #2A2A2A;
+            --secondary-text: #6B7280;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-feature-settings: "liga" 1, "kern" 1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        body {
+            background: linear-gradient(135deg, #FFFFFF 0%, #FEFEFE 100%);
+            color: var(--primary-text);
+            letter-spacing: -0.01em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Premium background decorations */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.02) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bg-secondary {
+            background: rgba(254, 254, 254, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .bg-accent {
+            background-color: var(--accent);
+        }
+
+        .text-secondary {
+            color: var(--secondary-text);
+        }
+
+        .border-custom {
+            border-color: var(--border);
+        }
+
+        /* Premium animations and interactions */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+        }
+
+        .fade-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+        }
+
+        .fade-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Premium hover effects */
+        .hover-lift {
+            transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.3s var(--ease-out);
+            border: 1px solid var(--soft-border);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(139, 92, 246, 0.1);
+        }
+
+        /* Premium navigation */
+        .nav-active {
+            color: #8B5CF6 !important;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #8B5CF6, #EC4899);
+            border-radius: 1px;
+            animation: slideIn 0.3s var(--ease-out);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            to {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s var(--ease-out);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #8B5CF6, #EC4899);
+            border-radius: 1px;
+            transition: all 0.3s var(--ease-out);
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Premium gallery and image effects */
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 20px;
+            transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--soft-border);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-md);
+        }
+
+        .gallery-item img {
+            transition: transform 0.5s var(--ease-out);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Premium profile image styling */
+        .profile-image-container {
+            position: relative;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+            border-radius: 32px;
+            padding: 20px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--soft-border);
+        }
+
+        .profile-image-inner {
+            border-radius: 24px;
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+        }
+
+        .profile-image-inner:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-image-inner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s var(--ease-out);
+        }
+
+        .profile-image-inner:hover::before {
+            opacity: 1;
+        }
+
+        .profile-image-inner img {
+            position: relative;
+            z-index: 2;
+            transition: transform 0.4s var(--ease-out);
+        }
+
+        /* Premium hero image */
+        .hero-image {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(139, 92, 246, 0.08) 50%, rgba(236, 72, 153, 0.03) 100%);
+            border-radius: inherit;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s var(--ease-out);
+        }
+
+        .hero-image:hover::before {
+            opacity: 1;
+        }
+
+        /* Premium floating animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-8px) rotate(1deg);
+            }
+
+            66% {
+                transform: translateY(-4px) rotate(-1deg);
+            }
+        }
+
+        .float-animation {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .float-animation:nth-child(2) {
+            animation-delay: 2.5s;
+        }
+
+        .float-animation:nth-child(3) {
+            animation-delay: 5s;
+        }
+
+        /* Premium pulse effect */
+        @keyframes subtle-pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.8);
+            }
+
+            50% {
+                box-shadow: 0 35px 70px -12px rgba(139, 92, 246, 0.2), 0 0 0 1px rgba(139, 92, 246, 0.1);
+            }
+        }
+
+        .pulse-shadow {
+            animation: subtle-pulse 6s ease-in-out infinite;
+        }
+
+        /* Premium button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.3s var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s var(--ease-out);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+            border-color: rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s var(--ease-out);
+            position: relative;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+            border-color: rgba(139, 92, 246, 0.6);
+        }
+
+        /* Premium project cards */
+        .project-card {
+            border-radius: 20px;
+            transition: all 0.4s var(--ease-out);
+            border: 1px solid var(--soft-border);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+            transform: scaleX(0);
+            transition: transform 0.4s var(--ease-out);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(139, 92, 246, 0.15);
+        }
+
+        .project-card .aspect-video {
+            transition: transform 0.4s var(--ease-out);
+            border-radius: 16px 16px 0 0;
+            overflow: hidden;
+        }
+
+        .project-card:hover .aspect-video {
+            transform: scale(1.02);
+        }
+
+        .project-card img {
+            transition: transform 0.5s var(--ease-out);
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Premium skill tags */
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--soft-border);
+            transition: all 0.3s var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.05), transparent);
+            transition: left 0.4s var(--ease-out);
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+            border-color: rgba(139, 92, 246, 0.2);
+        }
+
+        .skill-tag:hover::before {
+            left: 100%;
+        }
+
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #8B5CF6, #EC4899);
+            z-index: 1000;
+            transition: width 0.1s ease-out;
+        }
+
+        /* Staggered animation delays */
+        /* Faster staggered animation delays */
+        .fade-in:nth-child(1) {
+            transition-delay: 0s;
+        }
+
+        .fade-in:nth-child(2) {
+            transition-delay: 0.05s;
+        }
+
+        .fade-in:nth-child(3) {
+            transition-delay: 0.1s;
+        }
+
+        .fade-in:nth-child(4) {
+            transition-delay: 0.15s;
+        }
+
+        .fade-in:nth-child(5) {
+            transition-delay: 0.2s;
+        }
+
+        .fade-in:nth-child(6) {
+            transition-delay: 0.25s;
+        }
+
+        /* Reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Premium section dividers */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--soft-border), transparent);
+            margin: 80px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Premium Navigation with scroll progress -->
+    <div class="scroll-progress"></div>
+    <nav id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-white/20 transition-all duration-500">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div
+                    class="font-display font-semibold text-2xl bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    Maria Delly
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden xl:flex space-x-6">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-purple-600 font-medium">About</a>
+                    <a href="#education" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Education</a>
+                    <a href="#philosophy"
+                        class="nav-link text-gray-700 hover:text-purple-600 font-medium">Philosophy</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Skills</a>
+                    <a href="#works" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Works</a>
+                    <a href="#certificates"
+                        class="nav-link text-gray-700 hover:text-purple-600 font-medium">Certificates</a>
+                    <a href="#gallery" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Gallery</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn"
+                    class="xl:hidden p-2 rounded-xl hover:bg-gray-50 transition-colors duration-300">
+                    <i class="fas fa-bars text-xl text-gray-700"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="xl:hidden hidden bg-white/95 backdrop-blur-lg border-t border-white/20 rounded-b-2xl">
+                <div class="px-4 pt-4 pb-6 space-y-3">
+                    <a href="#home"
+                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Home</a>
+                    <a href="#about"
+                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">About</a>
+                    <a href="#education"
+                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Education</a>
+                    <a href="#philosophy"
+                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Philosophy</a>
+                    <a href="#skills"
+                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Skills</a>
+                    <a href="#works"
+                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Works</a>
+                    <a href="#certificates"
+                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Certificates</a>
+                    <a href="#gallery"
+                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Gallery</a>
+                    <a href="#contact"
+                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Premium Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 pb-20 relative overflow-hidden">
+
+        <!-- Premium background decorations -->
+        <div
+            class="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-purple-100/30 to-pink-100/30 rounded-full blur-3xl">
+        </div>
+        <div
+            class="absolute bottom-1/3 left-1/4 w-80 h-80 bg-gradient-to-br from-pink-100/20 to-purple-100/20 rounded-full blur-3xl">
+        </div>
+
+        <!-- Subtle botanical decoration -->
+        <div class="absolute top-20 right-10 w-32 h-32 opacity-5">
+            <svg viewBox="0 0 100 100" class="w-full h-full text-purple-600">
+                <path d="M20,50 Q50,20 80,50 Q50,80 20,50" fill="none" stroke="currentColor" stroke-width="0.5" />
+                <circle cx="50" cy="50" r="2" fill="currentColor" />
+            </svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-8 grid lg:grid-cols-[1fr_auto] gap-16 items-center">
+            <div class="fade-in space-y-8">
+                <div class="space-y-6">
+                    <h1 class="font-display text-6xl lg:text-7xl font-bold leading-[0.9] tracking-tight">
+                        <span class="block text-gray-900">Hello,</span>
+                        <span class="block">I'm <span
+                                class="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 bg-clip-text text-transparent">
+                                Maria Delly</span></span>
+                    </h1>
+
+                    <div class="space-y-3 text-lg">
+                        <div class="text-gray-700 font-medium">Bachelor of Secondary Education</div>
+                        <div class="text-gray-600">Major in Filipino</div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                            <div
+                                class="text-lg font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                                Future Licensed Professional Teacher
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <button class="btn-primary px-10 py-4 rounded-2xl text-white font-semibold text-lg">
+                        Download CV <i class="fas fa-download ml-2"></i>
+                    </button>
+                    <button
+                        class="btn-secondary px-10 py-4 rounded-2xl text-purple-600 font-semibold text-lg hover:text-white">
+                        View Portfolio <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="fade-right flex justify-center lg:justify-end">
+                <div class="relative">
+                    <!-- Premium profile photo with enhanced frame -->
+                    <div class="relative w-96 h-96 rounded-[32px] shadow-2xl overflow-hidden pulse-shadow">
+                        <!-- Background with enhanced gradient -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-purple-50/30 rounded-[32px]">
+                        </div>
+
+                        <!-- Image container with refined padding and styling -->
+                        <div class="relative w-full h-full p-6 flex items-center justify-center">
+                            <div
+                                class="w-full h-full rounded-[24px] overflow-hidden shadow-inner bg-gradient-to-br from-gray-800 to-gray-900 hero-image border border-white/10">
+                                <img src="image/mdt.jpg" alt="[Student Name] - Future Licensed Professional Teacher"
+                                    class="w-full h-full object-cover object-center transition-all duration-700 hover:scale-105 relative z-10"
+                                    style="filter: brightness(1.1) contrast(1.05) saturate(1.1);" />
+                            </div>
+                        </div>
+
+                        <!-- Enhanced overlay border -->
+                        <div class="absolute inset-6 rounded-[24px] border-2 border-white/20 pointer-events-none"></div>
+                    </div>
+
+                    <!-- Premium decorative elements -->
+                    <div
+                        class="absolute -top-6 -right-6 w-24 h-24 bg-white/90 backdrop-blur-sm rounded-3xl shadow-lg flex items-center justify-center float-animation border border-white/20">
+                        <i class="fas fa-chalkboard-teacher text-purple-600 text-3xl"></i>
+                    </div>
+
+                    <!-- Additional premium decorative element -->
+                    <div
+                        class="absolute -bottom-6 -left-6 w-20 h-20 bg-gradient-to-br from-purple-100/80 to-pink-100/80 backdrop-blur-sm rounded-2xl shadow-lg flex items-center justify-center float-animation border border-white/30">
+                        <i class="fas fa-heart text-purple-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Premium About Section -->
+    <section id="about" class="py-32 relative">
+        <!-- Section divider -->
+        <div class="section-divider"></div>
+
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="text-center mb-20 fade-in">
+                <h2
+                    class="font-display text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent">
+                    About Me</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8 rounded-full"></div>
+                <p class="text-gray-600 text-xl max-w-3xl mx-auto leading-relaxed">
+                    Passionate about fostering love for the Filipino language and culture through innovative teaching
+                    methods and meaningful connections.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 lg:gap-12">
+                <div class="project-card p-10 hover-lift fade-in">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded-3xl flex items-center justify-center mb-8 shadow-sm">
+                        <i class="fas fa-heart text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-6 text-gray-900">My Story</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        Born and raised in the Philippines, I have always been passionate about our rich Filipino
+                        heritage and language.
+                        My journey in education began with a deep desire to inspire young minds and cultivate their
+                        appreciation for
+                        our beautiful language and literature.
+                    </p>
+                </div>
+
+                <div class="project-card p-10 hover-lift fade-in">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-pink-100 to-pink-200 rounded-3xl flex items-center justify-center mb-8 shadow-sm">
+                        <i class="fas fa-bullseye text-pink-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-6 text-gray-900">Career Objective</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        To become an innovative and inspiring Filipino language teacher who creates engaging learning
+                        experiences,
+                        promotes cultural awareness, and empowers students to become confident communicators and
+                        critical thinkers.
+                    </p>
+                </div>
+
+                <div class="project-card p-10 hover-lift fade-in">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-3xl flex items-center justify-center mb-8 shadow-sm">
+                        <i class="fas fa-leaf text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-6 text-gray-900">Personal Values</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        I believe in the power of inclusive education, cultural preservation, and continuous learning.
+                        My approach centers on respect, creativity, patience, and fostering a supportive environment
+                        where every student can thrive.
+                    </p>
+                </div>
+
+                <div class="project-card p-10 hover-lift fade-in">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-amber-100 to-amber-200 rounded-3xl flex items-center justify-center mb-8 shadow-sm">
+                        <i class="fas fa-star text-amber-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-6 text-gray-900">Passion for Teaching</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        Teaching is more than a profession—it's my calling. I'm passionate about creating meaningful
+                        connections
+                        with students, making learning enjoyable, and helping them discover the beauty and importance of
+                        our Filipino language and culture.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Education Section -->
+    <section id="education" class="py-32 relative">
+        <!-- Section divider -->
+        <div class="section-divider"></div>
+
+        <div class="max-w-5xl mx-auto px-8">
+            <div class="text-center mb-20 fade-in">
+                <h2
+                    class="font-display text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent">
+                    Education</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8 rounded-full"></div>
+                <p class="text-gray-600 text-xl max-w-3xl mx-auto leading-relaxed">My educational journey and
+                    achievements</p>
+            </div>
+
+            <div class="relative">
+                <!-- Premium Timeline line with gradient -->
+                <div
+                    class="absolute left-10 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-400 via-pink-400 to-purple-400 rounded-full shadow-sm">
+                </div>
+
+                <!-- Education items with enhanced spacing -->
+                <div class="space-y-16">
+                    <!-- College -->
+                    <div class="relative flex items-start fade-in">
+                        <div
+                            class="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full flex items-center justify-center shadow-lg relative z-10 border-4 border-white">
+                            <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                        </div>
+                        <div class="ml-8 project-card p-8 flex-1 hover-lift">
+                            <div class="flex items-start justify-between mb-4">
+                                <h3 class="font-display text-2xl font-bold text-gray-900 leading-tight">Bachelor of
+                                    Secondary Education - Major in Filipino</h3>
+                                <span
+                                    class="bg-gradient-to-r from-purple-100 to-purple-200 text-purple-800 px-4 py-2 rounded-2xl text-sm font-bold border border-purple-200">2022-2026</span>
+                            </div>
+                            <p class="text-gray-700 font-semibold mb-3 text-lg">University of the Philippines Diliman
+                            </p>
+                            <p class="text-gray-600 leading-relaxed">Currently pursuing my degree with focus on Filipino
+                                language, literature, and pedagogy. Maintaining high academic standing while actively
+                                participating in student organizations and community outreach programs.</p>
+                        </div>
+                    </div>
+
+                    <!-- Practice Teaching -->
+                    <div class="relative flex items-start fade-in">
+                        <div
+                            class="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-green-600 to-green-700 rounded-full flex items-center justify-center shadow-lg relative z-10 border-4 border-white">
+                            <i class="fas fa-chalkboard-teacher text-white text-2xl"></i>
+                        </div>
+                        <div class="ml-8 project-card p-8 flex-1 hover-lift">
+                            <div class="flex items-start justify-between mb-4">
+                                <h3 class="font-display text-2xl font-bold text-gray-900">Practice Teaching</h3>
+                                <span
+                                    class="bg-gradient-to-r from-green-100 to-green-200 text-green-800 px-4 py-2 rounded-2xl text-sm font-bold border border-green-200">2025</span>
+                            </div>
+                            <p class="text-gray-700 font-semibold mb-3 text-lg">Quezon City High School</p>
+                            <p class="text-gray-600 leading-relaxed">Completed 300+ hours of supervised teaching
+                                experience.
+                                Developed and implemented lesson plans, managed classrooms, and received excellent
+                                evaluations from cooperating teachers and supervisors.</p>
+                        </div>
+                    </div>
+
+                    <!-- Senior High School -->
+                    <div class="relative flex items-start fade-in">
+                        <div
+                            class="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg relative z-10 border-4 border-white">
+                            <i class="fas fa-school text-white text-2xl"></i>
+                        </div>
+                        <div class="ml-8 project-card p-8 flex-1 hover-lift">
+                            <div class="flex items-start justify-between mb-4">
+                                <h3 class="font-display text-2xl font-bold text-gray-900 leading-tight">Senior High
+                                    School - Humanities and Social Sciences</h3>
+                                <span
+                                    class="bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 px-4 py-2 rounded-2xl text-sm font-bold border border-blue-200">2020-2022</span>
+                            </div>
+                            <p class="text-gray-700 font-semibold mb-3 text-lg">Manila Science High School</p>
+                            <p class="text-gray-600 leading-relaxed">Graduated with honors, specializing in Humanities
+                                and
+                                Social Sciences. Active in Filipino literary societies and debate competitions.</p>
+                        </div>
+                    </div>
+
+                    <!-- High School -->
+                    <div class="relative flex items-start fade-in">
+                        <div
+                            class="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-pink-600 to-pink-700 rounded-full flex items-center justify-center shadow-lg relative z-10 border-4 border-white">
+                            <i class="fas fa-award text-white text-2xl"></i>
+                        </div>
+                        <div class="ml-8 project-card p-8 flex-1 hover-lift">
+                            <div class="flex items-start justify-between mb-4">
+                                <h3 class="font-display text-2xl font-bold text-gray-900">High School</h3>
+                                <span
+                                    class="bg-gradient-to-r from-pink-100 to-pink-200 text-pink-800 px-4 py-2 rounded-2xl text-sm font-bold border border-pink-200">2016-2020</span>
+                            </div>
+                            <p class="text-gray-700 font-semibold mb-3 text-lg">Manila Science High School</p>
+                            <p class="text-gray-600 leading-relaxed">Consistently on the honor roll, class
+                                valedictorian.
+                                Member of the Filipino Club and student government.</p>
+                        </div>
+                    </div>
+
+                    <!-- Elementary -->
+                    <div class="relative flex items-start fade-in">
+                        <div
+                            class="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center shadow-lg relative z-10 border-4 border-white">
+                            <i class="fas fa-seedling text-white text-2xl"></i>
+                        </div>
+                        <div class="ml-8 project-card p-8 flex-1 hover-lift">
+                            <div class="flex items-start justify-between mb-4">
+                                <h3 class="font-display text-2xl font-bold text-gray-900">Elementary School</h3>
+                                <span
+                                    class="bg-gradient-to-r from-amber-100 to-amber-200 text-amber-800 px-4 py-2 rounded-2xl text-sm font-bold border border-amber-200">2010-2016</span>
+                            </div>
+                            <p class="text-gray-700 font-semibold mb-3 text-lg">Marikina Elementary School</p>
+                            <p class="text-gray-600 leading-relaxed">Foundation years where my love for reading and
+                                Filipino
+                                literature began to flourish.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Teaching Philosophy Section -->
+    <section id="philosophy" class="py-32 relative">
+        <!-- Section divider -->
+        <div class="section-divider"></div>
+
+        <div class="max-w-5xl mx-auto px-8">
+            <div class="text-center fade-in">
+                <h2
+                    class="font-display text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent">
+                    Teaching Philosophy</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-12 rounded-full"></div>
+
+                <div class="project-card p-16 hover-lift relative overflow-hidden">
+                    <!-- Subtle background decoration -->
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100/20 to-pink-100/20 rounded-full blur-2xl">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-pink-100/20 to-purple-100/20 rounded-full blur-2xl">
+                    </div>
+
+                    <div class="relative z-10">
+                        <div
+                            class="w-24 h-24 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-10 shadow-sm">
+                            <i class="fas fa-quote-left text-purple-600 text-3xl"></i>
+                        </div>
+
+                        <blockquote
+                            class="font-display text-3xl lg:text-4xl text-center font-bold leading-[1.2] mb-10 text-gray-900">
+                            "Ang tunay na guro ay hindi lamang nagtuturo ng mga salita, kundi nagbibigay-daan sa
+                            pagmamahal
+                            sa sariling wika at kultura."
+                        </blockquote>
+
+                        <p class="text-xl text-gray-600 text-center mb-12 italic font-medium">
+                            "A true teacher doesn't just teach words, but paves the way for love of one's own language
+                            and
+                            culture."
+                        </p>
+
+                        <div class="max-w-4xl mx-auto text-gray-600 leading-relaxed text-lg space-y-6">
+                            <p>
+                                My teaching philosophy centers on the belief that education is a transformative process
+                                that
+                                goes beyond textbooks and examinations. As a Filipino language teacher, I am committed
+                                to creating an
+                                inclusive, engaging, and culturally rich learning environment where students can develop
+                                not only their
+                                linguistic skills but also their appreciation for our Filipino heritage.
+                            </p>
+                            <p>
+                                I believe every student has unique strengths and learning styles. My role is to be a
+                                facilitator, guide, and inspiration—helping each student discover their potential while
+                                fostering
+                                critical thinking, creativity, and cultural pride. Through innovative teaching methods,
+                                technology integration,
+                                and authentic assessment, I strive to make learning meaningful and relevant to their
+                                lives.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- S
+kills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="text-center mb-20 fade-in">
+                <h2
+                    class="font-display text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent">
+                    Skills & Expertise</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8 rounded-full"></div>
+                <p class="text-gray-600 text-xl max-w-3xl mx-auto leading-relaxed">Core competencies and technical
+                    skills I bring to modern education</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Teaching Skills -->
+                <div class="fade-in text-center">
+                    <div class="mb-8">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                            <i class="fas fa-chalkboard-teacher text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold mb-2 text-gray-900">Teaching Skills</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <span class="skill-tag text-purple-700 px-4 py-3 rounded-2xl font-medium">Lesson Planning</span>
+                        <span class="skill-tag text-purple-700 px-4 py-3 rounded-2xl font-medium">Classroom
+                            Management</span>
+                        <span class="skill-tag text-purple-700 px-4 py-3 rounded-2xl font-medium">Curriculum
+                            Development</span>
+                        <span class="skill-tag text-purple-700 px-4 py-3 rounded-2xl font-medium">Assessment
+                            Design</span>
+                        <span class="skill-tag text-purple-700 px-4 py-3 rounded-2xl font-medium">Differentiated
+                            Instruction</span>
+                        <span class="skill-tag text-purple-700 px-4 py-3 rounded-2xl font-medium">Student
+                            Counseling</span>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="fade-in text-center">
+                    <div class="mb-8">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-pink-100 to-pink-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                            <i class="fas fa-laptop text-pink-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold mb-2 text-gray-900">Technical Skills</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <span class="skill-tag text-pink-700 px-4 py-3 rounded-2xl font-medium">Canva Design</span>
+                        <span class="skill-tag text-pink-700 px-4 py-3 rounded-2xl font-medium">Microsoft Office</span>
+                        <span class="skill-tag text-pink-700 px-4 py-3 rounded-2xl font-medium">Google Workspace</span>
+                        <span class="skill-tag text-pink-700 px-4 py-3 rounded-2xl font-medium">Educational
+                            Technology</span>
+                        <span class="skill-tag text-pink-700 px-4 py-3 rounded-2xl font-medium">PowerPoint</span>
+                        <span class="skill-tag text-pink-700 px-4 py-3 rounded-2xl font-medium">Adobe Acrobat</span>
+                    </div>
+                </div>
+
+                <!-- Communication Skills -->
+                <div class="fade-in text-center">
+                    <div class="mb-8">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+                            <i class="fas fa-comments text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold mb-2 text-gray-900">Communication</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <span
+                            class="bg-green-100 text-green-700 px-4 py-2 rounded-2xl font-medium hover:bg-green-200 transition-colors duration-300">Filipino
+                            Communication</span>
+                        <span
+                            class="bg-green-100 text-green-700 px-4 py-2 rounded-2xl font-medium hover:bg-green-200 transition-colors duration-300">Public
+                            Speaking</span>
+                        <span <span class="skill-tag text-green-700 px-4 py-3 rounded-2xl font-medium">Filipino
+                            Communication</span>
+                        <span class="skill-tag text-green-700 px-4 py-3 rounded-2xl font-medium">Public Speaking</span>
+                        <span class="skill-tag text-green-700 px-4 py-3 rounded-2xl font-medium">Visual Material
+                            Design</span>
+                        <span class="skill-tag text-green-700 px-4 py-3 rounded-2xl font-medium">Creative Writing</span>
+                        <span class="skill-tag text-green-700 px-4 py-3 rounded-2xl font-medium">Content Creation</span>
+                        <span class="skill-tag text-green-700 px-4 py-3 rounded-2xl font-medium">Research</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section - Most Important -->
+    <section id="works" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-20 fade-in">
+                <h2
+                    class="font-display text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent">
+                    My Works</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8 rounded-full"></div>
+                <p class="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed">
+                    A curated showcase of educational materials and designs I've created using Canva and modern design
+                    tools
+                    to enhance learning experiences in the Filipino classroom.
+                </p>
+            </div>
+
+            <!-- Premium Filter buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-16 fade-in">
+                <button class="filter-btn active btn-primary px-8 py-3 rounded-2xl font-semibold text-white shadow-lg"
+                    data-filter="all">
+                    All Projects
+                </button>
+                <button
+                    class="filter-btn skill-tag px-8 py-3 rounded-2xl font-semibold text-gray-700 hover:text-purple-600"
+                    data-filter="lesson-plans">
+                    Lesson Plans
+                </button>
+                <button
+                    class="filter-btn skill-tag px-8 py-3 rounded-2xl font-semibold text-gray-700 hover:text-purple-600"
+                    data-filter="materials">
+                    Instructional Materials
+                </button>
+                <button
+                    class="filter-btn skill-tag px-8 py-3 rounded-2xl font-semibold text-gray-700 hover:text-purple-600"
+                    data-filter="posters">
+                    Educational Posters
+                </button>
+                <button
+                    class="filter-btn skill-tag px-8 py-3 rounded-2xl font-semibold text-gray-700 hover:text-purple-600"
+                    data-filter="presentations">
+                    Presentations
+                </button>
+            </div>
+
+            <!-- Premium Projects Grid -->
+            <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 - Alphabet Tracing Worksheet -->
+                <div class="project-card materials bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in"
+                    data-category="materials">
+                    <div class="aspect-video overflow-hidden">
+                        <img src="works/{765F517C-D519-4E12-8F7C-A70CB949C15F}.png"
+                            alt="Alphabet Tracing Worksheet Preview"
+                            class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">Learning
+                                Material</span>
+                            <button
+                                class="open-pdf text-yellow-600 hover:text-yellow-800 transition-colors duration-300"
+                                data-pdf="works/Alphabet Tracing Worksheet.pdf">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold mb-2">Alphabet Tracing Worksheet</h3>
+                        <p class="text-secondary text-sm mb-4">Interactive tracing worksheet designed to help young
+                            learners practice writing Filipino letters with proper stroke order and letter formation.
+                        </p>
+                        <button
+                            class="w-full bg-yellow-600 text-white py-2 rounded-xl hover:bg-yellow-700 transition-colors duration-300 open-pdf"
+                            data-pdf="works/Alphabet Tracing Worksheet.pdf">
+                            Open PDF <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 - Lesson Plan -->
+                <div class="project-card lesson-plans bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in"
+                    data-category="lesson-plans">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
+                        <!-- Replace with actual PDF thumbnail -->
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-file-pdf text-6xl mb-2 text-purple-600"></i>
+                            <p class="text-sm">PDF Thumbnail</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Lesson
+                                Plan</span>
+                            <button
+                                class="open-pdf text-purple-600 hover:text-purple-800 transition-colors duration-300"
+                                data-pdf="lesson-plan-1.pdf">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold mb-2">Panitikan ng Pilipinas</h3>
+                        <p class="text-secondary text-sm mb-4">Comprehensive lesson plan covering classical Filipino
+                            literature with interactive activities and modern teaching approaches.</p>
+                        <button
+                            class="w-full bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition-colors duration-300 open-pdf"
+                            data-pdf="lesson-plan-1.pdf">
+                            Open PDF <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Educational Poster -->
+                <div class="project-card posters bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in"
+                    data-category="posters">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-image text-6xl mb-2 text-green-600"></i>
+                            <p class="text-sm">Poster Design</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">Educational
+                                Poster</span>
+                            <button class="open-pdf text-green-600 hover:text-green-800 transition-colors duration-300"
+                                data-pdf="poster-grammar.pdf">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold mb-2">Filipino Grammar Rules</h3>
+                        <p class="text-secondary text-sm mb-4">Colorful and engaging poster design explaining essential
+                            Filipino grammar rules with visual examples and mnemonics.</p>
+                        <button
+                            class="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition-colors duration-300 open-pdf"
+                            data-pdf="poster-grammar.pdf">
+                            Open PDF <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 4 - Instructional Material -->
+                <div class="project-card materials bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in"
+                    data-category="materials">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-book text-6xl mb-2 text-yellow-600"></i>
+                            <p class="text-sm">Learning Module</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">Learning
+                                Module</span>
+                            <button
+                                class="open-pdf text-yellow-600 hover:text-yellow-800 transition-colors duration-300"
+                                data-pdf="module-writing.pdf">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold mb-2">Creative Writing Workshop</h3>
+                        <p class="text-secondary text-sm mb-4">Interactive module designed to enhance students' creative
+                            writing skills in Filipino with exercises and examples.</p>
+                        <button
+                            class="w-full bg-yellow-600 text-white py-2 rounded-xl hover:bg-yellow-700 transition-colors duration-300 open-pdf"
+                            data-pdf="module-writing.pdf">
+                            Open PDF <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 5 - Presentation -->
+                <div class="project-card presentations bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in"
+                    data-category="presentations">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-presentation text-6xl mb-2 text-blue-600"></i>
+                            <p class="text-sm">PowerPoint</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
+                            <button class="open-pdf text-blue-600 hover:text-blue-800 transition-colors duration-300"
+                                data-pdf="presentation-history.pdf">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold mb-2">Kasaysayan ng Wika</h3>
+                        <p class="text-secondary text-sm mb-4">Engaging presentation about the history and evolution of
+                            the Filipino language with interactive elements.</p>
+                        <button
+                            class="w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition-colors duration-300 open-pdf"
+                            data-pdf="presentation-history.pdf">
+                            Open PDF <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 6 - Infographic -->
+                <div class="project-card posters bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in"
+                    data-category="posters">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-pink-100 to-red-100 flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-chart-bar text-6xl mb-2 text-pink-600"></i>
+                            <p class="text-sm">Infographic</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm font-medium">Infographic</span>
+                            <button class="open-pdf text-pink-600 hover:text-pink-800 transition-colors duration-300"
+                                data-pdf="infographic-authors.pdf">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold mb-2">Filipino Literary Giants</h3>
+                        <p class="text-secondary text-sm mb-4">Visual representation of famous Filipino authors and
+                            their contributions to Philippine literature.</p>
+                        <button
+                            class="w-full bg-pink-600 text-white py-2 rounded-xl hover:bg-pink-700 transition-colors duration-300 open-pdf"
+                            data-pdf="infographic-authors.pdf">
+                            Open PDF <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 7 - Classroom Visual Aids -->
+                <div class="project-card materials bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in"
+                    data-category="materials">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-teal-100 to-cyan-100 flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-palette text-6xl mb-2 text-teal-600"></i>
+                            <p class="text-sm">Visual Aids</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm font-medium">Visual
+                                Aids</span>
+                            <button class="open-pdf text-teal-600 hover:text-teal-800 transition-colors duration-300"
+                                data-pdf="visual-aids-vowels.pdf">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold mb-2">Filipino Alphabet Charts</h3>
+                        <p class="text-secondary text-sm mb-4">Colorful classroom visual aids for teaching the Filipino
+                            alphabet with pronunciation guides and examples.</p>
+                        <button
+                            class="w-full bg-teal-600 text-white py-2 rounded-xl hover:bg-teal-700 transition-colors duration-300 open-pdf"
+                            data-pdf="visual-aids-vowels.pdf">
+                            Open PDF <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!--
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-display text-4xl lg:text-5xl font-semibold mb-4">Certificates & Awards</h2>
+                <p class="text-secondary text-lg">Recognition and achievements throughout my educational journey</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Certificate 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-gold-100 to-yellow-100 flex items-center justify-center">
+                        <!-- Replace with actual certificate image -->
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-certificate text-6xl mb-2 text-yellow-600"></i>
+                            <p class="text-sm">Certificate Image</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-semibold mb-2">Dean's Lister</h3>
+                        <p class="text-secondary text-sm mb-3">University of the Philippines Diliman</p>
+                        <p class="text-xs text-secondary mb-4">Recognized for outstanding academic performance with a
+                            GWA of 1.5 or higher for two consecutive semesters.</p>
+                        <div class="text-sm text-purple-600 font-medium">Academic Year 2024-2025</div>
+                    </div>
+                </div>
+
+                <!-- Certificate 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-award text-6xl mb-2 text-blue-600"></i>
+                            <p class="text-sm">Certificate Image</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-semibold mb-2">Educational Technology Workshop</h3>
+                        <p class="text-secondary text-sm mb-3">Department of Education - Region IV-A</p>
+                        <p class="text-xs text-secondary mb-4">Completed 40-hour intensive training on integrating
+                            technology in Filipino language instruction.</p>
+                        <div class="text-sm text-purple-600 font-medium">August 2025</div>
+                    </div>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-medal text-6xl mb-2 text-green-600"></i>
+                            <p class="text-sm">Certificate Image</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-semibold mb-2">Filipino Literary Writing Contest</h3>
+                        <p class="text-secondary text-sm mb-3">Komisyon sa Wikang Filipino</p>
+                        <p class="text-xs text-secondary mb-4">First place winner in the collegiate division for
+                            original Filipino short story composition.</p>
+                        <div class="text-sm text-purple-600 font-medium">February 2025</div>
+                    </div>
+                </div>
+
+                <!-- Certificate 4 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-graduation-cap text-6xl mb-2 text-purple-600"></i>
+                            <p class="text-sm">Certificate Image</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-semibold mb-2">Student Teaching Excellence</h3>
+                        <p class="text-secondary text-sm mb-3">Quezon City High School</p>
+                        <p class="text-xs text-secondary mb-4">Outstanding performance during practice teaching with
+                            exemplary lesson delivery and student engagement.</p>
+                        <div class="text-sm text-purple-600 font-medium">June 2025</div>
+                    </div>
+                </div>
+
+                <!-- Certificate 5 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-red-100 to-pink-100 flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-trophy text-6xl mb-2 text-red-600"></i>
+                            <p class="text-sm">Certificate Image</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-semibold mb-2">Community Service Leadership</h3>
+                        <p class="text-secondary text-sm mb-3">UP Diliman Student Affairs</p>
+                        <p class="text-xs text-secondary mb-4">Recognition for leading literacy programs in underserved
+                            communities around Metro Manila.</p>
+                        <div class="text-sm text-purple-600 font-medium">December 2024</div>
+                    </div>
+                </div>
+
+                <!-- Certificate 6 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-star text-6xl mb-2 text-indigo-600"></i>
+                            <p class="text-sm">Certificate Image</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-semibold mb-2">Canva Design Certification</h3>
+                        <p class="text-secondary text-sm mb-3">Canva Education Program</p>
+                        <p class="text-xs text-secondary mb-4">Certified in creating educational materials and visual
+                            content using Canva for classroom instruction.</p>
+                        <div class="text-sm text-purple-600 font-medium">March 2024</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-secondary">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-display text-4xl lg:text-5xl font-semibold mb-4">Gallery</h2>
+                <p class="text-secondary text-lg">Memories and moments from my educational journey</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Gallery Item 1 - Practice Teaching -->
+                <div
+                    class="gallery-item aspect-square bg-gradient-to-br from-purple-100 to-pink-100 fade-in overflow-hidden">
+                    <img src="image/mdt.jpg" alt="[Student Name] - Professional Photo"
+                        class="w-full h-full object-cover object-center"
+                        style="filter: brightness(1.2) contrast(1.1) saturate(1.1);" />
+                </div>
+
+                <!-- Gallery Item 2 - School Activities -->
+                <div class="gallery-item aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 fade-in">
+                    <div class="w-full h-full flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-users text-4xl mb-2"></i>
+                            <p class="text-xs">School Activities</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 - Outreach Programs -->
+                <div class="gallery-item aspect-square bg-gradient-to-br from-green-100 to-emerald-100 fade-in">
+                    <div class="w-full h-full flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-hands-helping text-4xl mb-2"></i>
+                            <p class="text-xs">Outreach Programs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 - Graduation -->
+                <div class="gallery-item aspect-square bg-gradient-to-br from-yellow-100 to-orange-100 fade-in">
+                    <div class="w-full h-full flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-graduation-cap text-4xl mb-2"></i>
+                            <p class="text-xs">Graduation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 - Classroom Moments -->
+                <div class="gallery-item aspect-square bg-gradient-to-br from-pink-100 to-red-100 fade-in">
+                    <div class="w-full h-full flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-apple-alt text-4xl mb-2"></i>
+                            <p class="text-xs">Classroom Moments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 - Literary Events -->
+                <div class="gallery-item aspect-square bg-gradient-to-br from-indigo-100 to-purple-100 fade-in">
+                    <div class="w-full h-full flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-book-reader text-4xl mb-2"></i>
+                            <p class="text-xs">Literary Events</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 7 - Workshops -->
+                <div class="gallery-item aspect-square bg-gradient-to-br from-teal-100 to-cyan-100 fade-in">
+                    <div class="w-full h-full flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-laptop text-4xl mb-2"></i>
+                            <p class="text-xs">Workshops</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 8 - Awards Ceremony -->
+                <div class="gallery-item aspect-square bg-gradient-to-br from-amber-100 to-yellow-100 fade-in">
+                    <div class="w-full h-full flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <i class="fas fa-trophy text-4xl mb-2"></i>
+                            <p class="text-xs">Awards Ceremony</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-display text-4xl lg:text-5xl font-semibold mb-4">Get In Touch</h2>
+                <p class="text-secondary text-lg max-w-2xl mx-auto">
+                    I'd love to connect with fellow educators, potential mentors, or anyone interested in Filipino
+                    education.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Contact Information -->
+                <div class="fade-in">
+                    <div class="space-y-8">
+                        <div class="flex items-center space-x-6">
+                            <div
+                                class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-purple-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-display text-xl font-semibold mb-1">Email</h3>
+                                <p class="text-secondary">maria.santos@email.com</p>
+                                <p class="text-sm text-purple-600">Preferred contact method</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-6">
+                            <div
+                                class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-facebook text-blue-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-display text-xl font-semibold mb-1">Facebook</h3>
+                                <p class="text-secondary">fb.com/mariasantos.teacher</p>
+                                <p class="text-sm text-blue-600">Educational content & updates</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-6">
+                            <div
+                                class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-green-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-display text-xl font-semibold mb-1">Phone</h3>
+                                <p class="text-secondary">+63 917 123 4567</p>
+                                <p class="text-sm text-green-600">Available during business hours</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-6">
+                            <div
+                                class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-yellow-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-display text-xl font-semibold mb-1">Location</h3>
+                                <p class="text-secondary">Metro Manila, Philippines</p>
+                                <p class="text-sm text-yellow-600">Open to opportunities nationwide</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form / CV Download -->
+                <div class="fade-in">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-custom">
+                        <h3 class="font-display text-2xl font-semibold mb-6 text-center">Download My CV</h3>
+                        <p class="text-secondary text-center mb-8 leading-relaxed">
+                            Get a comprehensive overview of my educational background, skills, and achievements
+                            as a future Filipino language educator.
+                        </p>
+
+                        <div class="text-center mb-8">
+                            <div
+                                class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-file-download text-purple-600 text-2xl"></i>
+                            </div>
+                            <p class="text-sm text-secondary">PDF Format • Updated January 2026</p>
+                        </div>
+
+                        <button
+                            class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 rounded-2xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            Download CV <i class="fas fa-download ml-2"></i>
+                        </button>
+
+                        <div class="mt-6 pt-6 border-t border-custom text-center">
+                            <p class="text-sm text-secondary mb-4">Connect with me on social media</p>
+                            <div class="flex justify-center space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center hover:bg-blue-200 transition-colors duration-300">
+                                    <i class="fab fa-facebook text-blue-600"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center hover:bg-pink-200 transition-colors duration-300">
+                                    <i class="fab fa-instagram text-pink-600"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center hover:bg-blue-200 transition-colors duration-300">
+                                    <i class="fab fa-linkedin text-blue-700"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center hover:bg-red-200 transition-colors duration-300">
+                                    <i class="fab fa-youtube text-red-600"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 text-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center">
+                <div class="font-display text-2xl font-semibold mb-2">[Student Name]</div>
+                <p class="text-gray-400 mb-6">Future Licensed Professional Teacher • Filipino Education Major</p>
+
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#home" class="hover:text-purple-400 transition-colors duration-300">Home</a>
+                    <a href="#about" class="hover:text-purple-400 transition-colors duration-300">About</a>
+                    <a href="#works" class="hover:text-purple-400 transition-colors duration-300">Works</a>
+                    <a href="#contact" class="hover:text-purple-400 transition-colors duration-300">Contact</a>
+                </div>
+
+                <div class="border-t border-gray-800 pt-8">
+                    <p class="text-gray-400 text-sm">
+                        © 2026 [Student Name]. Made with <span class="text-red-500">❤️</span> for Filipino Education.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Premium Scroll to Top Button -->
+    <button id="scrollToTop"
+        class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 opacity-0 pointer-events-none backdrop-blur-sm border border-white/20">
+        <i class="fas fa-arrow-up text-lg"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function () {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Faster scroll animations with reduced staggering
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in, .fade-left, .fade-right');
+            elements.forEach((element, index) => {
+                const rect = element.getBoundingClientRect();
+                // Trigger animations earlier - when element is 150px from bottom of viewport
+                const isVisible = rect.top < window.innerHeight - 150;
+
+                if (isVisible && !element.classList.contains('visible')) {
+                    // Much faster staggered animation delays
+                    setTimeout(() => {
+                        element.classList.add('visible');
+                    }, index * 30); // Reduced from 80ms to 30ms
+                }
+            });
+        }
+
+        // Premium scroll progress indicator
+        function updateScrollProgress() {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            if (!scrollProgress) return;
+
+            const scrolled = (window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            scrollProgress.style.width = Math.max(0, Math.min(100, scrolled)) + '%';
+        }
+
+        // Enhanced active navigation
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 120 && rect.bottom >= 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('nav-active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('nav-active');
+                }
+            });
+        }
+
+        // Scroll to top button
+        function updateScrollToTopButton() {
+            const scrollToTop = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTop.style.opacity = '1';
+                scrollToTop.style.pointerEvents = 'all';
+            } else {
+                scrollToTop.style.opacity = '0';
+                scrollToTop.style.pointerEvents = 'none';
+            }
+        }
+
+        // Scroll to top functionality
+        document.getElementById('scrollToTop').addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Project filtering
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const filter = this.getAttribute('data-filter');
+
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('active', 'bg-purple-600', 'text-white');
+                    b.classList.add('bg-white', 'text-gray-600');
+                });
+                this.classList.add('active', 'bg-purple-600', 'text-white');
+                this.classList.remove('bg-white', 'text-gray-600');
+
+                // Filter projects
+                document.querySelectorAll('.project-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // PDF opening functionality - opens PDF in new tab
+        document.querySelectorAll('.open-pdf').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const pdfFile = this.getAttribute('data-pdf');
+                // Open PDF in new tab
+                window.open(pdfFile, '_blank');
+            });
+        });
+
+        // Enhanced event listeners with premium features
+        window.addEventListener('scroll', function () {
+            updateActiveNav();
+            animateOnScroll();
+            updateScrollToTopButton();
+            updateScrollProgress();
+        });
+
+        // Initial calls
+        document.addEventListener('DOMContentLoaded', function () {
+            animateOnScroll();
+            updateActiveNav();
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white');
+                navbar.classList.remove('bg-white/95');
+            } else {
+                navbar.classList.remove('bg-white');
+                navbar.classList.add('bg-white/95');
+            }
+        });
+    </script>
+</body>
+
+</html>
