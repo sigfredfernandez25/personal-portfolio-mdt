@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Student Name] - Future Licensed Professional Teacher</title>
+    <title>Portfolio | Bachelor of Education Major in Filipino</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,1878 +13,1932 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        /* Premium Custom styles */
+        /* Custom CSS */
         :root {
-            --primary-bg: #FFFFFF;
-            --secondary-bg: #FEFEFE;
-            --accent: #FBF8F8;
-            --border: #F0F0F0;
-            --soft-border: rgba(0, 0, 0, 0.06);
-            --primary-text: #2A2A2A;
-            --secondary-text: #6B7280;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
-            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+            --primary-white: #FFFFFF;
+            --secondary-rose: #F8F1F1;
+            --accent-blush: #F4EAEA;
+            --text-dark: #333333;
+            --border-color: #ECECEC;
         }
 
         * {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-
-        .font-display {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-feature-settings: "liga" 1, "kern" 1;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background: linear-gradient(135deg, #FFFFFF 0%, #FEFEFE 100%);
-            color: var(--primary-text);
-            letter-spacing: -0.01em;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--primary-white);
+            overflow-x: hidden;
         }
 
-        /* Premium background decorations */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background:
-                radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.02) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.02) 0%, transparent 50%);
-            z-index: -1;
-            pointer-events: none;
+        body.menu-open {
+            overflow: hidden;
         }
 
-        .bg-secondary {
-            background: rgba(254, 254, 254, 0.8);
-            backdrop-filter: blur(10px);
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
         }
 
-        .bg-accent {
-            background-color: var(--accent);
+        /* Navigation Styles */
+        nav {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .text-secondary {
-            color: var(--secondary-text);
-        }
-
-        .border-custom {
-            border-color: var(--border);
-        }
-
-        /* Premium animations and interactions */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .fade-left {
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
-        }
-
-        .fade-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .fade-right {
-            opacity: 0;
-            transform: translateX(30px);
-            transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
-        }
-
-        .fade-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Premium hover effects */
-        .hover-lift {
-            transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.3s var(--ease-out);
-            border: 1px solid var(--soft-border);
-        }
-
-        .hover-lift:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(139, 92, 246, 0.1);
-        }
-
-        /* Premium navigation */
-        .nav-active {
-            color: #8B5CF6 !important;
-            font-weight: 600;
-            position: relative;
-        }
-
-        .nav-active::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #8B5CF6, #EC4899);
-            border-radius: 1px;
-            animation: slideIn 0.3s var(--ease-out);
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: scaleX(0);
-            }
-
-            to {
-                opacity: 1;
-                transform: scaleX(1);
-            }
+        nav.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         }
 
         .nav-link {
             position: relative;
-            transition: color 0.3s var(--ease-out);
+            transition: color 0.3s ease;
         }
 
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -8px;
-            left: 50%;
+            bottom: -4px;
+            left: 0;
             width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #8B5CF6, #EC4899);
-            border-radius: 1px;
-            transition: all 0.3s var(--ease-out);
-            transform: translateX(-50%);
+            height: 1px;
+            background-color: var(--text-dark);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .nav-link:hover::after {
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
         }
 
-        /* Premium gallery and image effects */
-        .gallery-item {
-            overflow: hidden;
-            border-radius: 20px;
-            transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--soft-border);
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: var(--shadow-md);
-        }
-
-        .gallery-item img {
-            transition: transform 0.5s var(--ease-out);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-
-        /* Premium profile image styling */
-        .profile-image-container {
+        /* Hamburger Menu */
+        .hamburger {
+            width: 28px;
+            height: 20px;
             position: relative;
-            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
-            border-radius: 32px;
-            padding: 20px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--soft-border);
+            cursor: pointer;
+            z-index: 60;
         }
 
-        .profile-image-inner {
-            border-radius: 24px;
-            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
-        }
-
-        .profile-image-inner:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-        }
-
-        .profile-image-inner::before {
-            content: '';
+        .hamburger span {
+            display: block;
             position: absolute;
+            height: 2px;
+            width: 100%;
+            background: var(--text-dark);
+            border-radius: 2px;
+            opacity: 1;
+            left: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 0;
+        }
+
+        .hamburger span:nth-child(2) {
+            top: 9px;
+        }
+
+        .hamburger span:nth-child(3) {
+            top: 18px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            top: 9px;
+            transform: rotate(135deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            top: 9px;
+            transform: rotate(-135deg);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
-            z-index: 1;
-            pointer-events: none;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--secondary-rose);
+            z-index: 50;
+            transform: translateY(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu-link {
             opacity: 0;
-            transition: opacity 0.4s var(--ease-out);
+            transform: translateY(-20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .profile-image-inner:hover::before {
+        .mobile-menu.active .mobile-menu-link {
             opacity: 1;
+            transform: translateY(0);
         }
 
-        .profile-image-inner img {
-            position: relative;
-            z-index: 2;
-            transition: transform 0.4s var(--ease-out);
+        .mobile-menu.active .mobile-menu-link:nth-child(1) {
+            transition-delay: 0.1s;
         }
 
-        /* Premium hero image */
-        .hero-image {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
+        .mobile-menu.active .mobile-menu-link:nth-child(2) {
+            transition-delay: 0.15s;
         }
 
-        .hero-image::before {
-            content: '';
+        .mobile-menu.active .mobile-menu-link:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+
+        .mobile-menu.active .mobile-menu-link:nth-child(4) {
+            transition-delay: 0.25s;
+        }
+
+        /* Hero Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up-delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .fade-up-delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .fade-up-delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .fade-up-delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        /* Image Placeholder */
+        .portrait-placeholder {
+            background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);
+            border: 2px solid var(--border-color);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+        }
+
+        .portrait-placeholder:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Decorative Background */
+        .decorative-blob {
             position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(139, 92, 246, 0.08) 50%, rgba(236, 72, 153, 0.03) 100%);
-            border-radius: inherit;
-            z-index: 1;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.4s var(--ease-out);
+            border-radius: 50%;
+            background: var(--accent-blush);
+            opacity: 0.4;
+            animation: float 6s ease-in-out infinite;
         }
 
-        .hero-image:hover::before {
-            opacity: 1;
-        }
-
-        /* Premium floating animations */
         @keyframes float {
 
             0%,
             100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            33% {
-                transform: translateY(-8px) rotate(1deg);
-            }
-
-            66% {
-                transform: translateY(-4px) rotate(-1deg);
-            }
-        }
-
-        .float-animation {
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .float-animation:nth-child(2) {
-            animation-delay: 2.5s;
-        }
-
-        .float-animation:nth-child(3) {
-            animation-delay: 5s;
-        }
-
-        /* Premium pulse effect */
-        @keyframes subtle-pulse {
-
-            0%,
-            100% {
-                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.8);
+                transform: translateY(0px);
             }
 
             50% {
-                box-shadow: 0 35px 70px -12px rgba(139, 92, 246, 0.2), 0 0 0 1px rgba(139, 92, 246, 0.1);
+                transform: translateY(-20px);
             }
         }
 
-        .pulse-shadow {
-            animation: subtle-pulse 6s ease-in-out infinite;
-        }
-
-        /* Premium button styles */
+        /* Button Styles */
         .btn-primary {
-            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            transition: all 0.3s var(--ease-out);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s var(--ease-out);
+            background-color: var(--text-dark);
+            color: var(--primary-white);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .btn-primary:hover {
+            background-color: #1a1a1a;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
-            border-color: rgba(139, 92, 246, 0.4);
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         .btn-secondary {
-            border: 2px solid rgba(139, 92, 246, 0.3);
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s var(--ease-out);
-            position: relative;
+            border: 2px solid var(--text-dark);
+            color: var(--text-dark);
+            background-color: transparent;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .btn-secondary:hover {
+            background-color: var(--text-dark);
+            color: var(--primary-white);
             transform: translateY(-2px);
-            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
-            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
-            border-color: rgba(139, 92, 246, 0.6);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* Premium project cards */
-        .project-card {
-            border-radius: 20px;
-            transition: all 0.4s var(--ease-out);
-            border: 1px solid var(--soft-border);
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
         }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
-            transform: scaleX(0);
-            transition: transform 0.4s var(--ease-out);
+        /* Scroll-triggered Animations */
+        .scroll-fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .project-card:hover::before {
-            transform: scaleX(1);
+        .scroll-fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .project-card:hover {
+        .scroll-fade-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-fade-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-fade-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-fade-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Photo Placeholder Card */
+        .photo-card {
+            background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);
+            border: 2px solid var(--border-color);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+        }
+
+        .photo-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(139, 92, 246, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .project-card .aspect-video {
-            transition: transform 0.4s var(--ease-out);
-            border-radius: 16px 16px 0 0;
-            overflow: hidden;
+        /* Info Cards */
+        .info-card {
+            background: var(--primary-white);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .project-card:hover .aspect-video {
-            transform: scale(1.02);
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
         }
 
-        .project-card img {
-            transition: transform 0.5s var(--ease-out);
+        /* Teaching Philosophy Card */
+        .philosophy-card {
+            background: var(--accent-blush);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .project-card:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Premium skill tags */
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--soft-border);
-            transition: all 0.3s var(--ease-out);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-tag::before {
-            content: '';
+        /* Timeline Styles */
+        .timeline-line {
             position: absolute;
+            left: 50%;
             top: 0;
-            left: -100%;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 20px;
+            }
+        }
+
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent-blush);
+            border: 3px solid var(--primary-white);
+            box-shadow: 0 0 0 2px var(--border-color);
+            position: absolute;
+            top: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card {
+            background: var(--primary-white);
+            border: 1px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .timeline-card:hover .timeline-dot {
+            background: var(--text-dark);
+            transform: scale(1.3);
+        }
+
+        /* Section Divider */
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--border-color);
+            margin: 0 auto;
+        }
+
+        /* Skill Cards */
+        .skill-card {
+            background: var(--primary-white);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent-blush);
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--accent-blush);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        /* Filter Chips */
+        .filter-chip {
+            padding: 8px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            background: var(--primary-white);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 14px;
+        }
+
+        .filter-chip:hover {
+            background: var(--accent-blush);
+            border-color: var(--text-dark);
+        }
+
+        .filter-chip.active {
+            background: var(--text-dark);
+            color: var(--primary-white);
+            border-color: var(--text-dark);
+        }
+
+        /* Work Cards */
+        .work-card {
+            background: var(--primary-white);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .work-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .work-image-wrapper {
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 3/4;
+            background: var(--accent-blush);
+        }
+
+        .work-image {
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.05), transparent);
-            transition: left 0.4s var(--ease-out);
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .skill-tag:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
-            border-color: rgba(139, 92, 246, 0.2);
+        .work-card:hover .work-image {
+            transform: scale(1.08);
         }
 
-        .skill-tag:hover::before {
-            left: 100%;
+        .work-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
-        /* Scroll progress indicator */
-        .scroll-progress {
+        .work-card:hover .work-overlay {
+            opacity: 1;
+        }
+
+        .work-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--accent-blush);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, #8B5CF6, #EC4899);
-            z-index: 1000;
-            transition: width 0.1s ease-out;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
-        /* Staggered animation delays */
-        /* Mobile-first responsive enhancements */
-        @media (max-width: 475px) {
-            .hero-mobile-text {
-                font-size: 2.5rem;
-                /* ~40px */
-                line-height: 1.1;
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
             }
 
-            .hero-mobile-subtitle {
-                font-size: 1rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .hero-mobile-image {
-                width: 280px;
-                height: 280px;
-            }
-
-            .hero-mobile-padding {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-
-            .mobile-btn-stack {
-                gap: 0.75rem;
-            }
-
-            .mobile-btn {
-                padding: 0.875rem 2rem;
-                font-size: 1rem;
-            }
-
-            .timeline-mobile {
-                margin-left: 0.5rem;
-            }
-
-            .timeline-icon-mobile {
-                width: 3rem;
-                height: 3rem;
-            }
-
-            .timeline-content-mobile {
-                margin-left: 1rem;
-                padding: 1.5rem;
-            }
-
-            .section-title-mobile {
-                font-size: 2.5rem;
-                line-height: 1.2;
-            }
-
-            .section-subtitle-mobile {
-                font-size: 1.125rem;
+            to {
+                opacity: 1;
             }
         }
 
-        @media (max-width: 640px) {
-            .hero-stack-mobile {
-                gap: 2rem;
+        .modal-content {
+            position: relative;
+            background: var(--primary-white);
+            border-radius: 12px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
             }
 
-            .hero-center-mobile {
-                text-align: center;
+            to {
+                opacity: 1;
+                transform: scale(1);
             }
         }
 
-        /* Faster staggered animation delays */
-        .fade-in:nth-child(1) {
-            transition-delay: 0s;
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-white);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            z-index: 10;
         }
 
-        .fade-in:nth-child(2) {
-            transition-delay: 0.05s;
+        .modal-close:hover {
+            background: var(--text-dark);
+            color: var(--primary-white);
+            transform: rotate(90deg);
         }
 
-        .fade-in:nth-child(3) {
+        .modal-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 12px 12px 0 0;
+        }
+
+        /* Staggered Animation */
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-item:nth-child(1) {
             transition-delay: 0.1s;
         }
 
-        .fade-in:nth-child(4) {
-            transition-delay: 0.15s;
-        }
-
-        .fade-in:nth-child(5) {
+        .stagger-item:nth-child(2) {
             transition-delay: 0.2s;
         }
 
-        .fade-in:nth-child(6) {
-            transition-delay: 0.25s;
+        .stagger-item:nth-child(3) {
+            transition-delay: 0.3s;
         }
 
-        /* Reduced motion preferences */
-        @media (prefers-reduced-motion: reduce) {
+        .stagger-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
 
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+        .stagger-item:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+
+        .stagger-item:nth-child(6) {
+            transition-delay: 0.6s;
+        }
+
+        .stagger-item:nth-child(7) {
+            transition-delay: 0.7s;
+        }
+
+        .stagger-item:nth-child(8) {
+            transition-delay: 0.8s;
+        }
+
+        .stagger-item:nth-child(9) {
+            transition-delay: 0.9s;
+        }
+
+        /* Contact Info Item */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: translateX(4px);
+            background: var(--text-dark);
+            color: var(--primary-white);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-blush);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            flex-shrink: 0;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--primary-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--text-dark);
+            background: var(--primary-white);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--text-dark);
+            box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        /* Social Icons */
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: var(--primary-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .social-icon:hover {
+            background: var(--text-dark);
+            color: var(--primary-white);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-white);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--text-dark);
+            color: var(--primary-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 40;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
             }
-        }
-
-        /* Premium section dividers */
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--soft-border), transparent);
-            margin: 80px 0;
         }
     </style>
 </head>
 
 <body>
-    <!-- Premium Navigation with scroll progress -->
-    <div class="scroll-progress"></div>
-    <nav id="navbar"
-        class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-white/20 transition-all duration-500">
-        <div class="max-w-6xl mx-auto px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <div
-                    class="font-display font-semibold text-2xl bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    Maria Delly
-                </div>
 
-                <!-- Desktop Menu -->
-                <div class="hidden xl:flex space-x-6">
-                    <a href="#home" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Home</a>
-                    <a href="#about" class="nav-link text-gray-700 hover:text-purple-600 font-medium">About</a>
-                    <a href="#education" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Education</a>
-                    <a href="#philosophy"
-                        class="nav-link text-gray-700 hover:text-purple-600 font-medium">Philosophy</a>
-                    <a href="#skills" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Skills</a>
-                    <a href="#works" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Works</a>
-                    <a href="#certificates"
-                        class="nav-link text-gray-700 hover:text-purple-600 font-medium">Certificates</a>
-                    <a href="#gallery" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Gallery</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Contact</a>
-                </div>
+    <!-- ==================== NAVIGATION BAR ==================== -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 px-6 md:px-12 lg:px-20 py-5">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn"
-                    class="xl:hidden p-2 rounded-xl hover:bg-gray-50 transition-colors duration-300">
-                    <i class="fas fa-bars text-xl text-gray-700"></i>
-                </button>
-            </div>
+            <!-- Logo -->
+            <a href="#home" class="text-xl md:text-2xl font-semibold" style="font-family: 'Playfair Display', serif;">
+                Maria Delly
+            </a>
 
-            <!-- Mobile Menu -->
-            <div id="mobile-menu"
-                class="xl:hidden hidden bg-white/95 backdrop-blur-lg border-t border-white/20 rounded-b-2xl">
-                <div class="px-4 pt-4 pb-6 space-y-3">
-                    <a href="#home"
-                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Home</a>
-                    <a href="#about"
-                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">About</a>
-                    <a href="#education"
-                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Education</a>
-                    <a href="#philosophy"
-                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Philosophy</a>
-                    <a href="#skills"
-                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Skills</a>
-                    <a href="#works"
-                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Works</a>
-                    <a href="#certificates"
-                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Certificates</a>
-                    <a href="#gallery"
-                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Gallery</a>
-                    <a href="#contact"
-                        class="mobile-nav-link block px-4 py-3 hover:bg-gray-50 rounded-xl font-medium text-gray-700">Contact</a>
-                </div>
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex items-center gap-8 lg:gap-12">
+                <li><a href="#home" class="nav-link active text-sm lg:text-base tracking-wide">Home</a></li>
+                <li><a href="#about" class="nav-link text-sm lg:text-base tracking-wide">About</a></li>
+                <li><a href="#education" class="nav-link text-sm lg:text-base tracking-wide">Education</a></li>
+                <li><a href="#skills-works" class="nav-link text-sm lg:text-base tracking-wide">Skills & Works</a></li>
+            </ul>
+
+            <!-- Mobile Hamburger -->
+            <div class="md:hidden hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
-    <!-- Premium Hero Section -->
-    <section id="home" class="min-h-screen flex items-center pt-20 pb-12 sm:pb-20 relative overflow-hidden">
-
-        <!-- Premium background decorations -->
-        <div
-            class="absolute top-1/4 right-1/4 w-32 sm:w-64 h-32 sm:h-64 bg-gradient-to-br from-purple-100/30 to-pink-100/30 rounded-full blur-3xl">
+    <!-- ==================== MOBILE MENU ==================== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="flex flex-col items-center justify-center h-full gap-8">
+            <a href="#home" class="mobile-menu-link text-3xl font-medium"
+                style="font-family: 'Playfair Display', serif;">Home</a>
+            <a href="#about" class="mobile-menu-link text-3xl font-medium"
+                style="font-family: 'Playfair Display', serif;">About</a>
+            <a href="#education" class="mobile-menu-link text-3xl font-medium"
+                style="font-family: 'Playfair Display', serif;">Education</a>
+            <a href="#skills-works" class="mobile-menu-link text-3xl font-medium"
+                style="font-family: 'Playfair Display', serif;">Skills & Works</a>
         </div>
-        <div
-            class="absolute bottom-1/3 left-1/4 w-40 sm:w-80 h-40 sm:h-80 bg-gradient-to-br from-pink-100/20 to-purple-100/20 rounded-full blur-3xl">
-        </div>
+    </div>
 
-        <!-- Subtle botanical decoration -->
-        <div class="absolute top-20 right-4 sm:right-10 w-16 sm:w-32 h-16 sm:h-32 opacity-5">
-            <svg viewBox="0 0 100 100" class="w-full h-full text-purple-600">
-                <path d="M20,50 Q50,20 80,50 Q50,80 20,50" fill="none" stroke="currentColor" stroke-width="0.5" />
-                <circle cx="50" cy="50" r="2" fill="currentColor" />
-            </svg>
-        </div>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="min-h-screen flex items-center pt-20 md:pt-24 pb-12 md:pb-20 px-6 md:px-12 lg:px-20"
+        style="background-color: var(--secondary-rose);">
+        <div class="max-w-7xl mx-auto w-full">
 
-        <div class="max-w-5xl mx-auto hero-mobile-padding px-4 sm:px-8">
-            <!-- Mobile-first layout: image on top, text below -->
-            <div
-                class="flex flex-col lg:grid lg:grid-cols-[1fr_auto] hero-stack-mobile lg:gap-16 items-center text-center lg:text-left">
+            <!-- Mobile: Portrait First -->
+            <div class="md:hidden mb-12 fade-up">
+                <div class="relative max-w-sm mx-auto">
+                    <!-- Decorative Background Blob -->
+                    <div class="decorative-blob w-72 h-72 absolute -top-8 -right-8 -z-10"></div>
 
-                <!-- Text Content - Order 2 on mobile, Order 1 on desktop -->
-                <div class="fade-in space-y-6 sm:space-y-8 order-2 lg:order-1 w-full">
-                    <div class="space-y-4 sm:space-y-6">
-                        <h1
-                            class="font-display hero-mobile-text sm:text-6xl lg:text-7xl font-bold leading-[0.9] tracking-tight">
-                            <span class="block text-gray-900">Hello,</span>
-                            <span class="block">I'm <span
-                                    class="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 bg-clip-text text-transparent">Maria
-                                    Delly</span></span>
+                    <!-- Portrait Image -->
+                    <div class="portrait-placeholder w-full aspect-[3/4] rounded-lg relative overflow-hidden">
+                        <img src="image/mdt.jpg" alt="Portrait" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop: Two Column Layout -->
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+                <!-- Left Column: Text Content -->
+                <div class="space-y-6 md:space-y-8">
+                    <div class="fade-up">
+                        <p class="text-base md:text-lg text-gray-600 mb-3">Hello,</p>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4"
+                            style="font-family: 'Playfair Display', serif; line-height: 1.2;">
+                            I'm <span style="font-style: italic;">Maria Delly Tango-an</span>
                         </h1>
-
-                        <div class="space-y-2 sm:space-y-3">
-                            <div class="text-gray-700 font-medium hero-mobile-subtitle sm:text-lg">Bachelor of Secondary
-                                Education</div>
-                            <div class="text-gray-600 hero-mobile-subtitle sm:text-lg">Major in Filipino</div>
-                            <div class="flex items-center justify-center lg:justify-start space-x-2">
-                                <div class="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
-                                <div
-                                    class="hero-mobile-subtitle sm:text-lg font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                                    Future Licensed Professional Teacher
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
-                    <div
-                        class="flex flex-col mobile-btn-stack sm:flex-row sm:gap-4 sm:justify-center lg:justify-start pt-4">
-                        <button
-                            class="btn-primary mobile-btn sm:px-10 sm:py-4 rounded-2xl text-white font-semibold sm:text-lg">
-                            Download CV <i class="fas fa-download ml-2"></i>
-                        </button>
-                        <button
-                            class="btn-secondary mobile-btn sm:px-10 sm:py-4 rounded-2xl text-purple-600 font-semibold sm:text-lg hover:text-white">
-                            View Portfolio <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
+                    <div class="fade-up fade-up-delay-1">
+                        <p class="text-lg md:text-xl lg:text-2xl font-light mb-2">Bachelor of Education</p>
+                        <p class="text-base md:text-lg lg:text-xl text-gray-600">Major in Filipino</p>
+                    </div>
+
+                    <div class="fade-up fade-up-delay-2">
+                        <p class="text-sm md:text-base lg:text-lg leading-relaxed text-gray-700 max-w-lg">
+                            A passionate educator dedicated to inspiring young minds through the beauty of the Filipino
+                            language and culture. Committed to creating meaningful learning experiences that foster
+                            growth and understanding.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4 fade-up fade-up-delay-3">
+                        <a href="#"
+                            class="btn-primary px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium text-center">
+                            Download CV
+                        </a>
+                        <a href="#skills-works"
+                            class="btn-secondary px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium text-center">
+                            View My Works
+                        </a>
                     </div>
                 </div>
 
-                <!-- Image - Order 1 on mobile, Order 2 on desktop -->
-                <div class="fade-right flex justify-center order-1 lg:order-2 mb-8 lg:mb-0">
+                <!-- Right Column: Portrait (Desktop Only) -->
+                <div class="hidden md:block fade-up fade-up-delay-4">
                     <div class="relative">
-                        <!-- Premium profile photo with enhanced frame -->
-                        <div class="relative w-96 h-96 rounded-[32px] shadow-2xl overflow-hidden pulse-shadow">
-                            <!-- Background with enhanced gradient -->
-                            <div
-                                class="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-purple-50/30 rounded-[32px]">
-                            </div>
+                        <!-- Decorative Background Blob -->
+                        <div class="decorative-blob w-96 h-96 absolute -top-12 -right-12 -z-10"></div>
 
-                            <!-- Image container with refined padding and styling -->
-                            <div class="relative w-full h-full p-6 flex items-center justify-center">
-                                <div
-                                    class="w-full h-full rounded-[24px] overflow-hidden shadow-inner bg-gradient-to-br from-gray-800 to-gray-900 hero-image border border-white/10">
-                                    <img src="image/mdt.jpg" alt="[Student Name] - Future Licensed Professional Teacher"
-                                        class="w-full h-full object-cover object-center transition-all duration-700 hover:scale-105 relative z-10"
-                                        style="filter: brightness(1.1) contrast(1.05) saturate(1.1);" />
+                        <!-- Portrait Image -->
+                        <div
+                            class="portrait-placeholder w-full max-w-md mx-auto aspect-[3/4] rounded-lg relative overflow-hidden">
+                            <img src="image/mdt.jpg" alt="Portrait" class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Minimal Decorative Accent -->
+                        <div
+                            class="absolute -bottom-6 -left-6 w-24 h-24 border-2 border-gray-300 rounded-full opacity-30">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT ME SECTION ==================== -->
+    <section id="about" class="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20"
+        style="background-color: var(--primary-white);">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Section Label -->
+            <div class="text-center mb-12 md:mb-16 scroll-fade-up">
+                <p class="text-xs md:text-sm tracking-widest uppercase text-gray-500 mb-4">ABOUT ME</p>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold"
+                    style="font-family: 'Playfair Display', serif;">
+                    About Me
+                </h2>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+                <!-- Left: Photo Placeholder -->
+                <div class="scroll-fade-left">
+                    <div
+                        class="photo-card w-full max-w-md mx-auto aspect-[3/4] rounded-lg flex items-center justify-center">
+                        <p class="text-lg text-center px-8"
+                            style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
+                            Your Photo Here
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="space-y-8 scroll-fade-right">
+
+                    <!-- Introduction -->
+                    <div>
+                        <p class="text-base md:text-lg leading-relaxed text-gray-700">
+                            [Write your personal introduction here.]
+                        </p>
+                    </div>
+
+                    <!-- Information Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="info-card p-4 rounded-lg">
+                            <p class="text-xs text-gray-500 mb-1">Full Name</p>
+                            <p class="text-sm md:text-base font-medium">[Your Full Name]</p>
+                        </div>
+                        <div class="info-card p-4 rounded-lg">
+                            <p class="text-xs text-gray-500 mb-1">Age</p>
+                            <p class="text-sm md:text-base font-medium">[Your Age]</p>
+                        </div>
+                        <div class="info-card p-4 rounded-lg">
+                            <p class="text-xs text-gray-500 mb-1">Address</p>
+                            <p class="text-sm md:text-base font-medium">[Your Address]</p>
+                        </div>
+                        <div class="info-card p-4 rounded-lg">
+                            <p class="text-xs text-gray-500 mb-1">Email</p>
+                            <p class="text-sm md:text-base font-medium">[Your Email]</p>
+                        </div>
+                        <div class="info-card p-4 rounded-lg">
+                            <p class="text-xs text-gray-500 mb-1">Contact Number</p>
+                            <p class="text-sm md:text-base font-medium">[Your Contact Number]</p>
+                        </div>
+                        <div class="info-card p-4 rounded-lg">
+                            <p class="text-xs text-gray-500 mb-1">Nationality</p>
+                            <p class="text-sm md:text-base font-medium">[Your Nationality]</p>
+                        </div>
+                    </div>
+
+                    <!-- Teaching Philosophy -->
+                    <div class="philosophy-card p-6 md:p-8 rounded-lg">
+                        <h3 class="text-xl md:text-2xl font-semibold mb-4"
+                            style="font-family: 'Playfair Display', serif;">
+                            Teaching Philosophy
+                        </h3>
+                        <p class="text-sm md:text-base leading-relaxed text-gray-700">
+                            [Write your teaching philosophy here.]
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="py-12 md:py-16">
+        <div class="section-divider"></div>
+    </div>
+
+    <!-- ==================== EDUCATION SECTION ==================== -->
+    <section id="education" class="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20"
+        style="background-color: var(--secondary-rose);">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- Section Header -->
+            <div class="text-center mb-12 md:mb-16 scroll-fade-up">
+                <p class="text-xs md:text-sm tracking-widest uppercase text-gray-500 mb-4">EDUCATION</p>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6"
+                    style="font-family: 'Playfair Display', serif;">
+                    Educational Background
+                </h2>
+                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+                    [Write a brief description about your educational journey.]
+                </p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative pt-8">
+                <!-- Timeline Vertical Line -->
+                <div class="timeline-line hidden md:block"></div>
+
+                <!-- Timeline Items -->
+                <div class="space-y-12 md:space-y-16">
+
+                    <!-- Timeline Item 1 (Right) - College -->
+                    <div class="relative scroll-fade-right">
+                        <div class="md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
+                            <div class="hidden md:block"></div>
+                            <div class="timeline-card p-6 md:p-8 rounded-lg relative md:ml-8">
+                                <div class="timeline-dot hidden md:block" style="left: -44px;"></div>
+                                <div class="timeline-dot md:hidden" style="left: -28px;"></div>
+                                <div class="mb-2">
+                                    <span class="text-xs md:text-sm text-gray-500 tracking-wide">20XX - 20XX</span>
                                 </div>
-                            </div>
-
-                            <!-- Enhanced overlay border -->
-                            <div class="absolute inset-6 rounded-[24px] border-2 border-white/20 pointer-events-none">
-                            </div>
-                        </div>
-
-                        <!-- Premium decorative elements -->
-                        <div
-                            class="absolute -top-6 -right-6 w-24 h-24 bg-white/90 backdrop-blur-sm rounded-3xl shadow-lg flex items-center justify-center float-animation border border-white/20">
-                            <i class="fas fa-chalkboard-teacher text-purple-600 text-3xl"></i>
-                        </div>
-
-                        <!-- Additional premium decorative element -->
-                        <div
-                            class="absolute -bottom-6 -left-6 w-20 h-20 bg-gradient-to-br from-purple-100/80 to-pink-100/80 backdrop-blur-sm rounded-2xl shadow-lg flex items-center justify-center float-animation border border-white/30">
-                            <i class="fas fa-heart text-purple-600 text-xl"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section> <!-- Premium About Section -->
-    <section id="about" class="py-32 relative">
-        <!-- Section divider -->
-        <div class="section-divider"></div>
-
-        <div class="max-w-6xl mx-auto px-8">
-            <div class="text-center mb-20 fade-in">
-                <h2
-                    class="font-display text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent">
-                    About Me</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8 rounded-full"></div>
-                <p class="text-gray-600 text-xl max-w-3xl mx-auto leading-relaxed">
-                    Passionate about fostering love for the Filipino language and culture through innovative teaching
-                    methods and meaningful connections.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-10 lg:gap-12">
-                <div class="project-card p-10 hover-lift fade-in">
-                    <div
-                        class="w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded-3xl flex items-center justify-center mb-8 shadow-sm">
-                        <i class="fas fa-heart text-purple-600 text-2xl"></i>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold mb-6 text-gray-900">My Story</h3>
-                    <p class="text-gray-600 leading-relaxed text-lg">
-                        Born and raised in the Philippines, I have always been passionate about our rich Filipino
-                        heritage and language.
-                        My journey in education began with a deep desire to inspire young minds and cultivate their
-                        appreciation for
-                        our beautiful language and literature.
-                    </p>
-                </div>
-
-                <div class="project-card p-10 hover-lift fade-in">
-                    <div
-                        class="w-20 h-20 bg-gradient-to-br from-pink-100 to-pink-200 rounded-3xl flex items-center justify-center mb-8 shadow-sm">
-                        <i class="fas fa-bullseye text-pink-600 text-2xl"></i>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold mb-6 text-gray-900">Career Objective</h3>
-                    <p class="text-gray-600 leading-relaxed text-lg">
-                        To become an innovative and inspiring Filipino language teacher who creates engaging learning
-                        experiences,
-                        promotes cultural awareness, and empowers students to become confident communicators and
-                        critical thinkers.
-                    </p>
-                </div>
-
-                <div class="project-card p-10 hover-lift fade-in">
-                    <div
-                        class="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-3xl flex items-center justify-center mb-8 shadow-sm">
-                        <i class="fas fa-leaf text-green-600 text-2xl"></i>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold mb-6 text-gray-900">Personal Values</h3>
-                    <p class="text-gray-600 leading-relaxed text-lg">
-                        I believe in the power of inclusive education, cultural preservation, and continuous learning.
-                        My approach centers on respect, creativity, patience, and fostering a supportive environment
-                        where every student can thrive.
-                    </p>
-                </div>
-
-                <div class="project-card p-10 hover-lift fade-in">
-                    <div
-                        class="w-20 h-20 bg-gradient-to-br from-amber-100 to-amber-200 rounded-3xl flex items-center justify-center mb-8 shadow-sm">
-                        <i class="fas fa-star text-amber-600 text-2xl"></i>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold mb-6 text-gray-900">Passion for Teaching</h3>
-                    <p class="text-gray-600 leading-relaxed text-lg">
-                        Teaching is more than a profession—it's my calling. I'm passionate about creating meaningful
-                        connections
-                        with students, making learning enjoyable, and helping them discover the beauty and importance of
-                        our Filipino language and culture.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Premium Education Section -->
-    <section id="education" class="py-20 sm:py-32 relative">
-        <!-- Section divider -->
-        <div class="section-divider"></div>
-
-        <div class="max-w-5xl mx-auto hero-mobile-padding px-4 sm:px-8">
-            <div class="text-center mb-16 sm:mb-20 fade-in">
-                <h2
-                    class="font-display section-title-mobile sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent">
-                    Education</h2>
-                <div
-                    class="w-16 sm:w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-6 sm:mb-8 rounded-full">
-                </div>
-                <p class="text-gray-600 section-subtitle-mobile sm:text-xl max-w-3xl mx-auto leading-relaxed">My
-                    educational journey and achievements</p>
-            </div>
-
-            <div class="relative">
-                <!-- Mobile-optimized Timeline line -->
-                <div
-                    class="absolute left-4 sm:left-10 top-0 bottom-0 w-0.5 sm:w-1 bg-gradient-to-b from-purple-400 via-pink-400 to-purple-400 rounded-full shadow-sm">
-                </div>
-
-                <!-- Education items with mobile-optimized spacing -->
-                <div class="space-y-12 sm:space-y-16">
-                    <!-- College -->
-                    <div class="relative flex items-start fade-in">
-                        <div
-                            class="flex-shrink-0 timeline-icon-mobile sm:w-20 sm:h-20 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full flex items-center justify-center shadow-lg relative z-10 border-2 sm:border-4 border-white">
-                            <i class="fas fa-graduation-cap text-white text-lg sm:text-2xl"></i>
-                        </div>
-                        <div class="timeline-content-mobile sm:ml-8 project-card p-4 sm:p-8 flex-1 hover-lift">
-                            <!-- Mobile-optimized header layout -->
-                            <div class="space-y-2 sm:space-y-0 sm:flex sm:items-start sm:justify-between mb-3 sm:mb-4">
-                                <h3 class="font-display text-lg sm:text-2xl font-bold text-gray-900 leading-tight">
-                                    Bachelor of Secondary Education - Major in Filipino</h3>
-                                <span
-                                    class="inline-block bg-gradient-to-r from-purple-100 to-purple-200 text-purple-800 px-3 sm:px-4 py-1 sm:py-2 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-bold border border-purple-200 flex-shrink-0">2022-2026</span>
-                            </div>
-                            <p class="text-gray-700 font-semibold mb-2 sm:mb-3 text-base sm:text-lg">University of the
-                                Philippines Diliman</p>
-                            <p class="text-gray-600 leading-relaxed text-sm sm:text-base">Currently pursuing my degree
-                                with focus on Filipino language, literature, and pedagogy. Maintaining high academic
-                                standing while actively participating in student organizations and community outreach
-                                programs.</p>
-                        </div>
-                    </div>
-
-                    <!-- Practice Teaching -->
-                    <div class="relative flex items-start fade-in">
-                        <div
-                            class="flex-shrink-0 timeline-icon-mobile sm:w-20 sm:h-20 bg-gradient-to-br from-green-600 to-green-700 rounded-full flex items-center justify-center shadow-lg relative z-10 border-2 sm:border-4 border-white">
-                            <i class="fas fa-chalkboard-teacher text-white text-lg sm:text-2xl"></i>
-                        </div>
-                        <div class="timeline-content-mobile sm:ml-8 project-card p-4 sm:p-8 flex-1 hover-lift">
-                            <div class="space-y-2 sm:space-y-0 sm:flex sm:items-start sm:justify-between mb-3 sm:mb-4">
-                                <h3 class="font-display text-lg sm:text-2xl font-bold text-gray-900">Practice Teaching
+                                <h3 class="text-xl md:text-2xl font-semibold mb-2"
+                                    style="font-family: 'Playfair Display', serif;">
+                                    College
                                 </h3>
-                                <span
-                                    class="bg-gradient-to-r from-green-100 to-green-200 text-green-800 px-4 py-2 rounded-2xl text-sm font-bold border border-green-200">2025</span>
+                                <p class="text-base md:text-lg text-gray-600 mb-3">
+                                    [Institution Name]
+                                </p>
+                                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                                    [Short description here.]
+                                </p>
                             </div>
-                            <p class="text-gray-700 font-semibold mb-3 text-lg">Quezon City High School</p>
-                            <p class="text-gray-600 leading-relaxed">Completed 300+ hours of supervised teaching
-                                experience.
-                                Developed and implemented lesson plans, managed classrooms, and received excellent
-                                evaluations from cooperating teachers and supervisors.</p>
                         </div>
                     </div>
 
-                    <!-- Senior High School -->
-                    <div class="relative flex items-start fade-in">
-                        <div
-                            class="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg relative z-10 border-4 border-white">
-                            <i class="fas fa-school text-white text-2xl"></i>
-                        </div>
-                        <div class="ml-8 project-card p-8 flex-1 hover-lift">
-                            <div class="flex items-start justify-between mb-4">
-                                <h3 class="font-display text-2xl font-bold text-gray-900 leading-tight">Senior High
-                                    School - Humanities and Social Sciences</h3>
-                                <span
-                                    class="bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 px-4 py-2 rounded-2xl text-sm font-bold border border-blue-200">2020-2022</span>
+                    <!-- Timeline Item 2 (Left) - Senior High School -->
+                    <div class="relative scroll-fade-left">
+                        <div class="md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
+                            <div class="timeline-card p-6 md:p-8 rounded-lg relative md:mr-8 md:text-right">
+                                <div class="timeline-dot hidden md:block" style="right: -44px;"></div>
+                                <div class="timeline-dot md:hidden" style="left: -28px;"></div>
+                                <div class="mb-2">
+                                    <span class="text-xs md:text-sm text-gray-500 tracking-wide">20XX - 20XX</span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-semibold mb-2"
+                                    style="font-family: 'Playfair Display', serif;">
+                                    Senior High School
+                                </h3>
+                                <p class="text-base md:text-lg text-gray-600 mb-3">
+                                    [Institution Name]
+                                </p>
+                                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                                    [Short description here.]
+                                </p>
                             </div>
-                            <p class="text-gray-700 font-semibold mb-3 text-lg">Manila Science High School</p>
-                            <p class="text-gray-600 leading-relaxed">Graduated with honors, specializing in Humanities
-                                and
-                                Social Sciences. Active in Filipino literary societies and debate competitions.</p>
+                            <div class="hidden md:block"></div>
                         </div>
                     </div>
 
-                    <!-- High School -->
-                    <div class="relative flex items-start fade-in">
-                        <div
-                            class="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-pink-600 to-pink-700 rounded-full flex items-center justify-center shadow-lg relative z-10 border-4 border-white">
-                            <i class="fas fa-award text-white text-2xl"></i>
-                        </div>
-                        <div class="ml-8 project-card p-8 flex-1 hover-lift">
-                            <div class="flex items-start justify-between mb-4">
-                                <h3 class="font-display text-2xl font-bold text-gray-900">High School</h3>
-                                <span
-                                    class="bg-gradient-to-r from-pink-100 to-pink-200 text-pink-800 px-4 py-2 rounded-2xl text-sm font-bold border border-pink-200">2016-2020</span>
+                    <!-- Timeline Item 3 (Right) - High School -->
+                    <div class="relative scroll-fade-right">
+                        <div class="md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
+                            <div class="hidden md:block"></div>
+                            <div class="timeline-card p-6 md:p-8 rounded-lg relative md:ml-8">
+                                <div class="timeline-dot hidden md:block" style="left: -44px;"></div>
+                                <div class="timeline-dot md:hidden" style="left: -28px;"></div>
+                                <div class="mb-2">
+                                    <span class="text-xs md:text-sm text-gray-500 tracking-wide">20XX - 20XX</span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-semibold mb-2"
+                                    style="font-family: 'Playfair Display', serif;">
+                                    High School
+                                </h3>
+                                <p class="text-base md:text-lg text-gray-600 mb-3">
+                                    [Institution Name]
+                                </p>
+                                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                                    [Short description here.]
+                                </p>
                             </div>
-                            <p class="text-gray-700 font-semibold mb-3 text-lg">Manila Science High School</p>
-                            <p class="text-gray-600 leading-relaxed">Consistently on the honor roll, class
-                                valedictorian.
-                                Member of the Filipino Club and student government.</p>
                         </div>
                     </div>
 
-                    <!-- Elementary -->
-                    <div class="relative flex items-start fade-in">
-                        <div
-                            class="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center shadow-lg relative z-10 border-4 border-white">
-                            <i class="fas fa-seedling text-white text-2xl"></i>
-                        </div>
-                        <div class="ml-8 project-card p-8 flex-1 hover-lift">
-                            <div class="flex items-start justify-between mb-4">
-                                <h3 class="font-display text-2xl font-bold text-gray-900">Elementary School</h3>
-                                <span
-                                    class="bg-gradient-to-r from-amber-100 to-amber-200 text-amber-800 px-4 py-2 rounded-2xl text-sm font-bold border border-amber-200">2010-2016</span>
+                    <!-- Timeline Item 4 (Left) - Elementary -->
+                    <div class="relative scroll-fade-left">
+                        <div class="md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
+                            <div class="timeline-card p-6 md:p-8 rounded-lg relative md:mr-8 md:text-right">
+                                <div class="timeline-dot hidden md:block" style="right: -44px;"></div>
+                                <div class="timeline-dot md:hidden" style="left: -28px;"></div>
+                                <div class="mb-2">
+                                    <span class="text-xs md:text-sm text-gray-500 tracking-wide">20XX - 20XX</span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-semibold mb-2"
+                                    style="font-family: 'Playfair Display', serif;">
+                                    Elementary
+                                </h3>
+                                <p class="text-base md:text-lg text-gray-600 mb-3">
+                                    [Institution Name]
+                                </p>
+                                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                                    [Short description here.]
+                                </p>
                             </div>
-                            <p class="text-gray-700 font-semibold mb-3 text-lg">Marikina Elementary School</p>
-                            <p class="text-gray-600 leading-relaxed">Foundation years where my love for reading and
-                                Filipino
-                                literature began to flourish.</p>
+                            <div class="hidden md:block"></div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Premium Teaching Philosophy Section -->
-    <section id="philosophy" class="py-32 relative">
-        <!-- Section divider -->
+    <!-- Section Divider -->
+    <div class="py-12 md:py-16">
         <div class="section-divider"></div>
+    </div>
 
-        <div class="max-w-5xl mx-auto px-8">
-            <div class="text-center fade-in">
-                <h2
-                    class="font-display text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent">
-                    Teaching Philosophy</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-12 rounded-full"></div>
+    <!-- ==================== SKILLS & WORKS SECTION ==================== -->
+    <section id="skills-works" class="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20"
+        style="background-color: var(--primary-white);">
+        <div class="max-w-7xl mx-auto">
 
-                <div class="project-card p-16 hover-lift relative overflow-hidden">
-                    <!-- Subtle background decoration -->
-                    <div
-                        class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100/20 to-pink-100/20 rounded-full blur-2xl">
-                    </div>
-                    <div
-                        class="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-pink-100/20 to-purple-100/20 rounded-full blur-2xl">
-                    </div>
-
-                    <div class="relative z-10">
-                        <div
-                            class="w-24 h-24 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-10 shadow-sm">
-                            <i class="fas fa-quote-left text-purple-600 text-3xl"></i>
-                        </div>
-
-                        <blockquote
-                            class="font-display text-3xl lg:text-4xl text-center font-bold leading-[1.2] mb-10 text-gray-900">
-                            "Ang tunay na guro ay hindi lamang nagtuturo ng mga salita, kundi nagbibigay-daan sa
-                            pagmamahal
-                            sa sariling wika at kultura."
-                        </blockquote>
-
-                        <p class="text-xl text-gray-600 text-center mb-12 italic font-medium">
-                            "A true teacher doesn't just teach words, but paves the way for love of one's own language
-                            and
-                            culture."
-                        </p>
-
-                        <div class="max-w-4xl mx-auto text-gray-600 leading-relaxed text-lg space-y-6">
-                            <p>
-                                My teaching philosophy centers on the belief that education is a transformative process
-                                that
-                                goes beyond textbooks and examinations. As a Filipino language teacher, I am committed
-                                to creating an
-                                inclusive, engaging, and culturally rich learning environment where students can develop
-                                not only their
-                                linguistic skills but also their appreciation for our Filipino heritage.
-                            </p>
-                            <p>
-                                I believe every student has unique strengths and learning styles. My role is to be a
-                                facilitator, guide, and inspiration—helping each student discover their potential while
-                                fostering
-                                critical thinking, creativity, and cultural pride. Through innovative teaching methods,
-                                technology integration,
-                                and authentic assessment, I strive to make learning meaningful and relevant to their
-                                lives.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> <!-- S
-kills Section -->
-    <section id="skills" class="py-20">
-        <div class="max-w-6xl mx-auto px-8">
-            <div class="text-center mb-20 fade-in">
-                <h2
-                    class="font-display text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent">
-                    Skills & Expertise</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8 rounded-full"></div>
-                <p class="text-gray-600 text-xl max-w-3xl mx-auto leading-relaxed">Core competencies and technical
-                    skills I bring to modern education</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-12">
-                <!-- Teaching Skills -->
-                <div class="fade-in text-center">
-                    <div class="mb-8">
-                        <div
-                            class="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
-                            <i class="fas fa-chalkboard-teacher text-purple-600 text-xl"></i>
-                        </div>
-                        <h3 class="font-display text-2xl font-bold mb-2 text-gray-900">Teaching Skills</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-3 justify-center">
-                        <span class="skill-tag text-purple-700 px-4 py-3 rounded-2xl font-medium">Lesson Planning</span>
-                        <span class="skill-tag text-purple-700 px-4 py-3 rounded-2xl font-medium">Classroom
-                            Management</span>
-                        <span class="skill-tag text-purple-700 px-4 py-3 rounded-2xl font-medium">Curriculum
-                            Development</span>
-                        <span class="skill-tag text-purple-700 px-4 py-3 rounded-2xl font-medium">Assessment
-                            Design</span>
-                        <span class="skill-tag text-purple-700 px-4 py-3 rounded-2xl font-medium">Differentiated
-                            Instruction</span>
-                        <span class="skill-tag text-purple-700 px-4 py-3 rounded-2xl font-medium">Student
-                            Counseling</span>
-                    </div>
-                </div>
-
-                <!-- Technical Skills -->
-                <div class="fade-in text-center">
-                    <div class="mb-8">
-                        <div
-                            class="w-16 h-16 bg-gradient-to-br from-pink-100 to-pink-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
-                            <i class="fas fa-laptop text-pink-600 text-xl"></i>
-                        </div>
-                        <h3 class="font-display text-2xl font-bold mb-2 text-gray-900">Technical Skills</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-3 justify-center">
-                        <span class="skill-tag text-pink-700 px-4 py-3 rounded-2xl font-medium">Canva Design</span>
-                        <span class="skill-tag text-pink-700 px-4 py-3 rounded-2xl font-medium">Microsoft Office</span>
-                        <span class="skill-tag text-pink-700 px-4 py-3 rounded-2xl font-medium">Google Workspace</span>
-                        <span class="skill-tag text-pink-700 px-4 py-3 rounded-2xl font-medium">Educational
-                            Technology</span>
-                        <span class="skill-tag text-pink-700 px-4 py-3 rounded-2xl font-medium">PowerPoint</span>
-                        <span class="skill-tag text-pink-700 px-4 py-3 rounded-2xl font-medium">Adobe Acrobat</span>
-                    </div>
-                </div>
-
-                <!-- Communication Skills -->
-                <div class="fade-in text-center">
-                    <div class="mb-8">
-                        <div
-                            class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
-                            <i class="fas fa-comments text-green-600 text-xl"></i>
-                        </div>
-                        <h3 class="font-display text-2xl font-bold mb-2 text-gray-900">Communication</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-3 justify-center">
-                        <span
-                            class="bg-green-100 text-green-700 px-4 py-2 rounded-2xl font-medium hover:bg-green-200 transition-colors duration-300">Filipino
-                            Communication</span>
-                        <span
-                            class="bg-green-100 text-green-700 px-4 py-2 rounded-2xl font-medium hover:bg-green-200 transition-colors duration-300">Public
-                            Speaking</span>
-                        <span <span class="skill-tag text-green-700 px-4 py-3 rounded-2xl font-medium">Filipino
-                            Communication</span>
-                        <span class="skill-tag text-green-700 px-4 py-3 rounded-2xl font-medium">Public Speaking</span>
-                        <span class="skill-tag text-green-700 px-4 py-3 rounded-2xl font-medium">Visual Material
-                            Design</span>
-                        <span class="skill-tag text-green-700 px-4 py-3 rounded-2xl font-medium">Creative Writing</span>
-                        <span class="skill-tag text-green-700 px-4 py-3 rounded-2xl font-medium">Content Creation</span>
-                        <span class="skill-tag text-green-700 px-4 py-3 rounded-2xl font-medium">Research</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Works Section - Most Important -->
-    <section id="works" class="py-20 bg-secondary">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="text-center mb-20 fade-in">
-                <h2
-                    class="font-display text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent">
-                    My Works</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8 rounded-full"></div>
-                <p class="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed">
-                    A curated showcase of educational materials and designs I've created using Canva and modern design
-                    tools
-                    to enhance learning experiences in the Filipino classroom.
+            <!-- Section Header -->
+            <div class="text-center mb-12 md:mb-16 scroll-fade-up">
+                <p class="text-xs md:text-sm tracking-widest uppercase text-gray-500 mb-4">SKILLS & WORKS</p>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6"
+                    style="font-family: 'Playfair Display', serif;">
+                    Skills & Creative Works
+                </h2>
+                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+                    [Brief introduction about your skills and teaching materials.]
                 </p>
             </div>
 
-            <!-- Premium Filter buttons -->
-            <div class="flex flex-wrap justify-center gap-3 mb-16 fade-in">
-                <button class="filter-btn active btn-primary px-8 py-3 rounded-2xl font-semibold text-white shadow-lg"
-                    data-filter="all">
-                    All Projects
-                </button>
-                <button
-                    class="filter-btn skill-tag px-8 py-3 rounded-2xl font-semibold text-gray-700 hover:text-purple-600"
-                    data-filter="lesson-plans">
-                    Lesson Plans
-                </button>
-                <button
-                    class="filter-btn skill-tag px-8 py-3 rounded-2xl font-semibold text-gray-700 hover:text-purple-600"
-                    data-filter="materials">
-                    Instructional Materials
-                </button>
-                <button
-                    class="filter-btn skill-tag px-8 py-3 rounded-2xl font-semibold text-gray-700 hover:text-purple-600"
-                    data-filter="posters">
-                    Educational Posters
-                </button>
-                <button
-                    class="filter-btn skill-tag px-8 py-3 rounded-2xl font-semibold text-gray-700 hover:text-purple-600"
-                    data-filter="presentations">
-                    Presentations
-                </button>
-            </div>
+            <!-- ========== SKILLS SECTION ========== -->
+            <div class="mb-20 md:mb-28">
+                <h3 class="text-2xl md:text-3xl font-semibold text-center mb-10 md:mb-14 scroll-fade-up"
+                    style="font-family: 'Playfair Display', serif;">
+                    Professional Skills
+                </h3>
 
-            <!-- Premium Projects Grid -->
-            <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 - Alphabet Tracing Worksheet -->
-                <div class="project-card materials bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in"
-                    data-category="materials">
-                    <div class="aspect-video overflow-hidden">
-                        <img src="works/{765F517C-D519-4E12-8F7C-A70CB949C15F}.png"
-                            alt="Alphabet Tracing Worksheet Preview"
-                            class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span
-                                class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">Learning
-                                Material</span>
-                            <button
-                                class="open-pdf text-yellow-600 hover:text-yellow-800 transition-colors duration-300"
-                                data-pdf="works/Alphabet Tracing Worksheet.pdf">
-                                <i class="fas fa-external-link-alt"></i>
-                            </button>
-                        </div>
-                        <h3 class="font-display text-xl font-semibold mb-2">Alphabet Tracing Worksheet</h3>
-                        <p class="text-secondary text-sm mb-4">Interactive tracing worksheet designed to help young
-                            learners practice writing Filipino letters with proper stroke order and letter formation.
+                <!-- Skills Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+                    <!-- Skill Card 1 -->
+                    <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
+                        <div class="skill-icon">📚</div>
+                        <h4 class="text-lg md:text-xl font-semibold mb-2"
+                            style="font-family: 'Playfair Display', serif;">
+                            Classroom Management
+                        </h4>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            [Brief description here.]
                         </p>
-                        <button
-                            class="w-full bg-yellow-600 text-white py-2 rounded-xl hover:bg-yellow-700 transition-colors duration-300 open-pdf"
-                            data-pdf="works/Alphabet Tracing Worksheet.pdf">
-                            Open PDF <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
                     </div>
-                </div>
 
-                <!-- Project 2 - Lesson Plan -->
-                <div class="project-card lesson-plans bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in"
-                    data-category="lesson-plans">
-                    <div
-                        class="aspect-video bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
-                        <!-- Replace with actual PDF thumbnail -->
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-file-pdf text-6xl mb-2 text-purple-600"></i>
-                            <p class="text-sm">PDF Thumbnail</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span
-                                class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Lesson
-                                Plan</span>
-                            <button
-                                class="open-pdf text-purple-600 hover:text-purple-800 transition-colors duration-300"
-                                data-pdf="lesson-plan-1.pdf">
-                                <i class="fas fa-external-link-alt"></i>
-                            </button>
-                        </div>
-                        <h3 class="font-display text-xl font-semibold mb-2">Panitikan ng Pilipinas</h3>
-                        <p class="text-secondary text-sm mb-4">Comprehensive lesson plan covering classical Filipino
-                            literature with interactive activities and modern teaching approaches.</p>
-                        <button
-                            class="w-full bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700 transition-colors duration-300 open-pdf"
-                            data-pdf="lesson-plan-1.pdf">
-                            Open PDF <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 3 - Educational Poster -->
-                <div class="project-card posters bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in"
-                    data-category="posters">
-                    <div
-                        class="aspect-video bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-image text-6xl mb-2 text-green-600"></i>
-                            <p class="text-sm">Poster Design</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span
-                                class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">Educational
-                                Poster</span>
-                            <button class="open-pdf text-green-600 hover:text-green-800 transition-colors duration-300"
-                                data-pdf="poster-grammar.pdf">
-                                <i class="fas fa-external-link-alt"></i>
-                            </button>
-                        </div>
-                        <h3 class="font-display text-xl font-semibold mb-2">Filipino Grammar Rules</h3>
-                        <p class="text-secondary text-sm mb-4">Colorful and engaging poster design explaining essential
-                            Filipino grammar rules with visual examples and mnemonics.</p>
-                        <button
-                            class="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition-colors duration-300 open-pdf"
-                            data-pdf="poster-grammar.pdf">
-                            Open PDF <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 4 - Instructional Material -->
-                <div class="project-card materials bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in"
-                    data-category="materials">
-                    <div
-                        class="aspect-video bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-book text-6xl mb-2 text-yellow-600"></i>
-                            <p class="text-sm">Learning Module</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span
-                                class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">Learning
-                                Module</span>
-                            <button
-                                class="open-pdf text-yellow-600 hover:text-yellow-800 transition-colors duration-300"
-                                data-pdf="module-writing.pdf">
-                                <i class="fas fa-external-link-alt"></i>
-                            </button>
-                        </div>
-                        <h3 class="font-display text-xl font-semibold mb-2">Creative Writing Workshop</h3>
-                        <p class="text-secondary text-sm mb-4">Interactive module designed to enhance students' creative
-                            writing skills in Filipino with exercises and examples.</p>
-                        <button
-                            class="w-full bg-yellow-600 text-white py-2 rounded-xl hover:bg-yellow-700 transition-colors duration-300 open-pdf"
-                            data-pdf="module-writing.pdf">
-                            Open PDF <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 5 - Presentation -->
-                <div class="project-card presentations bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in"
-                    data-category="presentations">
-                    <div
-                        class="aspect-video bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-presentation text-6xl mb-2 text-blue-600"></i>
-                            <p class="text-sm">PowerPoint</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span
-                                class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">Presentation</span>
-                            <button class="open-pdf text-blue-600 hover:text-blue-800 transition-colors duration-300"
-                                data-pdf="presentation-history.pdf">
-                                <i class="fas fa-external-link-alt"></i>
-                            </button>
-                        </div>
-                        <h3 class="font-display text-xl font-semibold mb-2">Kasaysayan ng Wika</h3>
-                        <p class="text-secondary text-sm mb-4">Engaging presentation about the history and evolution of
-                            the Filipino language with interactive elements.</p>
-                        <button
-                            class="w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition-colors duration-300 open-pdf"
-                            data-pdf="presentation-history.pdf">
-                            Open PDF <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 6 - Infographic -->
-                <div class="project-card posters bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in"
-                    data-category="posters">
-                    <div
-                        class="aspect-video bg-gradient-to-br from-pink-100 to-red-100 flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-chart-bar text-6xl mb-2 text-pink-600"></i>
-                            <p class="text-sm">Infographic</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span
-                                class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm font-medium">Infographic</span>
-                            <button class="open-pdf text-pink-600 hover:text-pink-800 transition-colors duration-300"
-                                data-pdf="infographic-authors.pdf">
-                                <i class="fas fa-external-link-alt"></i>
-                            </button>
-                        </div>
-                        <h3 class="font-display text-xl font-semibold mb-2">Filipino Literary Giants</h3>
-                        <p class="text-secondary text-sm mb-4">Visual representation of famous Filipino authors and
-                            their contributions to Philippine literature.</p>
-                        <button
-                            class="w-full bg-pink-600 text-white py-2 rounded-xl hover:bg-pink-700 transition-colors duration-300 open-pdf"
-                            data-pdf="infographic-authors.pdf">
-                            Open PDF <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 7 - Classroom Visual Aids -->
-                <div class="project-card materials bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in"
-                    data-category="materials">
-                    <div
-                        class="aspect-video bg-gradient-to-br from-teal-100 to-cyan-100 flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-palette text-6xl mb-2 text-teal-600"></i>
-                            <p class="text-sm">Visual Aids</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm font-medium">Visual
-                                Aids</span>
-                            <button class="open-pdf text-teal-600 hover:text-teal-800 transition-colors duration-300"
-                                data-pdf="visual-aids-vowels.pdf">
-                                <i class="fas fa-external-link-alt"></i>
-                            </button>
-                        </div>
-                        <h3 class="font-display text-xl font-semibold mb-2">Filipino Alphabet Charts</h3>
-                        <p class="text-secondary text-sm mb-4">Colorful classroom visual aids for teaching the Filipino
-                            alphabet with pronunciation guides and examples.</p>
-                        <button
-                            class="w-full bg-teal-600 text-white py-2 rounded-xl hover:bg-teal-700 transition-colors duration-300 open-pdf"
-                            data-pdf="visual-aids-vowels.pdf">
-                            Open PDF <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> <!--
-    <!-- Certificates Section -->
-    <section id="certificates" class="py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="font-display text-4xl lg:text-5xl font-semibold mb-4">Certificates & Awards</h2>
-                <p class="text-secondary text-lg">Recognition and achievements throughout my educational journey</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Certificate 1 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in">
-                    <div
-                        class="aspect-video bg-gradient-to-br from-gold-100 to-yellow-100 flex items-center justify-center">
-                        <!-- Replace with actual certificate image -->
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-certificate text-6xl mb-2 text-yellow-600"></i>
-                            <p class="text-sm">Certificate Image</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-2">Dean's Lister</h3>
-                        <p class="text-secondary text-sm mb-3">University of the Philippines Diliman</p>
-                        <p class="text-xs text-secondary mb-4">Recognized for outstanding academic performance with a
-                            GWA of 1.5 or higher for two consecutive semesters.</p>
-                        <div class="text-sm text-purple-600 font-medium">Academic Year 2024-2025</div>
-                    </div>
-                </div>
-
-                <!-- Certificate 2 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in">
-                    <div
-                        class="aspect-video bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-award text-6xl mb-2 text-blue-600"></i>
-                            <p class="text-sm">Certificate Image</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-2">Educational Technology Workshop</h3>
-                        <p class="text-secondary text-sm mb-3">Department of Education - Region IV-A</p>
-                        <p class="text-xs text-secondary mb-4">Completed 40-hour intensive training on integrating
-                            technology in Filipino language instruction.</p>
-                        <div class="text-sm text-purple-600 font-medium">August 2025</div>
-                    </div>
-                </div>
-
-                <!-- Certificate 3 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in">
-                    <div
-                        class="aspect-video bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-medal text-6xl mb-2 text-green-600"></i>
-                            <p class="text-sm">Certificate Image</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-2">Filipino Literary Writing Contest</h3>
-                        <p class="text-secondary text-sm mb-3">Komisyon sa Wikang Filipino</p>
-                        <p class="text-xs text-secondary mb-4">First place winner in the collegiate division for
-                            original Filipino short story composition.</p>
-                        <div class="text-sm text-purple-600 font-medium">February 2025</div>
-                    </div>
-                </div>
-
-                <!-- Certificate 4 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in">
-                    <div
-                        class="aspect-video bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-graduation-cap text-6xl mb-2 text-purple-600"></i>
-                            <p class="text-sm">Certificate Image</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-2">Student Teaching Excellence</h3>
-                        <p class="text-secondary text-sm mb-3">Quezon City High School</p>
-                        <p class="text-xs text-secondary mb-4">Outstanding performance during practice teaching with
-                            exemplary lesson delivery and student engagement.</p>
-                        <div class="text-sm text-purple-600 font-medium">June 2025</div>
-                    </div>
-                </div>
-
-                <!-- Certificate 5 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in">
-                    <div
-                        class="aspect-video bg-gradient-to-br from-red-100 to-pink-100 flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-trophy text-6xl mb-2 text-red-600"></i>
-                            <p class="text-sm">Certificate Image</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-2">Community Service Leadership</h3>
-                        <p class="text-secondary text-sm mb-3">UP Diliman Student Affairs</p>
-                        <p class="text-xs text-secondary mb-4">Recognition for leading literacy programs in underserved
-                            communities around Metro Manila.</p>
-                        <div class="text-sm text-purple-600 font-medium">December 2024</div>
-                    </div>
-                </div>
-
-                <!-- Certificate 6 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift fade-in">
-                    <div
-                        class="aspect-video bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-star text-6xl mb-2 text-indigo-600"></i>
-                            <p class="text-sm">Certificate Image</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-2">Canva Design Certification</h3>
-                        <p class="text-secondary text-sm mb-3">Canva Education Program</p>
-                        <p class="text-xs text-secondary mb-4">Certified in creating educational materials and visual
-                            content using Canva for classroom instruction.</p>
-                        <div class="text-sm text-purple-600 font-medium">March 2024</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-secondary">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="font-display text-4xl lg:text-5xl font-semibold mb-4">Gallery</h2>
-                <p class="text-secondary text-lg">Memories and moments from my educational journey</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Gallery Item 1 - Practice Teaching -->
-                <div
-                    class="gallery-item aspect-square bg-gradient-to-br from-purple-100 to-pink-100 fade-in overflow-hidden">
-                    <img src="image/mdt.jpg" alt="[Student Name] - Professional Photo"
-                        class="w-full h-full object-cover object-center"
-                        style="filter: brightness(1.2) contrast(1.1) saturate(1.1);" />
-                </div>
-
-                <!-- Gallery Item 2 - School Activities -->
-                <div class="gallery-item aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 fade-in">
-                    <div class="w-full h-full flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-users text-4xl mb-2"></i>
-                            <p class="text-xs">School Activities</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 3 - Outreach Programs -->
-                <div class="gallery-item aspect-square bg-gradient-to-br from-green-100 to-emerald-100 fade-in">
-                    <div class="w-full h-full flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-hands-helping text-4xl mb-2"></i>
-                            <p class="text-xs">Outreach Programs</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 4 - Graduation -->
-                <div class="gallery-item aspect-square bg-gradient-to-br from-yellow-100 to-orange-100 fade-in">
-                    <div class="w-full h-full flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-graduation-cap text-4xl mb-2"></i>
-                            <p class="text-xs">Graduation</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 5 - Classroom Moments -->
-                <div class="gallery-item aspect-square bg-gradient-to-br from-pink-100 to-red-100 fade-in">
-                    <div class="w-full h-full flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-apple-alt text-4xl mb-2"></i>
-                            <p class="text-xs">Classroom Moments</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 6 - Literary Events -->
-                <div class="gallery-item aspect-square bg-gradient-to-br from-indigo-100 to-purple-100 fade-in">
-                    <div class="w-full h-full flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-book-reader text-4xl mb-2"></i>
-                            <p class="text-xs">Literary Events</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 7 - Workshops -->
-                <div class="gallery-item aspect-square bg-gradient-to-br from-teal-100 to-cyan-100 fade-in">
-                    <div class="w-full h-full flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-laptop text-4xl mb-2"></i>
-                            <p class="text-xs">Workshops</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 8 - Awards Ceremony -->
-                <div class="gallery-item aspect-square bg-gradient-to-br from-amber-100 to-yellow-100 fade-in">
-                    <div class="w-full h-full flex items-center justify-center">
-                        <div class="text-center text-gray-600">
-                            <i class="fas fa-trophy text-4xl mb-2"></i>
-                            <p class="text-xs">Awards Ceremony</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="py-20">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="font-display text-4xl lg:text-5xl font-semibold mb-4">Get In Touch</h2>
-                <p class="text-secondary text-lg max-w-2xl mx-auto">
-                    I'd love to connect with fellow educators, potential mentors, or anyone interested in Filipino
-                    education.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <!-- Contact Information -->
-                <div class="fade-in">
-                    <div class="space-y-8">
-                        <div class="flex items-center space-x-6">
-                            <div
-                                class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-envelope text-purple-600 text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-xl font-semibold mb-1">Email</h3>
-                                <p class="text-secondary">maria.santos@email.com</p>
-                                <p class="text-sm text-purple-600">Preferred contact method</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center space-x-6">
-                            <div
-                                class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                <i class="fab fa-facebook text-blue-600 text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-xl font-semibold mb-1">Facebook</h3>
-                                <p class="text-secondary">fb.com/mariasantos.teacher</p>
-                                <p class="text-sm text-blue-600">Educational content & updates</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center space-x-6">
-                            <div
-                                class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-phone text-green-600 text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-xl font-semibold mb-1">Phone</h3>
-                                <p class="text-secondary">+63 917 123 4567</p>
-                                <p class="text-sm text-green-600">Available during business hours</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center space-x-6">
-                            <div
-                                class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-map-marker-alt text-yellow-600 text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-xl font-semibold mb-1">Location</h3>
-                                <p class="text-secondary">Metro Manila, Philippines</p>
-                                <p class="text-sm text-yellow-600">Open to opportunities nationwide</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Form / CV Download -->
-                <div class="fade-in">
-                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-custom">
-                        <h3 class="font-display text-2xl font-semibold mb-6 text-center">Download My CV</h3>
-                        <p class="text-secondary text-center mb-8 leading-relaxed">
-                            Get a comprehensive overview of my educational background, skills, and achievements
-                            as a future Filipino language educator.
+                    <!-- Skill Card 2 -->
+                    <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
+                        <div class="skill-icon">✏️</div>
+                        <h4 class="text-lg md:text-xl font-semibold mb-2"
+                            style="font-family: 'Playfair Display', serif;">
+                            Lesson Planning
+                        </h4>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            [Brief description here.]
                         </p>
-
-                        <div class="text-center mb-8">
-                            <div
-                                class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-file-download text-purple-600 text-2xl"></i>
-                            </div>
-                            <p class="text-sm text-secondary">PDF Format • Updated January 2026</p>
-                        </div>
-
-                        <button
-                            class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 rounded-2xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                            Download CV <i class="fas fa-download ml-2"></i>
-                        </button>
-
-                        <div class="mt-6 pt-6 border-t border-custom text-center">
-                            <p class="text-sm text-secondary mb-4">Connect with me on social media</p>
-                            <div class="flex justify-center space-x-4">
-                                <a href="#"
-                                    class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center hover:bg-blue-200 transition-colors duration-300">
-                                    <i class="fab fa-facebook text-blue-600"></i>
-                                </a>
-                                <a href="#"
-                                    class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center hover:bg-pink-200 transition-colors duration-300">
-                                    <i class="fab fa-instagram text-pink-600"></i>
-                                </a>
-                                <a href="#"
-                                    class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center hover:bg-blue-200 transition-colors duration-300">
-                                    <i class="fab fa-linkedin text-blue-700"></i>
-                                </a>
-                                <a href="#"
-                                    class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center hover:bg-red-200 transition-colors duration-300">
-                                    <i class="fab fa-youtube text-red-600"></i>
-                                </a>
-                            </div>
-                        </div>
                     </div>
+
+                    <!-- Skill Card 3 -->
+                    <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
+                        <div class="skill-icon">🎨</div>
+                        <h4 class="text-lg md:text-xl font-semibold mb-2"
+                            style="font-family: 'Playfair Display', serif;">
+                            Instructional Material Design
+                        </h4>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            [Brief description here.]
+                        </p>
+                    </div>
+
+                    <!-- Skill Card 4 -->
+                    <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
+                        <div class="skill-icon">🖌️</div>
+                        <h4 class="text-lg md:text-xl font-semibold mb-2"
+                            style="font-family: 'Playfair Display', serif;">
+                            Canva
+                        </h4>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            [Brief description here.]
+                        </p>
+                    </div>
+
+                    <!-- Skill Card 5 -->
+                    <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
+                        <div class="skill-icon">💻</div>
+                        <h4 class="text-lg md:text-xl font-semibold mb-2"
+                            style="font-family: 'Playfair Display', serif;">
+                            Microsoft Office
+                        </h4>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            [Brief description here.]
+                        </p>
+                    </div>
+
+                    <!-- Skill Card 6 -->
+                    <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
+                        <div class="skill-icon">☁️</div>
+                        <h4 class="text-lg md:text-xl font-semibold mb-2"
+                            style="font-family: 'Playfair Display', serif;">
+                            Google Workspace
+                        </h4>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            [Brief description here.]
+                        </p>
+                    </div>
+
+                    <!-- Skill Card 7 -->
+                    <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
+                        <div class="skill-icon">🎤</div>
+                        <h4 class="text-lg md:text-xl font-semibold mb-2"
+                            style="font-family: 'Playfair Display', serif;">
+                            Public Speaking
+                        </h4>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            [Brief description here.]
+                        </p>
+                    </div>
+
+                    <!-- Skill Card 8 -->
+                    <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
+                        <div class="skill-icon">💡</div>
+                        <h4 class="text-lg md:text-xl font-semibold mb-2"
+                            style="font-family: 'Playfair Display', serif;">
+                            Creativity
+                        </h4>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            [Brief description here.]
+                        </p>
+                    </div>
+
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="py-12 bg-gray-900 text-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center">
-                <div class="font-display text-2xl font-semibold mb-2">[Student Name]</div>
-                <p class="text-gray-400 mb-6">Future Licensed Professional Teacher • Filipino Education Major</p>
-
-                <div class="flex justify-center space-x-6 mb-8">
-                    <a href="#home" class="hover:text-purple-400 transition-colors duration-300">Home</a>
-                    <a href="#about" class="hover:text-purple-400 transition-colors duration-300">About</a>
-                    <a href="#works" class="hover:text-purple-400 transition-colors duration-300">Works</a>
-                    <a href="#contact" class="hover:text-purple-400 transition-colors duration-300">Contact</a>
-                </div>
-
-                <div class="border-t border-gray-800 pt-8">
-                    <p class="text-gray-400 text-sm">
-                        © 2026 [Student Name]. Made with <span class="text-red-500">❤️</span> for Filipino Education.
+            <!-- ========== FEATURED WORKS SECTION ========== -->
+            <div>
+                <div class="text-center mb-10 md:mb-14 scroll-fade-up">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-4" style="font-family: 'Playfair Display', serif;">
+                        Featured Teaching Materials
+                    </h3>
+                    <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto mb-8">
+                        [A short description of your instructional materials.]
                     </p>
                 </div>
+
+                <!-- Filter Chips -->
+                <div class="flex flex-wrap justify-center gap-3 mb-10 md:mb-12 scroll-fade-up">
+                    <button class="filter-chip active" data-filter="all">All</button>
+                    <button class="filter-chip" data-filter="tracing">Tracing</button>
+                    <button class="filter-chip" data-filter="alphabet">Alphabet</button>
+                    <button class="filter-chip" data-filter="numbers">Numbers</button>
+                    <button class="filter-chip" data-filter="writing">Writing</button>
+                    <button class="filter-chip" data-filter="shapes">Shapes</button>
+                    <button class="filter-chip" data-filter="animals">Animals</button>
+                    <button class="filter-chip" data-filter="plants">Plants</button>
+                    <button class="filter-chip" data-filter="colors">Colors</button>
+                </div>
+
+                <!-- Works Gallery -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="worksGallery">
+
+                    <!-- Work Card 1 - Actual Worksheet -->
+                    <div class="work-card rounded-lg stagger-item" data-category="tracing alphabet"
+                        data-work="alphabet-tracing">
+                        <div class="work-image-wrapper">
+                            <img src="works/{765F517C-D519-4E12-8F7C-A70CB949C15F}.png" alt="Alphabet Tracing Worksheet"
+                                class="work-image">
+                            <div class="work-overlay">
+                                <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="work-badge">Tracing Worksheet</span>
+                                <span class="work-badge ml-2">Alphabet</span>
+                            </div>
+                            <h4 class="text-lg md:text-xl font-semibold mb-2"
+                                style="font-family: 'Playfair Display', serif;">
+                                Alphabet Tracing Worksheet
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                A comprehensive tracing worksheet designed to help young learners master letter
+                                formation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Work Card 2 - Placeholder -->
+                    <div class="work-card rounded-lg stagger-item" data-category="numbers"
+                        data-work="numbers-worksheet">
+                        <div class="work-image-wrapper">
+                            <div class="w-full h-full flex items-center justify-center"
+                                style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
+                                <p class="text-lg text-center px-8"
+                                    style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
+                                    Worksheet Preview
+                                </p>
+                            </div>
+                            <div class="work-overlay">
+                                <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="work-badge">Numbers</span>
+                            </div>
+                            <h4 class="text-lg md:text-xl font-semibold mb-2"
+                                style="font-family: 'Playfair Display', serif;">
+                                [Worksheet Title]
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                [Short description here.]
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Work Card 3 - Placeholder -->
+                    <div class="work-card rounded-lg stagger-item" data-category="shapes writing"
+                        data-work="shapes-worksheet">
+                        <div class="work-image-wrapper">
+                            <div class="w-full h-full flex items-center justify-center"
+                                style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
+                                <p class="text-lg text-center px-8"
+                                    style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
+                                    Worksheet Preview
+                                </p>
+                            </div>
+                            <div class="work-overlay">
+                                <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="work-badge">Shapes</span>
+                                <span class="work-badge ml-2">Writing Practice</span>
+                            </div>
+                            <h4 class="text-lg md:text-xl font-semibold mb-2"
+                                style="font-family: 'Playfair Display', serif;">
+                                [Worksheet Title]
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                [Short description here.]
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Work Card 4 - Placeholder -->
+                    <div class="work-card rounded-lg stagger-item" data-category="animals"
+                        data-work="animals-worksheet">
+                        <div class="work-image-wrapper">
+                            <div class="w-full h-full flex items-center justify-center"
+                                style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
+                                <p class="text-lg text-center px-8"
+                                    style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
+                                    Worksheet Preview
+                                </p>
+                            </div>
+                            <div class="work-overlay">
+                                <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="work-badge">Animals</span>
+                            </div>
+                            <h4 class="text-lg md:text-xl font-semibold mb-2"
+                                style="font-family: 'Playfair Display', serif;">
+                                [Worksheet Title]
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                [Short description here.]
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Work Card 5 - Placeholder -->
+                    <div class="work-card rounded-lg stagger-item" data-category="plants colors"
+                        data-work="plants-worksheet">
+                        <div class="work-image-wrapper">
+                            <div class="w-full h-full flex items-center justify-center"
+                                style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
+                                <p class="text-lg text-center px-8"
+                                    style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
+                                    Worksheet Preview
+                                </p>
+                            </div>
+                            <div class="work-overlay">
+                                <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="work-badge">Plants</span>
+                                <span class="work-badge ml-2">Colors</span>
+                            </div>
+                            <h4 class="text-lg md:text-xl font-semibold mb-2"
+                                style="font-family: 'Playfair Display', serif;">
+                                [Worksheet Title]
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                [Short description here.]
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Work Card 6 - Placeholder -->
+                    <div class="work-card rounded-lg stagger-item" data-category="tracing writing"
+                        data-work="writing-worksheet">
+                        <div class="work-image-wrapper">
+                            <div class="w-full h-full flex items-center justify-center"
+                                style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
+                                <p class="text-lg text-center px-8"
+                                    style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
+                                    Worksheet Preview
+                                </p>
+                            </div>
+                            <div class="work-overlay">
+                                <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="work-badge">Tracing</span>
+                                <span class="work-badge ml-2">Writing Practice</span>
+                            </div>
+                            <h4 class="text-lg md:text-xl font-semibold mb-2"
+                                style="font-family: 'Playfair Display', serif;">
+                                [Worksheet Title]
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                [Short description here.]
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="py-12 md:py-16">
+        <div class="section-divider"></div>
+    </div>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20"
+        style="background-color: var(--secondary-rose);">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Section Header -->
+            <div class="text-center mb-12 md:mb-16 scroll-fade-up">
+                <p class="text-xs md:text-sm tracking-widest uppercase text-gray-500 mb-4">CONTACT</p>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6"
+                    style="font-family: 'Playfair Display', serif;">
+                    Let's Connect
+                </h2>
+                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+                    [Write a short message inviting visitors to get in touch.]
+                </p>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
+
+                <!-- Left: Contact Information -->
+                <div class="scroll-fade-left">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-8" style="font-family: 'Playfair Display', serif;">
+                        Get In Touch
+                    </h3>
+
+                    <!-- Contact Items -->
+                    <div class="space-y-4 mb-10">
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">Email</p>
+                                <p class="text-sm md:text-base font-medium">[Your Email]</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">Phone</p>
+                                <p class="text-sm md:text-base font-medium">[Your Phone Number]</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">Address</p>
+                                <p class="text-sm md:text-base font-medium">[Your Address]</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">👤</div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">Facebook</p>
+                                <p class="text-sm md:text-base font-medium">[Facebook Profile]</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">LinkedIn</p>
+                                <p class="text-sm md:text-base font-medium">[LinkedIn Profile]</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#"
+                            class="btn-primary px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium text-center">
+                            Download CV
+                        </a>
+                        <a href="mailto:"
+                            class="btn-secondary px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium text-center">
+                            Send Email
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Contact Form -->
+                <div class="scroll-fade-right">
+                    <form class="contact-form" id="contactForm">
+
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" class="form-input"
+                                placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input"
+                                placeholder="Enter your email address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-input"
+                                placeholder="Enter the subject" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Enter your message"
+                                required></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="btn-primary form-submit px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium">
+                            Send Message
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="py-12 md:py-16 px-6 md:px-12 lg:px-20">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Footer Content -->
+            <div class="text-center mb-8">
+                <h3 class="text-2xl md:text-3xl font-semibold mb-2" style="font-family: 'Playfair Display', serif;">
+                    Maria Delly
+                </h3>
+                <p class="text-base md:text-lg font-light mb-1">Bachelor of Education</p>
+                <p class="text-sm md:text-base text-gray-600 mb-6">Major in Filipino</p>
+                <p class="text-sm md:text-base text-gray-600 max-w-xl mx-auto leading-relaxed">
+                    [Write a short closing message here.]
+                </p>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="flex justify-center items-center gap-4 mb-8">
+                <a href="#" class="social-icon" aria-label="Facebook">
+                    <span>📘</span>
+                </a>
+                <a href="#" class="social-icon" aria-label="Instagram">
+                    <span>📷</span>
+                </a>
+                <a href="#" class="social-icon" aria-label="LinkedIn">
+                    <span>💼</span>
+                </a>
+                <a href="mailto:" class="social-icon" aria-label="Email">
+                    <span>✉️</span>
+                </a>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-200 pt-8">
+                <p class="text-center text-sm text-gray-500">
+                    © 2026 Maria Delly. All Rights Reserved.
+                </p>
+            </div>
+
         </div>
     </footer>
 
-    <!-- Premium Scroll to Top Button -->
-    <button id="scrollToTop"
-        class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 opacity-0 pointer-events-none backdrop-blur-sm border border-white/20">
-        <i class="fas fa-arrow-up text-lg"></i>
+    <!-- ==================== BACK TO TOP BUTTON ==================== -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        ↑
     </button>
 
-    <!-- JavaScript -->
+    <!-- ==================== WORK MODAL ==================== -->
+    <div class="modal" id="workModal">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+
+            <div id="modalBody">
+                <!-- Modal content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // Navigation Scroll Effect
+        const navbar = document.getElementById('navbar');
 
-                    // Close mobile menu if open
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                }
-            });
-        });
-
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when clicking on links
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', function () {
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
-
-        // Faster scroll animations with reduced staggering
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.fade-in, .fade-left, .fade-right');
-            elements.forEach((element, index) => {
-                const rect = element.getBoundingClientRect();
-                // Trigger animations earlier - when element is 150px from bottom of viewport
-                const isVisible = rect.top < window.innerHeight - 150;
-
-                if (isVisible && !element.classList.contains('visible')) {
-                    // Much faster staggered animation delays
-                    setTimeout(() => {
-                        element.classList.add('visible');
-                    }, index * 30); // Reduced from 80ms to 30ms
-                }
-            });
-        }
-
-        // Premium scroll progress indicator
-        function updateScrollProgress() {
-            const scrollProgress = document.querySelector('.scroll-progress');
-            if (!scrollProgress) return;
-
-            const scrolled = (window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            scrollProgress.style.width = Math.max(0, Math.min(100, scrolled)) + '%';
-        }
-
-        // Enhanced active navigation
-        function updateActiveNav() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            let current = '';
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= 120 && rect.bottom >= 120) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('nav-active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('nav-active');
-                }
-            });
-        }
-
-        // Scroll to top button
-        function updateScrollToTopButton() {
-            const scrollToTop = document.getElementById('scrollToTop');
-            if (window.pageYOffset > 300) {
-                scrollToTop.style.opacity = '1';
-                scrollToTop.style.pointerEvents = 'all';
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
             } else {
-                scrollToTop.style.opacity = '0';
-                scrollToTop.style.pointerEvents = 'none';
+                navbar.classList.remove('scrolled');
             }
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const body = document.body;
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                body.classList.remove('menu-open');
+            });
+        });
+
+        // Active Navigation Link
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Scroll-triggered Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll-animated elements
+        document.querySelectorAll('.scroll-fade-up, .scroll-fade-left, .scroll-fade-right, .stagger-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ==================== FILTER FUNCTIONALITY ====================
+        const filterChips = document.querySelectorAll('.filter-chip');
+        const workCards = document.querySelectorAll('.work-card');
+
+        filterChips.forEach(chip => {
+            chip.addEventListener('click', function () {
+                // Remove active class from all chips
+                filterChips.forEach(c => c.classList.remove('active'));
+                // Add active class to clicked chip
+                this.classList.add('active');
+
+                const filter = this.getAttribute('data-filter');
+
+                workCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const categories = card.getAttribute('data-category');
+                        if (categories.includes(filter)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // ==================== MODAL FUNCTIONALITY ====================
+        const modal = document.getElementById('workModal');
+        const modalBody = document.getElementById('modalBody');
+        const modalClose = document.getElementById('modalClose');
+        const modalBackdrop = document.getElementById('modalBackdrop');
+
+        // Work data
+        const worksData = {
+            'alphabet-tracing': {
+                title: 'Alphabet Tracing Worksheet',
+                image: 'works/{765F517C-D519-4E12-8F7C-A70CB949C15F}.png',
+                pdf: 'works/Alphabet Tracing Worksheet.pdf',
+                categories: ['Tracing Worksheet', 'Alphabet'],
+                description: 'A comprehensive tracing worksheet designed to help young learners master letter formation. This educational material provides structured practice for developing fine motor skills and letter recognition.',
+                materials: 'Canva',
+                purpose: '[Intended learning objective - to help students develop proper letter formation and handwriting skills through guided tracing activities.]'
+            },
+            'numbers-worksheet': {
+                title: '[Worksheet Title]',
+                image: null,
+                categories: ['Numbers'],
+                description: '[Detailed description of the worksheet, its educational value, and how it benefits student learning.]',
+                materials: 'Canva',
+                purpose: '[Intended learning objective.]'
+            },
+            'shapes-worksheet': {
+                title: '[Worksheet Title]',
+                image: null,
+                categories: ['Shapes', 'Writing Practice'],
+                description: '[Detailed description of the worksheet, its educational value, and how it benefits student learning.]',
+                materials: 'Canva',
+                purpose: '[Intended learning objective.]'
+            },
+            'animals-worksheet': {
+                title: '[Worksheet Title]',
+                image: null,
+                categories: ['Animals'],
+                description: '[Detailed description of the worksheet, its educational value, and how it benefits student learning.]',
+                materials: 'Canva',
+                purpose: '[Intended learning objective.]'
+            },
+            'plants-worksheet': {
+                title: '[Worksheet Title]',
+                image: null,
+                categories: ['Plants', 'Colors'],
+                description: '[Detailed description of the worksheet, its educational value, and how it benefits student learning.]',
+                materials: 'Canva',
+                purpose: '[Intended learning objective.]'
+            },
+            'writing-worksheet': {
+                title: '[Worksheet Title]',
+                image: null,
+                categories: ['Tracing', 'Writing Practice'],
+                description: '[Detailed description of the worksheet, its educational value, and how it benefits student learning.]',
+                materials: 'Canva',
+                purpose: '[Intended learning objective.]'
+            }
+        };
+
+        // Open modal when work card is clicked
+        workCards.forEach(card => {
+            card.addEventListener('click', function () {
+                const workId = this.getAttribute('data-work');
+                const work = worksData[workId];
+
+                if (work) {
+                    // Build modal content
+                    let modalHTML = '';
+
+                    if (work.image) {
+                        modalHTML += `<img src="${work.image}" alt="${work.title}" class="modal-image">`;
+                    } else {
+                        modalHTML += `
+                            <div class="modal-image flex items-center justify-center" style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
+                                <p class="text-xl text-center px-8" style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
+                                    Worksheet Preview
+                                </p>
+                            </div>
+                        `;
+                    }
+
+                    modalHTML += `
+                        <div class="p-8 md:p-10">
+                            <div class="mb-4">
+                                ${work.categories.map(cat => `<span class="work-badge">${cat}</span>`).join(' ')}
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-semibold mb-4" style="font-family: 'Playfair Display', serif;">
+                                ${work.title}
+                            </h3>
+                            <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
+                                ${work.description}
+                            </p>
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-2" style="font-family: 'Playfair Display', serif;">
+                                    Materials Used
+                                </h4>
+                                <p class="text-base text-gray-600">${work.materials}</p>
+                            </div>
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-2" style="font-family: 'Playfair Display', serif;">
+                                    Purpose
+                                </h4>
+                                <p class="text-base text-gray-700 leading-relaxed">${work.purpose}</p>
+                            </div>
+                            ${work.pdf ? `
+                                <a href="${work.pdf}" target="_blank" class="btn-primary inline-block px-8 py-3 rounded-full text-base font-medium text-center">
+                                    Download PDF
+                                </a>
+                            ` : ''}
+                        </div>
+                    `;
+
+                    modalBody.innerHTML = modalHTML;
+                    modal.classList.add('active');
+                    body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal
+        function closeModal() {
+            modal.classList.remove('active');
+            body.style.overflow = '';
         }
 
-        // Scroll to top functionality
-        document.getElementById('scrollToTop').addEventListener('click', function () {
+        modalClose.addEventListener('click', closeModal);
+        modalBackdrop.addEventListener('click', closeModal);
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // ==================== BACK TO TOP BUTTON ====================
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
 
-        // Project filtering
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function () {
-                const filter = this.getAttribute('data-filter');
-
-                // Update active button
-                document.querySelectorAll('.filter-btn').forEach(b => {
-                    b.classList.remove('active', 'bg-purple-600', 'text-white');
-                    b.classList.add('bg-white', 'text-gray-600');
+        // Keyboard accessibility for back to top
+        backToTop.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
-                this.classList.add('active', 'bg-purple-600', 'text-white');
-                this.classList.remove('bg-white', 'text-gray-600');
-
-                // Filter projects
-                document.querySelectorAll('.project-card').forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 100);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
-                    }
-                });
-            });
-        });
-
-        // PDF opening functionality - opens PDF in new tab
-        document.querySelectorAll('.open-pdf').forEach(btn => {
-            btn.addEventListener('click', function () {
-                const pdfFile = this.getAttribute('data-pdf');
-                // Open PDF in new tab
-                window.open(pdfFile, '_blank');
-            });
-        });
-
-        // Enhanced event listeners with premium features
-        window.addEventListener('scroll', function () {
-            updateActiveNav();
-            animateOnScroll();
-            updateScrollToTopButton();
-            updateScrollProgress();
-        });
-
-        // Initial calls
-        document.addEventListener('DOMContentLoaded', function () {
-            animateOnScroll();
-            updateActiveNav();
-        });
-
-        // Navbar background on scroll
-        window.addEventListener('scroll', function () {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-white');
-                navbar.classList.remove('bg-white/95');
-            } else {
-                navbar.classList.remove('bg-white');
-                navbar.classList.add('bg-white/95');
             }
         });
+
+        // ==================== CONTACT FORM ====================
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Display success message (no backend functionality)
+            alert(`Thank you for your message, ${fullName}! This is a demo form. In a live website, your message would be sent.`);
+
+            // Reset form
+            contactForm.reset();
+        });
     </script>
+
 </body>
 
 </html>
