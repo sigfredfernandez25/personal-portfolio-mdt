@@ -1129,1184 +1129,853 @@
                 font-size: 20px;
             }
         }
-
-        /* Welcome Popup Styles */
-        .welcome-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .welcome-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .welcome-card {
-            background: var(--primary-white);
-            border: 1px solid rgba(248, 241, 241, 0.4);
-            border-radius: 20px;
-            padding: 48px 40px;
-            max-width: 580px;
-            width: 100%;
-            text-align: center;
-            position: relative;
-            box-shadow:
-                0 4px 20px rgba(0, 0, 0, 0.08),
-                0 20px 60px rgba(248, 241, 241, 0.25),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
-            transform: translateY(30px) scale(0.95);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .welcome-overlay.active .welcome-card {
-            transform: translateY(0) scale(1);
-        }
-
-        .welcome-glow {
-            position: absolute;
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(248, 241, 241, 0.3) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-            animation: glowFadeIn 1.5s ease-out 0.8s forwards;
-        }
-
-        @keyframes glowFadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        .welcome-botanical {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            opacity: 0;
-            animation: botanicalFadeIn 1s ease-out 1.2s forwards;
-        }
-
-        .welcome-botanical::before,
-        .welcome-botanical::after {
-            content: '';
-            position: absolute;
-            border: 1px solid var(--accent-blush);
-            border-radius: 50%;
-            opacity: 0.6;
-        }
-
-        .welcome-botanical::before {
-            width: 40px;
-            height: 40px;
-            top: 0;
-            left: 10px;
-        }
-
-        .welcome-botanical::after {
-            width: 25px;
-            height: 25px;
-            bottom: 5px;
-            right: 0;
-        }
-
-        @keyframes botanicalFadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        .welcome-sparkles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .sparkle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: var(--accent-blush);
-            border-radius: 50%;
-            opacity: 0;
-            animation: sparkleFloat 4s ease-in-out infinite;
-        }
-
-        .sparkle:nth-child(1) {
-            top: 20%;
-            left: 15%;
-            animation-delay: 0s;
-        }
-
-        .sparkle:nth-child(2) {
-            top: 30%;
-            right: 20%;
-            animation-delay: 1s;
-        }
-
-        .sparkle:nth-child(3) {
-            bottom: 25%;
-            left: 25%;
-            animation-delay: 2s;
-        }
-
-        .sparkle:nth-child(4) {
-            bottom: 35%;
-            right: 15%;
-            animation-delay: 3s;
-        }
-
-        @keyframes sparkleFloat {
-
-            0%,
-            100% {
-                opacity: 0;
-                transform: translateY(0px);
-            }
-
-            50% {
-                opacity: 0.6;
-                transform: translateY(-10px);
-            }
-        }
-
-        .welcome-heading {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 12px;
-            line-height: 1.2;
-        }
-
-        .welcome-subheading {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--text-dark);
-            margin-bottom: 32px;
-            opacity: 0.8;
-        }
-
-        .welcome-message {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #555;
-            margin-bottom: 24px;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .welcome-closing {
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-style: italic;
-            color: #666;
-            margin-bottom: 36px;
-        }
-
-        .welcome-button {
-            background: var(--text-dark);
-            color: var(--primary-white);
-            border: none;
-            padding: 14px 36px;
-            border-radius: 50px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 16px rgba(51, 51, 51, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .welcome-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .welcome-button:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .welcome-button:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 24px rgba(51, 51, 51, 0.25);
-        }
-
-        .welcome-button:active {
-            transform: translateY(0) scale(0.98);
-        }
-
-        /* Blur effect for main content */
-        .main-content.blurred {
-            filter: blur(8px);
-            transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Reduced motion support */
-        @media (prefers-reduced-motion: reduce) {
-
-            .welcome-overlay,
-            .welcome-card,
-            .welcome-button {
-                transition-duration: 0.2s;
-            }
-
-            .sparkle,
-            .welcome-glow,
-            .welcome-botanical {
-                animation: none;
-                opacity: 0.3;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .welcome-card {
-                padding: 36px 24px;
-                margin: 20px;
-            }
-
-            .welcome-heading {
-                font-size: 2rem;
-            }
-
-            .welcome-subheading {
-                font-size: 1.25rem;
-            }
-
-            .welcome-message {
-                font-size: 1rem;
-            }
-        }
     </style>
 </head>
 
 <body>
 
-    <!-- ==================== WELCOME POPUP ==================== -->
-    <div class="welcome-overlay" id="welcomeOverlay">
-        <div class="welcome-card">
-            <!-- Background Glow -->
-            <div class="welcome-glow"></div>
+    <!-- ==================== NAVIGATION BAR ==================== -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 px-6 md:px-12 lg:px-20 py-5">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
 
-            <!-- Botanical Corner -->
-            <div class="welcome-botanical"></div>
+            <!-- Logo -->
+            <a href="#home" class="text-xl md:text-2xl font-semibold" style="font-family: 'Playfair Display', serif;">
+                Maria Delly
+            </a>
 
-            <!-- Subtle Sparkles -->
-            <div class="welcome-sparkles">
-                <div class="sparkle"></div>
-                <div class="sparkle"></div>
-                <div class="sparkle"></div>
-                <div class="sparkle"></div>
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex items-center gap-8 lg:gap-12">
+                <li><a href="#home" class="nav-link active text-sm lg:text-base tracking-wide">Home</a></li>
+                <li><a href="#about" class="nav-link text-sm lg:text-base tracking-wide">About</a></li>
+                <li><a href="#education" class="nav-link text-sm lg:text-base tracking-wide">Education</a></li>
+                <li><a href="#skills-works" class="nav-link text-sm lg:text-base tracking-wide">Skills & Works</a></li>
+            </ul>
+
+            <!-- Mobile Hamburger -->
+            <div class="md:hidden hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
+        </div>
+    </nav>
 
-            <!-- Content -->
-            <div style="position: relative; z-index: 2;">
-                <h1 class="welcome-heading">🎓 Congratulations!</h1>
-                <h2 class="welcome-subheading">On Your Graduation</h2>
-
-                <p class="welcome-message">
-                    Today marks the beginning of a beautiful new chapter. May your passion for teaching continue to
-                    inspire every learner you meet. Congratulations on earning your Bachelor of Education degree.
-                </p>
-
-                <p class="welcome-closing">
-                    Wishing you success on your journey as a future educator.
-                </p>
-
-                <button class="welcome-button" id="enterPortfolio" type="button">
-                    Enter Portfolio
-                </button>
-            </div>
+    <!-- ==================== MOBILE MENU ==================== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="flex flex-col items-center justify-center h-full gap-8">
+            <a href="#home" class="mobile-menu-link text-3xl font-medium"
+                style="font-family: 'Playfair Display', serif;">Home</a>
+            <a href="#about" class="mobile-menu-link text-3xl font-medium"
+                style="font-family: 'Playfair Display', serif;">About</a>
+            <a href="#education" class="mobile-menu-link text-3xl font-medium"
+                style="font-family: 'Playfair Display', serif;">Education</a>
+            <a href="#skills-works" class="mobile-menu-link text-3xl font-medium"
+                style="font-family: 'Playfair Display', serif;">Skills & Works</a>
         </div>
     </div>
 
-    <!-- Main Content Wrapper -->
-    <div class="main-content" id="mainContent">
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="min-h-screen flex items-center pt-20 md:pt-24 pb-12 md:pb-20 px-6 md:px-12 lg:px-20"
+        style="background-color: var(--secondary-rose); position: relative; overflow: hidden;">
+        
+        <!-- Decorative Elements -->
+        <div class="curved-line" style="top: 10%; right: 5%;"></div>
+        <div class="curved-line" style="bottom: 15%; left: 8%; opacity: 0.05;"></div>
+        <div class="floral-accent decorative-element" style="top: 20%; left: 5%;"></div>
+        <div class="floral-accent decorative-element" style="bottom: 25%; right: 10%;"></div>
+        
+        <div class="max-w-7xl mx-auto w-full" style="position: relative; z-index: 1;">
 
-        <!-- ==================== NAVIGATION BAR ==================== -->
-        <nav id="navbar" class="fixed top-0 left-0 w-full z-50 px-6 md:px-12 lg:px-20 py-5">
-            <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Mobile: Portrait First -->
+            <div class="md:hidden mb-12 fade-up">
+                <div class="relative max-w-sm mx-auto">
+                    <!-- Decorative Background Blob -->
+                    <div class="decorative-blob w-72 h-72 absolute -top-8 -right-8 -z-10"></div>
 
-                <!-- Logo -->
-                <a href="#home" class="text-xl md:text-2xl font-semibold"
-                    style="font-family: 'Playfair Display', serif;">
-                    Maria Delly
-                </a>
-
-                <!-- Desktop Navigation -->
-                <ul class="hidden md:flex items-center gap-8 lg:gap-12">
-                    <li><a href="#home" class="nav-link active text-sm lg:text-base tracking-wide">Home</a></li>
-                    <li><a href="#about" class="nav-link text-sm lg:text-base tracking-wide">About</a></li>
-                    <li><a href="#education" class="nav-link text-sm lg:text-base tracking-wide">Education</a></li>
-                    <li><a href="#skills-works" class="nav-link text-sm lg:text-base tracking-wide">Skills & Works</a>
-                    </li>
-                </ul>
-
-                <!-- Mobile Hamburger -->
-                <div class="md:hidden hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <!-- Portrait Image -->
+                    <div class="portrait-placeholder w-full aspect-[3/4] rounded-lg relative overflow-hidden">
+                        <img src="image/mdt.jpg" alt="Portrait" class="w-full h-full object-cover">
+                    </div>
                 </div>
             </div>
-        </nav>
 
-        <!-- ==================== MOBILE MENU ==================== -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="flex flex-col items-center justify-center h-full gap-8">
-                <a href="#home" class="mobile-menu-link text-3xl font-medium"
-                    style="font-family: 'Playfair Display', serif;">Home</a>
-                <a href="#about" class="mobile-menu-link text-3xl font-medium"
-                    style="font-family: 'Playfair Display', serif;">About</a>
-                <a href="#education" class="mobile-menu-link text-3xl font-medium"
-                    style="font-family: 'Playfair Display', serif;">Education</a>
-                <a href="#skills-works" class="mobile-menu-link text-3xl font-medium"
-                    style="font-family: 'Playfair Display', serif;">Skills & Works</a>
-            </div>
-        </div>
+            <!-- Desktop: Two Column Layout -->
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-        <!-- ==================== HERO SECTION ==================== -->
-        <section id="home" class="min-h-screen flex items-center pt-20 md:pt-24 pb-12 md:pb-20 px-6 md:px-12 lg:px-20"
-            style="background-color: var(--secondary-rose); position: relative; overflow: hidden;">
+                <!-- Left Column: Text Content -->
+                <div class="space-y-6 md:space-y-8">
+                    <div class="fade-up">
+                        <p class="text-base md:text-lg text-gray-600 mb-3">Hello,</p>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4"
+                            style="font-family: 'Playfair Display', serif; line-height: 1.2;">
+                            I'm <span style="font-style: italic;">Maria Delly Tango-an</span>
+                        </h1>
+                    </div>
 
-            <!-- Decorative Elements -->
-            <div class="curved-line" style="top: 10%; right: 5%;"></div>
-            <div class="curved-line" style="bottom: 15%; left: 8%; opacity: 0.05;"></div>
-            <div class="floral-accent decorative-element" style="top: 20%; left: 5%;"></div>
-            <div class="floral-accent decorative-element" style="bottom: 25%; right: 10%;"></div>
+                    <div class="fade-up fade-up-delay-1">
+                        <p class="text-lg md:text-xl lg:text-2xl font-light mb-2">Bachelor of Education</p>
+                        <p class="text-base md:text-lg lg:text-xl text-gray-600">Major in Filipino</p>
+                    </div>
 
-            <div class="max-w-7xl mx-auto w-full" style="position: relative; z-index: 1;">
+                    <div class="fade-up fade-up-delay-2">
+                        <p class="text-sm md:text-base lg:text-lg leading-relaxed text-gray-700 max-w-lg">
+                            A passionate educator dedicated to inspiring young minds through the beauty of the Filipino
+                            language and culture. Committed to creating meaningful learning experiences that foster
+                            growth and understanding.
+                        </p>
+                    </div>
 
-                <!-- Mobile: Portrait First -->
-                <div class="md:hidden mb-12 fade-up">
-                    <div class="relative max-w-sm mx-auto">
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4 fade-up fade-up-delay-3">
+                        <a href="#"
+                            class="btn-primary px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium text-center">
+                            Download CV
+                        </a>
+                        <a href="#skills-works"
+                            class="btn-secondary px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium text-center">
+                            View My Works
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Portrait (Desktop Only) -->
+                <div class="hidden md:block fade-up fade-up-delay-4">
+                    <div class="relative">
                         <!-- Decorative Background Blob -->
-                        <div class="decorative-blob w-72 h-72 absolute -top-8 -right-8 -z-10"></div>
+                        <div class="decorative-blob w-96 h-96 absolute -top-12 -right-12 -z-10"></div>
 
                         <!-- Portrait Image -->
-                        <div class="portrait-placeholder w-full aspect-[3/4] rounded-lg relative overflow-hidden">
+                        <div
+                            class="portrait-placeholder w-full max-w-md mx-auto aspect-[3/4] rounded-lg relative overflow-hidden">
                             <img src="image/mdt.jpg" alt="Portrait" class="w-full h-full object-cover">
                         </div>
-                    </div>
-                </div>
 
-                <!-- Desktop: Two Column Layout -->
-                <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-                    <!-- Left Column: Text Content -->
-                    <div class="space-y-6 md:space-y-8">
-                        <div class="fade-up">
-                            <p class="text-base md:text-lg text-gray-600 mb-3">Hello,</p>
-                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4"
-                                style="font-family: 'Playfair Display', serif; line-height: 1.2;">
-                                I'm <span style="font-style: italic;">Maria Delly Tango-an</span>
-                            </h1>
-                        </div>
-
-                        <div class="fade-up fade-up-delay-1">
-                            <p class="text-lg md:text-xl lg:text-2xl font-light mb-2">Bachelor of Education</p>
-                            <p class="text-base md:text-lg lg:text-xl text-gray-600">Major in Filipino</p>
-                        </div>
-
-                        <div class="fade-up fade-up-delay-2">
-                            <p class="text-sm md:text-base lg:text-lg leading-relaxed text-gray-700 max-w-lg">
-                                A passionate educator dedicated to inspiring young minds through the beauty of the
-                                Filipino
-                                language and culture. Committed to creating meaningful learning experiences that foster
-                                growth and understanding.
-                            </p>
-                        </div>
-
-                        <div class="flex flex-col sm:flex-row gap-4 pt-4 fade-up fade-up-delay-3">
-                            <a href="#"
-                                class="btn-primary px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium text-center">
-                                Download CV
-                            </a>
-                            <a href="#skills-works"
-                                class="btn-secondary px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium text-center">
-                                View My Works
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Right Column: Portrait (Desktop Only) -->
-                    <div class="hidden md:block fade-up fade-up-delay-4">
-                        <div class="relative">
-                            <!-- Decorative Background Blob -->
-                            <div class="decorative-blob w-96 h-96 absolute -top-12 -right-12 -z-10"></div>
-
-                            <!-- Portrait Image -->
-                            <div
-                                class="portrait-placeholder w-full max-w-md mx-auto aspect-[3/4] rounded-lg relative overflow-hidden">
-                                <img src="image/mdt.jpg" alt="Portrait" class="w-full h-full object-cover">
-                            </div>
-
-                            <!-- Minimal Decorative Accent -->
-                            <div
-                                class="absolute -bottom-6 -left-6 w-24 h-24 border-2 border-gray-300 rounded-full opacity-30">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== ABOUT ME SECTION ==================== -->
-        <section id="about" class="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20"
-            style="background-color: var(--primary-white); position: relative; overflow: hidden;">
-
-            <!-- Decorative Elements -->
-            <div class="floral-accent decorative-element" style="top: 10%; right: 8%;"></div>
-            <div class="curved-line" style="top: 30%; left: 5%;"></div>
-
-            <div class="max-w-7xl mx-auto" style="position: relative; z-index: 1;">
-
-                <!-- Section Label -->
-                <div class="text-center mb-12 md:mb-16 scroll-fade-up">
-                    <p class="text-xs md:text-sm tracking-widest uppercase text-gray-500 mb-4">ABOUT ME</p>
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold"
-                        style="font-family: 'Playfair Display', serif;">
-                        About Me
-                    </h2>
-                </div>
-
-                <!-- Two Column Layout -->
-                <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
-
-                    <!-- Left: Photo Placeholder -->
-                    <div class="scroll-fade-left">
+                        <!-- Minimal Decorative Accent -->
                         <div
-                            class="photo-card w-full max-w-md mx-auto aspect-[3/4] rounded-lg flex items-center justify-center">
-                            <p class="text-lg text-center px-8"
-                                style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
-                                Your Photo Here
-                            </p>
+                            class="absolute -bottom-6 -left-6 w-24 h-24 border-2 border-gray-300 rounded-full opacity-30">
                         </div>
-                    </div>
-
-                    <!-- Right: Content -->
-                    <div class="space-y-8 scroll-fade-right">
-
-                        <!-- Introduction -->
-                        <div>
-                            <p class="text-base md:text-lg leading-relaxed text-gray-700">
-                                [Write your personal introduction here.]
-                            </p>
-                        </div>
-
-                        <!-- Information Grid -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="info-card p-4 rounded-lg">
-                                <p class="text-xs text-gray-500 mb-1">Full Name</p>
-                                <p class="text-sm md:text-base font-medium">[Your Full Name]</p>
-                            </div>
-                            <div class="info-card p-4 rounded-lg">
-                                <p class="text-xs text-gray-500 mb-1">Age</p>
-                                <p class="text-sm md:text-base font-medium">[Your Age]</p>
-                            </div>
-                            <div class="info-card p-4 rounded-lg">
-                                <p class="text-xs text-gray-500 mb-1">Address</p>
-                                <p class="text-sm md:text-base font-medium">[Your Address]</p>
-                            </div>
-                            <div class="info-card p-4 rounded-lg">
-                                <p class="text-xs text-gray-500 mb-1">Email</p>
-                                <p class="text-sm md:text-base font-medium">[Your Email]</p>
-                            </div>
-                            <div class="info-card p-4 rounded-lg">
-                                <p class="text-xs text-gray-500 mb-1">Contact Number</p>
-                                <p class="text-sm md:text-base font-medium">[Your Contact Number]</p>
-                            </div>
-                            <div class="info-card p-4 rounded-lg">
-                                <p class="text-xs text-gray-500 mb-1">Nationality</p>
-                                <p class="text-sm md:text-base font-medium">[Your Nationality]</p>
-                            </div>
-                        </div>
-
-                        <!-- Teaching Philosophy -->
-                        <div class="philosophy-card p-6 md:p-8 rounded-lg">
-                            <h3 class="text-xl md:text-2xl font-semibold mb-4"
-                                style="font-family: 'Playfair Display', serif;">
-                                Teaching Philosophy
-                            </h3>
-                            <p class="text-sm md:text-base leading-relaxed text-gray-700">
-                                [Write your teaching philosophy here.]
-                            </p>
-                        </div>
-
                     </div>
                 </div>
+
             </div>
-        </section>
-
-        <!-- Section Divider -->
-        <div class="py-12 md:py-16">
-            <div class="section-divider"></div>
         </div>
+    </section>
 
-        <!-- ==================== EDUCATION SECTION ==================== -->
-        <section id="education" class="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20"
-            style="background-color: var(--secondary-rose);">
-            <div class="max-w-6xl mx-auto">
+    <!-- ==================== ABOUT ME SECTION ==================== -->
+    <section id="about" class="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20"
+        style="background-color: var(--primary-white); position: relative; overflow: hidden;">
+        
+        <!-- Decorative Elements -->
+        <div class="floral-accent decorative-element" style="top: 10%; right: 8%;"></div>
+        <div class="curved-line" style="top: 30%; left: 5%;"></div>
+        
+        <div class="max-w-7xl mx-auto" style="position: relative; z-index: 1;">
 
-                <!-- Section Header -->
-                <div class="text-center mb-12 md:mb-16 scroll-fade-up">
-                    <p class="text-xs md:text-sm tracking-widest uppercase text-gray-500 mb-4">EDUCATION</p>
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6"
-                        style="font-family: 'Playfair Display', serif;">
-                        Educational Background
-                    </h2>
-                    <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
-                        [Write a brief description about your educational journey.]
-                    </p>
-                </div>
-
-                <!-- Timeline -->
-                <div class="relative pt-8">
-                    <!-- Timeline Vertical Line -->
-                    <div class="timeline-line hidden md:block"></div>
-
-                    <!-- Timeline Items -->
-                    <div class="space-y-12 md:space-y-16">
-
-                        <!-- Timeline Item 1 (Right) - College -->
-                        <div class="relative scroll-fade-right">
-                            <div class="md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
-                                <div class="hidden md:block"></div>
-                                <div class="timeline-card p-6 md:p-8 rounded-lg relative md:ml-8">
-                                    <div class="timeline-dot hidden md:block" style="left: -44px;"></div>
-                                    <div class="timeline-dot md:hidden" style="left: -28px;"></div>
-                                    <div class="mb-2">
-                                        <span class="text-xs md:text-sm text-gray-500 tracking-wide">20XX - 20XX</span>
-                                    </div>
-                                    <h3 class="text-xl md:text-2xl font-semibold mb-2"
-                                        style="font-family: 'Playfair Display', serif;">
-                                        College
-                                    </h3>
-                                    <p class="text-base md:text-lg text-gray-600 mb-3">
-                                        [Institution Name]
-                                    </p>
-                                    <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                        [Short description here.]
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Timeline Item 2 (Left) - Senior High School -->
-                        <div class="relative scroll-fade-left">
-                            <div class="md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
-                                <div class="timeline-card p-6 md:p-8 rounded-lg relative md:mr-8 md:text-right">
-                                    <div class="timeline-dot hidden md:block" style="right: -44px;"></div>
-                                    <div class="timeline-dot md:hidden" style="left: -28px;"></div>
-                                    <div class="mb-2">
-                                        <span class="text-xs md:text-sm text-gray-500 tracking-wide">20XX - 20XX</span>
-                                    </div>
-                                    <h3 class="text-xl md:text-2xl font-semibold mb-2"
-                                        style="font-family: 'Playfair Display', serif;">
-                                        Senior High School
-                                    </h3>
-                                    <p class="text-base md:text-lg text-gray-600 mb-3">
-                                        [Institution Name]
-                                    </p>
-                                    <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                        [Short description here.]
-                                    </p>
-                                </div>
-                                <div class="hidden md:block"></div>
-                            </div>
-                        </div>
-
-                        <!-- Timeline Item 3 (Right) - High School -->
-                        <div class="relative scroll-fade-right">
-                            <div class="md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
-                                <div class="hidden md:block"></div>
-                                <div class="timeline-card p-6 md:p-8 rounded-lg relative md:ml-8">
-                                    <div class="timeline-dot hidden md:block" style="left: -44px;"></div>
-                                    <div class="timeline-dot md:hidden" style="left: -28px;"></div>
-                                    <div class="mb-2">
-                                        <span class="text-xs md:text-sm text-gray-500 tracking-wide">20XX - 20XX</span>
-                                    </div>
-                                    <h3 class="text-xl md:text-2xl font-semibold mb-2"
-                                        style="font-family: 'Playfair Display', serif;">
-                                        High School
-                                    </h3>
-                                    <p class="text-base md:text-lg text-gray-600 mb-3">
-                                        [Institution Name]
-                                    </p>
-                                    <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                        [Short description here.]
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Timeline Item 4 (Left) - Elementary -->
-                        <div class="relative scroll-fade-left">
-                            <div class="md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
-                                <div class="timeline-card p-6 md:p-8 rounded-lg relative md:mr-8 md:text-right">
-                                    <div class="timeline-dot hidden md:block" style="right: -44px;"></div>
-                                    <div class="timeline-dot md:hidden" style="left: -28px;"></div>
-                                    <div class="mb-2">
-                                        <span class="text-xs md:text-sm text-gray-500 tracking-wide">20XX - 20XX</span>
-                                    </div>
-                                    <h3 class="text-xl md:text-2xl font-semibold mb-2"
-                                        style="font-family: 'Playfair Display', serif;">
-                                        Elementary
-                                    </h3>
-                                    <p class="text-base md:text-lg text-gray-600 mb-3">
-                                        [Institution Name]
-                                    </p>
-                                    <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                        [Short description here.]
-                                    </p>
-                                </div>
-                                <div class="hidden md:block"></div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+            <!-- Section Label -->
+            <div class="text-center mb-12 md:mb-16 scroll-fade-up">
+                <p class="text-xs md:text-sm tracking-widest uppercase text-gray-500 mb-4">ABOUT ME</p>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold"
+                    style="font-family: 'Playfair Display', serif;">
+                    About Me
+                </h2>
             </div>
-        </section>
 
-        <!-- Section Divider -->
-        <div class="py-12 md:py-16">
-            <div class="section-divider"></div>
-        </div>
+            <!-- Two Column Layout -->
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
 
-        <!-- ==================== SKILLS & WORKS SECTION ==================== -->
-        <section id="skills-works" class="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20"
-            style="background-color: var(--primary-white); position: relative; overflow: hidden;">
-
-            <!-- Decorative Elements -->
-            <div class="curved-line" style="top: 15%; right: 10%;"></div>
-            <div class="floral-accent decorative-element" style="bottom: 20%; left: 5%;"></div>
-            <div class="floral-accent decorative-element" style="top: 40%; right: 5%;"></div>
-
-            <div class="max-w-7xl mx-auto" style="position: relative; z-index: 1;">
-
-                <!-- Section Header -->
-                <div class="text-center mb-12 md:mb-16 scroll-fade-up">
-                    <p class="text-xs md:text-sm tracking-widest uppercase text-gray-500 mb-4">SKILLS & WORKS</p>
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6"
-                        style="font-family: 'Playfair Display', serif;">
-                        Skills & Creative Works
-                    </h2>
-                    <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
-                        [Brief introduction about your skills and teaching materials.]
-                    </p>
-                </div>
-
-                <!-- ========== SKILLS SECTION ========== -->
-                <div class="mb-20 md:mb-28">
-                    <h3 class="text-2xl md:text-3xl font-semibold text-center mb-10 md:mb-14 scroll-fade-up"
-                        style="font-family: 'Playfair Display', serif;">
-                        Professional Skills
-                    </h3>
-
-                    <!-- Skills Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-
-                        <!-- Skill Card 1 -->
-                        <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
-                            <div class="skill-icon">📚</div>
-                            <h4 class="text-lg md:text-xl font-semibold mb-2"
-                                style="font-family: 'Playfair Display', serif;">
-                                Classroom Management
-                            </h4>
-                            <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                                [Brief description here.]
-                            </p>
-                        </div>
-
-                        <!-- Skill Card 2 -->
-                        <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
-                            <div class="skill-icon">✏️</div>
-                            <h4 class="text-lg md:text-xl font-semibold mb-2"
-                                style="font-family: 'Playfair Display', serif;">
-                                Lesson Planning
-                            </h4>
-                            <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                                [Brief description here.]
-                            </p>
-                        </div>
-
-                        <!-- Skill Card 3 -->
-                        <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
-                            <div class="skill-icon">🎨</div>
-                            <h4 class="text-lg md:text-xl font-semibold mb-2"
-                                style="font-family: 'Playfair Display', serif;">
-                                Instructional Material Design
-                            </h4>
-                            <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                                [Brief description here.]
-                            </p>
-                        </div>
-
-                        <!-- Skill Card 4 -->
-                        <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
-                            <div class="skill-icon">🖌️</div>
-                            <h4 class="text-lg md:text-xl font-semibold mb-2"
-                                style="font-family: 'Playfair Display', serif;">
-                                Canva
-                            </h4>
-                            <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                                [Brief description here.]
-                            </p>
-                        </div>
-
-                        <!-- Skill Card 5 -->
-                        <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
-                            <div class="skill-icon">💻</div>
-                            <h4 class="text-lg md:text-xl font-semibold mb-2"
-                                style="font-family: 'Playfair Display', serif;">
-                                Microsoft Office
-                            </h4>
-                            <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                                [Brief description here.]
-                            </p>
-                        </div>
-
-
-
-                        <!-- Skill Card 8 -->
-                        <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
-                            <div class="skill-icon">💡</div>
-                            <h4 class="text-lg md:text-xl font-semibold mb-2"
-                                style="font-family: 'Playfair Display', serif;">
-                                Creativity
-                            </h4>
-                            <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                                [Brief description here.]
-                            </p>
-                        </div>
-
+                <!-- Left: Photo Placeholder -->
+                <div class="scroll-fade-left">
+                    <div
+                        class="photo-card w-full max-w-md mx-auto aspect-[3/4] rounded-lg flex items-center justify-center">
+                        <p class="text-lg text-center px-8"
+                            style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
+                            Your Photo Here
+                        </p>
                     </div>
                 </div>
 
-                <!-- ========== FEATURED WORKS SECTION ========== -->
-                <div>
-                    <div class="text-center mb-10 md:mb-14 scroll-fade-up">
-                        <h3 class="text-2xl md:text-3xl font-semibold mb-4"
+                <!-- Right: Content -->
+                <div class="space-y-8 scroll-fade-right">
+
+                    <!-- Introduction -->
+                    <div>
+                        <p class="text-base md:text-lg leading-relaxed text-gray-700">
+                            [Write your personal introduction here.]
+                        </p>
+                    </div>
+
+                    <!-- Information Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="info-card p-4 rounded-lg">
+                            <p class="text-xs text-gray-500 mb-1">Full Name</p>
+                            <p class="text-sm md:text-base font-medium">[Your Full Name]</p>
+                        </div>
+                        <div class="info-card p-4 rounded-lg">
+                            <p class="text-xs text-gray-500 mb-1">Age</p>
+                            <p class="text-sm md:text-base font-medium">[Your Age]</p>
+                        </div>
+                        <div class="info-card p-4 rounded-lg">
+                            <p class="text-xs text-gray-500 mb-1">Address</p>
+                            <p class="text-sm md:text-base font-medium">[Your Address]</p>
+                        </div>
+                        <div class="info-card p-4 rounded-lg">
+                            <p class="text-xs text-gray-500 mb-1">Email</p>
+                            <p class="text-sm md:text-base font-medium">[Your Email]</p>
+                        </div>
+                        <div class="info-card p-4 rounded-lg">
+                            <p class="text-xs text-gray-500 mb-1">Contact Number</p>
+                            <p class="text-sm md:text-base font-medium">[Your Contact Number]</p>
+                        </div>
+                        <div class="info-card p-4 rounded-lg">
+                            <p class="text-xs text-gray-500 mb-1">Nationality</p>
+                            <p class="text-sm md:text-base font-medium">[Your Nationality]</p>
+                        </div>
+                    </div>
+
+                    <!-- Teaching Philosophy -->
+                    <div class="philosophy-card p-6 md:p-8 rounded-lg">
+                        <h3 class="text-xl md:text-2xl font-semibold mb-4"
                             style="font-family: 'Playfair Display', serif;">
-                            Featured Teaching Materials
+                            Teaching Philosophy
                         </h3>
-                        <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto mb-8">
-                            [A short description of your instructional materials.]
+                        <p class="text-sm md:text-base leading-relaxed text-gray-700">
+                            [Write your teaching philosophy here.]
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="py-12 md:py-16">
+        <div class="section-divider"></div>
+    </div>
+
+    <!-- ==================== EDUCATION SECTION ==================== -->
+    <section id="education" class="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20"
+        style="background-color: var(--secondary-rose);">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- Section Header -->
+            <div class="text-center mb-12 md:mb-16 scroll-fade-up">
+                <p class="text-xs md:text-sm tracking-widest uppercase text-gray-500 mb-4">EDUCATION</p>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6"
+                    style="font-family: 'Playfair Display', serif;">
+                    Educational Background
+                </h2>
+                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+                    [Write a brief description about your educational journey.]
+                </p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative pt-8">
+                <!-- Timeline Vertical Line -->
+                <div class="timeline-line hidden md:block"></div>
+
+                <!-- Timeline Items -->
+                <div class="space-y-12 md:space-y-16">
+
+                    <!-- Timeline Item 1 (Right) - College -->
+                    <div class="relative scroll-fade-right">
+                        <div class="md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
+                            <div class="hidden md:block"></div>
+                            <div class="timeline-card p-6 md:p-8 rounded-lg relative md:ml-8">
+                                <div class="timeline-dot hidden md:block" style="left: -44px;"></div>
+                                <div class="timeline-dot md:hidden" style="left: -28px;"></div>
+                                <div class="mb-2">
+                                    <span class="text-xs md:text-sm text-gray-500 tracking-wide">20XX - 20XX</span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-semibold mb-2"
+                                    style="font-family: 'Playfair Display', serif;">
+                                    College
+                                </h3>
+                                <p class="text-base md:text-lg text-gray-600 mb-3">
+                                    [Institution Name]
+                                </p>
+                                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                                    [Short description here.]
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 (Left) - Senior High School -->
+                    <div class="relative scroll-fade-left">
+                        <div class="md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
+                            <div class="timeline-card p-6 md:p-8 rounded-lg relative md:mr-8 md:text-right">
+                                <div class="timeline-dot hidden md:block" style="right: -44px;"></div>
+                                <div class="timeline-dot md:hidden" style="left: -28px;"></div>
+                                <div class="mb-2">
+                                    <span class="text-xs md:text-sm text-gray-500 tracking-wide">20XX - 20XX</span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-semibold mb-2"
+                                    style="font-family: 'Playfair Display', serif;">
+                                    Senior High School
+                                </h3>
+                                <p class="text-base md:text-lg text-gray-600 mb-3">
+                                    [Institution Name]
+                                </p>
+                                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                                    [Short description here.]
+                                </p>
+                            </div>
+                            <div class="hidden md:block"></div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 (Right) - High School -->
+                    <div class="relative scroll-fade-right">
+                        <div class="md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
+                            <div class="hidden md:block"></div>
+                            <div class="timeline-card p-6 md:p-8 rounded-lg relative md:ml-8">
+                                <div class="timeline-dot hidden md:block" style="left: -44px;"></div>
+                                <div class="timeline-dot md:hidden" style="left: -28px;"></div>
+                                <div class="mb-2">
+                                    <span class="text-xs md:text-sm text-gray-500 tracking-wide">20XX - 20XX</span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-semibold mb-2"
+                                    style="font-family: 'Playfair Display', serif;">
+                                    High School
+                                </h3>
+                                <p class="text-base md:text-lg text-gray-600 mb-3">
+                                    [Institution Name]
+                                </p>
+                                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                                    [Short description here.]
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4 (Left) - Elementary -->
+                    <div class="relative scroll-fade-left">
+                        <div class="md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
+                            <div class="timeline-card p-6 md:p-8 rounded-lg relative md:mr-8 md:text-right">
+                                <div class="timeline-dot hidden md:block" style="right: -44px;"></div>
+                                <div class="timeline-dot md:hidden" style="left: -28px;"></div>
+                                <div class="mb-2">
+                                    <span class="text-xs md:text-sm text-gray-500 tracking-wide">20XX - 20XX</span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-semibold mb-2"
+                                    style="font-family: 'Playfair Display', serif;">
+                                    Elementary
+                                </h3>
+                                <p class="text-base md:text-lg text-gray-600 mb-3">
+                                    [Institution Name]
+                                </p>
+                                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                                    [Short description here.]
+                                </p>
+                            </div>
+                            <div class="hidden md:block"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="py-12 md:py-16">
+        <div class="section-divider"></div>
+    </div>
+
+    <!-- ==================== SKILLS & WORKS SECTION ==================== -->
+    <section id="skills-works" class="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20"
+        style="background-color: var(--primary-white); position: relative; overflow: hidden;">
+        
+        <!-- Decorative Elements -->
+        <div class="curved-line" style="top: 15%; right: 10%;"></div>
+        <div class="floral-accent decorative-element" style="bottom: 20%; left: 5%;"></div>
+        <div class="floral-accent decorative-element" style="top: 40%; right: 5%;"></div>
+        
+        <div class="max-w-7xl mx-auto" style="position: relative; z-index: 1;">
+
+            <!-- Section Header -->
+            <div class="text-center mb-12 md:mb-16 scroll-fade-up">
+                <p class="text-xs md:text-sm tracking-widest uppercase text-gray-500 mb-4">SKILLS & WORKS</p>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6"
+                    style="font-family: 'Playfair Display', serif;">
+                    Skills & Creative Works
+                </h2>
+                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+                    [Brief introduction about your skills and teaching materials.]
+                </p>
+            </div>
+
+            <!-- ========== SKILLS SECTION ========== -->
+            <div class="mb-20 md:mb-28">
+                <h3 class="text-2xl md:text-3xl font-semibold text-center mb-10 md:mb-14 scroll-fade-up"
+                    style="font-family: 'Playfair Display', serif;">
+                    Professional Skills
+                </h3>
+
+                <!-- Skills Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+                    <!-- Skill Card 1 -->
+                    <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
+                        <div class="skill-icon">📚</div>
+                        <h4 class="text-lg md:text-xl font-semibold mb-2"
+                            style="font-family: 'Playfair Display', serif;">
+                            Classroom Management
+                        </h4>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            [Brief description here.]
+                        </p>
+                    </div>
+
+                    <!-- Skill Card 2 -->
+                    <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
+                        <div class="skill-icon">✏️</div>
+                        <h4 class="text-lg md:text-xl font-semibold mb-2"
+                            style="font-family: 'Playfair Display', serif;">
+                            Lesson Planning
+                        </h4>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            [Brief description here.]
+                        </p>
+                    </div>
+
+                    <!-- Skill Card 3 -->
+                    <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
+                        <div class="skill-icon">🎨</div>
+                        <h4 class="text-lg md:text-xl font-semibold mb-2"
+                            style="font-family: 'Playfair Display', serif;">
+                            Instructional Material Design
+                        </h4>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            [Brief description here.]
+                        </p>
+                    </div>
+
+                    <!-- Skill Card 4 -->
+                    <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
+                        <div class="skill-icon">🖌️</div>
+                        <h4 class="text-lg md:text-xl font-semibold mb-2"
+                            style="font-family: 'Playfair Display', serif;">
+                            Canva
+                        </h4>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            [Brief description here.]
+                        </p>
+                    </div>
+
+                    <!-- Skill Card 5 -->
+                    <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
+                        <div class="skill-icon">💻</div>
+                        <h4 class="text-lg md:text-xl font-semibold mb-2"
+                            style="font-family: 'Playfair Display', serif;">
+                            Microsoft Office
+                        </h4>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            [Brief description here.]
                         </p>
                     </div>
 
 
 
-                    <!-- Works Gallery -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="worksGallery">
-
-                        <!-- Work Card 1 - Actual Worksheet -->
-                        <div class="work-card rounded-lg stagger-item" data-category="tracing alphabet"
-                            data-work="alphabet-tracing">
-                            <div class="work-image-wrapper">
-                                <img src="works/{765F517C-D519-4E12-8F7C-A70CB949C15F}.png"
-                                    alt="Alphabet Tracing Worksheet" class="work-image">
-                                <div class="work-overlay">
-                                    <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
-                                        View Details
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <div class="mb-3">
-                                    <span class="work-badge">Tracing Worksheet</span>
-                                    <span class="work-badge ml-2">Alphabet</span>
-                                </div>
-                                <h4 class="text-lg md:text-xl font-semibold mb-2"
-                                    style="font-family: 'Playfair Display', serif;">
-                                    Alphabet Tracing Worksheet
-                                </h4>
-                                <p class="text-sm text-gray-600">
-                                    A comprehensive tracing worksheet designed to help young learners master letter
-                                    formation.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Work Card 2 - Placeholder -->
-                        <div class="work-card rounded-lg stagger-item" data-category="numbers"
-                            data-work="numbers-worksheet">
-                            <div class="work-image-wrapper">
-                                <div class="w-full h-full flex items-center justify-center"
-                                    style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
-                                    <p class="text-lg text-center px-8"
-                                        style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
-                                        Worksheet Preview
-                                    </p>
-                                </div>
-                                <div class="work-overlay">
-                                    <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
-                                        View Details
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <div class="mb-3">
-                                    <span class="work-badge">Numbers</span>
-                                </div>
-                                <h4 class="text-lg md:text-xl font-semibold mb-2"
-                                    style="font-family: 'Playfair Display', serif;">
-                                    [Worksheet Title]
-                                </h4>
-                                <p class="text-sm text-gray-600">
-                                    [Short description here.]
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Work Card 3 - Placeholder -->
-                        <div class="work-card rounded-lg stagger-item" data-category="shapes writing"
-                            data-work="shapes-worksheet">
-                            <div class="work-image-wrapper">
-                                <div class="w-full h-full flex items-center justify-center"
-                                    style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
-                                    <p class="text-lg text-center px-8"
-                                        style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
-                                        Worksheet Preview
-                                    </p>
-                                </div>
-                                <div class="work-overlay">
-                                    <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
-                                        View Details
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <div class="mb-3">
-                                    <span class="work-badge">Shapes</span>
-                                    <span class="work-badge ml-2">Writing Practice</span>
-                                </div>
-                                <h4 class="text-lg md:text-xl font-semibold mb-2"
-                                    style="font-family: 'Playfair Display', serif;">
-                                    [Worksheet Title]
-                                </h4>
-                                <p class="text-sm text-gray-600">
-                                    [Short description here.]
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Work Card 4 - Placeholder -->
-                        <div class="work-card rounded-lg stagger-item" data-category="animals"
-                            data-work="animals-worksheet">
-                            <div class="work-image-wrapper">
-                                <div class="w-full h-full flex items-center justify-center"
-                                    style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
-                                    <p class="text-lg text-center px-8"
-                                        style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
-                                        Worksheet Preview
-                                    </p>
-                                </div>
-                                <div class="work-overlay">
-                                    <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
-                                        View Details
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <div class="mb-3">
-                                    <span class="work-badge">Animals</span>
-                                </div>
-                                <h4 class="text-lg md:text-xl font-semibold mb-2"
-                                    style="font-family: 'Playfair Display', serif;">
-                                    [Worksheet Title]
-                                </h4>
-                                <p class="text-sm text-gray-600">
-                                    [Short description here.]
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Work Card 5 - Placeholder -->
-                        <div class="work-card rounded-lg stagger-item" data-category="plants colors"
-                            data-work="plants-worksheet">
-                            <div class="work-image-wrapper">
-                                <div class="w-full h-full flex items-center justify-center"
-                                    style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
-                                    <p class="text-lg text-center px-8"
-                                        style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
-                                        Worksheet Preview
-                                    </p>
-                                </div>
-                                <div class="work-overlay">
-                                    <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
-                                        View Details
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <div class="mb-3">
-                                    <span class="work-badge">Plants</span>
-                                    <span class="work-badge ml-2">Colors</span>
-                                </div>
-                                <h4 class="text-lg md:text-xl font-semibold mb-2"
-                                    style="font-family: 'Playfair Display', serif;">
-                                    [Worksheet Title]
-                                </h4>
-                                <p class="text-sm text-gray-600">
-                                    [Short description here.]
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Work Card 6 - Placeholder -->
-                        <div class="work-card rounded-lg stagger-item" data-category="tracing writing"
-                            data-work="writing-worksheet">
-                            <div class="work-image-wrapper">
-                                <div class="w-full h-full flex items-center justify-center"
-                                    style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
-                                    <p class="text-lg text-center px-8"
-                                        style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
-                                        Worksheet Preview
-                                    </p>
-                                </div>
-                                <div class="work-overlay">
-                                    <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
-                                        View Details
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <div class="mb-3">
-                                    <span class="work-badge">Tracing</span>
-                                    <span class="work-badge ml-2">Writing Practice</span>
-                                </div>
-                                <h4 class="text-lg md:text-xl font-semibold mb-2"
-                                    style="font-family: 'Playfair Display', serif;">
-                                    [Worksheet Title]
-                                </h4>
-                                <p class="text-sm text-gray-600">
-                                    [Short description here.]
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Section Divider -->
-        <div class="py-12 md:py-16">
-            <div class="section-divider"></div>
-        </div>
-
-        <!-- ==================== CONTACT SECTION ==================== -->
-        <section id="contact" class="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20"
-            style="background-color: var(--secondary-rose);">
-            <div class="max-w-7xl mx-auto">
-
-                <!-- Section Header -->
-                <div class="text-center mb-12 md:mb-16 scroll-fade-up">
-                    <p class="text-xs md:text-sm tracking-widest uppercase text-gray-500 mb-4">CONTACT</p>
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6"
-                        style="font-family: 'Playfair Display', serif;">
-                        Let's Connect
-                    </h2>
-                    <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
-                        [Write a short message inviting visitors to get in touch.]
-                    </p>
-                </div>
-
-                <!-- Two Column Layout -->
-                <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
-
-                    <!-- Left: Contact Information -->
-                    <div class="scroll-fade-left">
-                        <h3 class="text-2xl md:text-3xl font-semibold mb-8"
+                    <!-- Skill Card 8 -->
+                    <div class="skill-card p-6 md:p-8 rounded-lg stagger-item">
+                        <div class="skill-icon">💡</div>
+                        <h4 class="text-lg md:text-xl font-semibold mb-2"
                             style="font-family: 'Playfair Display', serif;">
-                            Get In Touch
-                        </h3>
-
-                        <!-- Contact Items -->
-                        <div class="space-y-4 mb-10">
-
-                            <div class="contact-item">
-                                <div class="contact-icon">📧</div>
-                                <div>
-                                    <p class="text-xs text-gray-500 mb-1">Email</p>
-                                    <p class="text-sm md:text-base font-medium">[Your Email]</p>
-                                </div>
-                            </div>
-
-                            <div class="contact-item">
-                                <div class="contact-icon">📱</div>
-                                <div>
-                                    <p class="text-xs text-gray-500 mb-1">Phone</p>
-                                    <p class="text-sm md:text-base font-medium">[Your Phone Number]</p>
-                                </div>
-                            </div>
-
-                            <div class="contact-item">
-                                <div class="contact-icon">📍</div>
-                                <div>
-                                    <p class="text-xs text-gray-500 mb-1">Address</p>
-                                    <p class="text-sm md:text-base font-medium">[Your Address]</p>
-                                </div>
-                            </div>
-
-                            <div class="contact-item">
-                                <div class="contact-icon">👤</div>
-                                <div>
-                                    <p class="text-xs text-gray-500 mb-1">Facebook</p>
-                                    <p class="text-sm md:text-base font-medium">[Facebook Profile]</p>
-                                </div>
-                            </div>
-
-                            <div class="contact-item">
-                                <div class="contact-icon">💼</div>
-                                <div>
-                                    <p class="text-xs text-gray-500 mb-1">LinkedIn</p>
-                                    <p class="text-sm md:text-base font-medium">[LinkedIn Profile]</p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="#"
-                                class="btn-primary px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium text-center">
-                                Download CV
-                            </a>
-                            <a href="mailto:"
-                                class="btn-secondary px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium text-center">
-                                Send Email
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Right: Contact Form -->
-                    <div class="scroll-fade-right">
-                        <form class="contact-form" id="contactForm">
-
-                            <div class="form-group">
-                                <label for="fullName" class="form-label">Full Name</label>
-                                <input type="text" id="fullName" name="fullName" class="form-input"
-                                    placeholder="Enter your full name" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email" class="form-label">Email Address</label>
-                                <input type="email" id="email" name="email" class="form-input"
-                                    placeholder="Enter your email address" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="subject" class="form-label">Subject</label>
-                                <input type="text" id="subject" name="subject" class="form-input"
-                                    placeholder="Enter the subject" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea id="message" name="message" class="form-textarea"
-                                    placeholder="Enter your message" required></textarea>
-                            </div>
-
-                            <button type="submit"
-                                class="btn-primary form-submit px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium">
-                                Send Message
-                            </button>
-
-                        </form>
+                            Creativity
+                        </h4>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            [Brief description here.]
+                        </p>
                     </div>
 
                 </div>
             </div>
-        </section>
 
-        <!-- ==================== FOOTER ==================== -->
-        <footer class="py-12 md:py-16 px-6 md:px-12 lg:px-20">
-            <div class="max-w-7xl mx-auto">
-
-                <!-- Footer Content -->
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl md:text-3xl font-semibold mb-2" style="font-family: 'Playfair Display', serif;">
-                        Maria Delly
+            <!-- ========== FEATURED WORKS SECTION ========== -->
+            <div>
+                <div class="text-center mb-10 md:mb-14 scroll-fade-up">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-4" style="font-family: 'Playfair Display', serif;">
+                        Featured Teaching Materials
                     </h3>
-                    <p class="text-base md:text-lg font-light mb-1">Bachelor of Education</p>
-                    <p class="text-sm md:text-base text-gray-600 mb-6">Major in Filipino</p>
-                    <p class="text-sm md:text-base text-gray-600 max-w-xl mx-auto leading-relaxed">
-                        [Write a short closing message here.]
+                    <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto mb-8">
+                        [A short description of your instructional materials.]
                     </p>
                 </div>
 
-                <!-- Social Icons -->
-                <div class="flex justify-center items-center gap-4 mb-8">
-                    <a href="#" class="social-icon" aria-label="Facebook">
-                        <span>📘</span>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="Instagram">
-                        <span>📷</span>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="LinkedIn">
-                        <span>💼</span>
-                    </a>
-                    <a href="mailto:" class="social-icon" aria-label="Email">
-                        <span>✉️</span>
-                    </a>
+                
+
+                <!-- Works Gallery -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="worksGallery">
+
+                    <!-- Work Card 1 - Actual Worksheet -->
+                    <div class="work-card rounded-lg stagger-item" data-category="tracing alphabet"
+                        data-work="alphabet-tracing">
+                        <div class="work-image-wrapper">
+                            <img src="works/{765F517C-D519-4E12-8F7C-A70CB949C15F}.png" alt="Alphabet Tracing Worksheet"
+                                class="work-image">
+                            <div class="work-overlay">
+                                <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="work-badge">Tracing Worksheet</span>
+                                <span class="work-badge ml-2">Alphabet</span>
+                            </div>
+                            <h4 class="text-lg md:text-xl font-semibold mb-2"
+                                style="font-family: 'Playfair Display', serif;">
+                                Alphabet Tracing Worksheet
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                A comprehensive tracing worksheet designed to help young learners master letter
+                                formation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Work Card 2 - Placeholder -->
+                    <div class="work-card rounded-lg stagger-item" data-category="numbers"
+                        data-work="numbers-worksheet">
+                        <div class="work-image-wrapper">
+                            <div class="w-full h-full flex items-center justify-center"
+                                style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
+                                <p class="text-lg text-center px-8"
+                                    style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
+                                    Worksheet Preview
+                                </p>
+                            </div>
+                            <div class="work-overlay">
+                                <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="work-badge">Numbers</span>
+                            </div>
+                            <h4 class="text-lg md:text-xl font-semibold mb-2"
+                                style="font-family: 'Playfair Display', serif;">
+                                [Worksheet Title]
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                [Short description here.]
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Work Card 3 - Placeholder -->
+                    <div class="work-card rounded-lg stagger-item" data-category="shapes writing"
+                        data-work="shapes-worksheet">
+                        <div class="work-image-wrapper">
+                            <div class="w-full h-full flex items-center justify-center"
+                                style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
+                                <p class="text-lg text-center px-8"
+                                    style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
+                                    Worksheet Preview
+                                </p>
+                            </div>
+                            <div class="work-overlay">
+                                <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="work-badge">Shapes</span>
+                                <span class="work-badge ml-2">Writing Practice</span>
+                            </div>
+                            <h4 class="text-lg md:text-xl font-semibold mb-2"
+                                style="font-family: 'Playfair Display', serif;">
+                                [Worksheet Title]
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                [Short description here.]
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Work Card 4 - Placeholder -->
+                    <div class="work-card rounded-lg stagger-item" data-category="animals"
+                        data-work="animals-worksheet">
+                        <div class="work-image-wrapper">
+                            <div class="w-full h-full flex items-center justify-center"
+                                style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
+                                <p class="text-lg text-center px-8"
+                                    style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
+                                    Worksheet Preview
+                                </p>
+                            </div>
+                            <div class="work-overlay">
+                                <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="work-badge">Animals</span>
+                            </div>
+                            <h4 class="text-lg md:text-xl font-semibold mb-2"
+                                style="font-family: 'Playfair Display', serif;">
+                                [Worksheet Title]
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                [Short description here.]
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Work Card 5 - Placeholder -->
+                    <div class="work-card rounded-lg stagger-item" data-category="plants colors"
+                        data-work="plants-worksheet">
+                        <div class="work-image-wrapper">
+                            <div class="w-full h-full flex items-center justify-center"
+                                style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
+                                <p class="text-lg text-center px-8"
+                                    style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
+                                    Worksheet Preview
+                                </p>
+                            </div>
+                            <div class="work-overlay">
+                                <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="work-badge">Plants</span>
+                                <span class="work-badge ml-2">Colors</span>
+                            </div>
+                            <h4 class="text-lg md:text-xl font-semibold mb-2"
+                                style="font-family: 'Playfair Display', serif;">
+                                [Worksheet Title]
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                [Short description here.]
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Work Card 6 - Placeholder -->
+                    <div class="work-card rounded-lg stagger-item" data-category="tracing writing"
+                        data-work="writing-worksheet">
+                        <div class="work-image-wrapper">
+                            <div class="w-full h-full flex items-center justify-center"
+                                style="background: linear-gradient(135deg, var(--accent-blush) 0%, var(--secondary-rose) 100%);">
+                                <p class="text-lg text-center px-8"
+                                    style="font-family: 'Playfair Display', serif; color: var(--text-dark); opacity: 0.6;">
+                                    Worksheet Preview
+                                </p>
+                            </div>
+                            <div class="work-overlay">
+                                <button class="btn-primary px-6 py-2 rounded-full text-sm font-medium">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="work-badge">Tracing</span>
+                                <span class="work-badge ml-2">Writing Practice</span>
+                            </div>
+                            <h4 class="text-lg md:text-xl font-semibold mb-2"
+                                style="font-family: 'Playfair Display', serif;">
+                                [Worksheet Title]
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                [Short description here.]
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="py-12 md:py-16">
+        <div class="section-divider"></div>
+    </div>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20"
+        style="background-color: var(--secondary-rose);">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Section Header -->
+            <div class="text-center mb-12 md:mb-16 scroll-fade-up">
+                <p class="text-xs md:text-sm tracking-widest uppercase text-gray-500 mb-4">CONTACT</p>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6"
+                    style="font-family: 'Playfair Display', serif;">
+                    Let's Connect
+                </h2>
+                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+                    [Write a short message inviting visitors to get in touch.]
+                </p>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
+
+                <!-- Left: Contact Information -->
+                <div class="scroll-fade-left">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-8" style="font-family: 'Playfair Display', serif;">
+                        Get In Touch
+                    </h3>
+
+                    <!-- Contact Items -->
+                    <div class="space-y-4 mb-10">
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">Email</p>
+                                <p class="text-sm md:text-base font-medium">[Your Email]</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">Phone</p>
+                                <p class="text-sm md:text-base font-medium">[Your Phone Number]</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">Address</p>
+                                <p class="text-sm md:text-base font-medium">[Your Address]</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">👤</div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">Facebook</p>
+                                <p class="text-sm md:text-base font-medium">[Facebook Profile]</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <div>
+                                <p class="text-xs text-gray-500 mb-1">LinkedIn</p>
+                                <p class="text-sm md:text-base font-medium">[LinkedIn Profile]</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#"
+                            class="btn-primary px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium text-center">
+                            Download CV
+                        </a>
+                        <a href="mailto:"
+                            class="btn-secondary px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium text-center">
+                            Send Email
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Divider -->
-                <div class="border-t border-gray-200 pt-8">
-                    <p class="text-center text-sm text-gray-500">
-                        © 2026 Maria Delly. All Rights Reserved.
-                    </p>
+                <!-- Right: Contact Form -->
+                <div class="scroll-fade-right">
+                    <form class="contact-form" id="contactForm">
+
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" class="form-input"
+                                placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input"
+                                placeholder="Enter your email address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-input"
+                                placeholder="Enter the subject" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Enter your message"
+                                required></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="btn-primary form-submit px-8 py-3 md:py-4 rounded-full text-sm md:text-base font-medium">
+                            Send Message
+                        </button>
+
+                    </form>
                 </div>
 
             </div>
-        </footer>
+        </div>
+    </section>
 
-        <!-- ==================== BACK TO TOP BUTTON ==================== -->
-        <button class="back-to-top" id="backToTop" aria-label="Back to top">
-            ↑
-        </button>
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="py-12 md:py-16 px-6 md:px-12 lg:px-20">
+        <div class="max-w-7xl mx-auto">
 
-    </div> <!-- End Main Content Wrapper -->
+            <!-- Footer Content -->
+            <div class="text-center mb-8">
+                <h3 class="text-2xl md:text-3xl font-semibold mb-2" style="font-family: 'Playfair Display', serif;">
+                    Maria Delly
+                </h3>
+                <p class="text-base md:text-lg font-light mb-1">Bachelor of Education</p>
+                <p class="text-sm md:text-base text-gray-600 mb-6">Major in Filipino</p>
+                <p class="text-sm md:text-base text-gray-600 max-w-xl mx-auto leading-relaxed">
+                    [Write a short closing message here.]
+                </p>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="flex justify-center items-center gap-4 mb-8">
+                <a href="#" class="social-icon" aria-label="Facebook">
+                    <span>📘</span>
+                </a>
+                <a href="#" class="social-icon" aria-label="Instagram">
+                    <span>📷</span>
+                </a>
+                <a href="#" class="social-icon" aria-label="LinkedIn">
+                    <span>💼</span>
+                </a>
+                <a href="mailto:" class="social-icon" aria-label="Email">
+                    <span>✉️</span>
+                </a>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-200 pt-8">
+                <p class="text-center text-sm text-gray-500">
+                    © 2026 Maria Delly. All Rights Reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ==================== BACK TO TOP BUTTON ==================== -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        ↑
+    </button>
 
     <!-- ==================== WORK MODAL ==================== -->
     <div class="modal" id="workModal">
@@ -2593,60 +2262,6 @@
             // Reset form
             contactForm.reset();
         });
-
-        // ==================== WELCOME POPUP ====================
-        const welcomeOverlay = document.getElementById('welcomeOverlay');
-        const enterPortfolioBtn = document.getElementById('enterPortfolio');
-        const mainContent = document.getElementById('mainContent');
-
-        // Check if user has already seen the welcome popup
-        const hasSeenWelcome = localStorage.getItem('hasSeenWelcome');
-
-        function showWelcome() {
-            // Add blur to main content only
-            mainContent.classList.add('blurred');
-
-            // Show welcome popup
-            setTimeout(() => {
-                welcomeOverlay.classList.add('active');
-
-                // Focus on enter button for accessibility
-                setTimeout(() => {
-                    enterPortfolioBtn.focus();
-                }, 800);
-            }, 300);
-        }
-
-        function hideWelcome() {
-            // Hide popup
-            welcomeOverlay.classList.remove('active');
-
-            // Remove blur from main content
-            setTimeout(() => {
-                mainContent.classList.remove('blurred');
-                // Store in localStorage that user has seen welcome
-                localStorage.setItem('hasSeenWelcome', 'true');
-            }, 800);
-        }
-
-        // Show welcome popup only if user hasn't seen it before
-        if (!hasSeenWelcome) {
-            // Small delay to let page load
-            setTimeout(showWelcome, 500);
-        }
-
-        // Enter Portfolio button click
-        enterPortfolioBtn.addEventListener('click', hideWelcome);
-
-        // Close with Escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && welcomeOverlay.classList.contains('active')) {
-                hideWelcome();
-            }
-        });
-
-        // Prevent closing by clicking outside (intentional UX decision)
-        // Users should use the Enter Portfolio button
     </script>
 
 </body>
