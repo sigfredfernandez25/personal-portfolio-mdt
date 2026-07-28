@@ -1,0 +1,137 @@
+{
+  "personal": {
+    "name": "Maria Delly Tango-an",
+    "degree": "Bachelor of Education",
+    "major": "Major in Filipino",
+    "email": "[Your Email]",
+    "phone": "[Your Phone Number]",
+    "address": "[Your Address]",
+    "facebook": "[Facebook Profile]",
+    "linkedin": "[LinkedIn Profile]",
+    "nationality": "[Your Nationality]",
+    "age": "[Your Age]",
+    "introduction": "A passionate educator dedicated to inspiring young minds through the beauty of the Filipino language and culture. Committed to creating meaningful learning experiences that foster growth and understanding.",
+    "teachingPhilosophy": "[Write your teaching philosophy here.]",
+    "closingMessage": "[Write a short closing message here.]"
+  },
+  "education": [
+    {
+      "id": "college",
+      "level": "College",
+      "institution": "[Institution Name]",
+      "years": "20XX - 20XX",
+      "description": "[Short description here.]"
+    },
+    {
+      "id": "senior-high",
+      "level": "Senior High School", 
+      "institution": "[Institution Name]",
+      "years": "20XX - 20XX",
+      "description": "[Short description here.]"
+    },
+    {
+      "id": "high-school",
+      "level": "High School",
+      "institution": "[Institution Name]",
+      "years": "20XX - 20XX", 
+      "description": "[Short description here.]"
+    },
+    {
+      "id": "elementary",
+      "level": "Elementary",
+      "institution": "[Institution Name]",
+      "years": "20XX - 20XX",
+      "description": "[Short description here.]"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Classroom Management",
+      "description": "[Brief description here.]"
+    },
+    {
+      "name": "Lesson Planning", 
+      "description": "[Brief description here.]"
+    },
+    {
+      "name": "Instructional Material Design",
+      "description": "[Brief description here.]"
+    },
+    {
+      "name": "Canva",
+      "description": "[Brief description here.]"
+    },
+    {
+      "name": "Microsoft Office",
+      "description": "[Brief description here.]"
+    },
+    {
+      "name": "Google Workspace",
+      "description": "[Brief description here.]"
+    },
+    {
+      "name": "Public Speaking",
+      "description": "[Brief description here.]"
+    },
+    {
+      "name": "Creativity",
+      "description": "[Brief description here.]"
+    }
+  ],
+  "works": [
+    {
+      "id": "alphabet-tracing",
+      "title": "Alphabet Tracing Worksheet",
+      "description": "A comprehensive tracing worksheet designed to help young learners master letter formation.",
+      "categories": ["Tracing Worksheet", "Alphabet"],
+      "image": "works/{765F517C-D519-4E12-8F7C-A70CB949C15F}.png",
+      "pdf": "works/Alphabet Tracing Worksheet.pdf"
+    },
+    {
+      "id": "numbers-worksheet",
+      "title": "[Worksheet Title]",
+      "description": "[Short description here.]",
+      "categories": ["Numbers"],
+      "image": null,
+      "pdf": null
+    },
+    {
+      "id": "shapes-worksheet", 
+      "title": "[Worksheet Title]",
+      "description": "[Short description here.]",
+      "categories": ["Shapes", "Writing Practice"],
+      "image": null,
+      "pdf": null
+    },
+    {
+      "id": "animals-worksheet",
+      "title": "[Worksheet Title]",
+      "description": "[Short description here.]", 
+      "categories": ["Animals"],
+      "image": null,
+      "pdf": null
+    },
+    {
+      "id": "plants-worksheet",
+      "title": "[Worksheet Title]",
+      "description": "[Short description here.]",
+      "categories": ["Plants", "Colors"],
+      "image": null,
+      "pdf": null
+    },
+    {
+      "id": "writing-worksheet",
+      "title": "[Worksheet Title]",
+      "description": "[Short description here.]",
+      "categories": ["Tracing", "Writing Practice"],
+      "image": null,
+      "pdf": null
+    }
+  ],
+  "contact": {
+    "sectionDescription": "[Write a short message inviting visitors to get in touch.]",
+    "aboutDescription": "[Write a brief description about your educational journey.]",
+    "skillsDescription": "[Brief introduction about your skills and teaching materials.]",
+    "worksDescription": "[A short description of your instructional materials.]"
+  }
+}

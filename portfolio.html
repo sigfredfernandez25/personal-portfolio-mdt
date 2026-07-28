@@ -1129,10 +1129,154 @@
                 font-size: 20px;
             }
         }
+
+        /* ==================== EDITING FUNCTIONALITY ==================== */
+        
+        /* Edit Mode Toggle */
+        .edit-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background: var(--text-dark);
+            color: var(--primary-white);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(51, 51, 51, 0.2);
+        }
+
+        .edit-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(51, 51, 51, 0.3);
+        }
+
+        .edit-toggle.active {
+            background: #e74c3c;
+        }
+
+        /* Editable Placeholders Only */
+        .editable-field {
+            position: relative;
+            transition: all 0.3s ease;
+            min-height: 1.5em;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .edit-mode .editable-field {
+            outline: 2px dashed var(--accent-blush);
+            outline-offset: 2px;
+            cursor: pointer;
+            background: rgba(248, 241, 241, 0.1);
+        }
+
+        .edit-mode .editable-field:hover {
+            outline-color: var(--text-dark);
+            background: rgba(248, 241, 241, 0.2);
+        }
+
+        .editable-field.editing {
+            outline: 2px solid #3498db !important;
+            outline-offset: 2px;
+        }
+
+        /* Inline Editing */
+        .inline-edit {
+            background: var(--primary-white);
+            border: 2px solid #3498db;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            color: inherit;
+            width: 100%;
+            resize: vertical;
+            outline: none;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);
+        }
+
+        .inline-edit:focus {
+            border-color: #2980b9;
+            box-shadow: 0 4px 16px rgba(52, 152, 219, 0.2);
+        }
+
+        /* Save Indicator */
+        .save-indicator {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 100;
+            background: #27ae60;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .save-indicator.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Edit Instructions */
+        .edit-instructions {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(51, 51, 51, 0.9);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 13px;
+            text-align: center;
+            opacity: 0;
+            transform: translate(-50%, 20px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            max-width: 90%;
+        }
+
+        .edit-mode .edit-instructions {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        @media (max-width: 768px) {
+            .edit-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+            
+            .save-indicator {
+                top: 60px;
+                right: 10px;
+                font-size: 11px;
+            }
+        }
     </style>
 </head>
 
 <body>
+
+    <!-- ==================== EDITING CONTROLS ==================== -->
+    <button class="edit-toggle" id="editToggle">✏️ Edit</button>
+    <div class="save-indicator" id="saveIndicator">Saved!</div>
+    <div class="edit-instructions">
+        Click on any bracketed placeholder [like this] to edit. Changes save automatically.
+    </div>
 
     <!-- ==================== NAVIGATION BAR ==================== -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 px-6 md:px-12 lg:px-20 py-5">
@@ -1307,27 +1451,27 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="info-card p-4 rounded-lg">
                             <p class="text-xs text-gray-500 mb-1">Full Name</p>
-                            <p class="text-sm md:text-base font-medium">[Your Full Name]</p>
+                            <p class="text-sm md:text-base font-medium editable-field" data-field="fullName">[Your Full Name]</p>
                         </div>
                         <div class="info-card p-4 rounded-lg">
                             <p class="text-xs text-gray-500 mb-1">Age</p>
-                            <p class="text-sm md:text-base font-medium">[Your Age]</p>
+                            <p class="text-sm md:text-base font-medium editable-field" data-field="age">[Your Age]</p>
                         </div>
                         <div class="info-card p-4 rounded-lg">
                             <p class="text-xs text-gray-500 mb-1">Address</p>
-                            <p class="text-sm md:text-base font-medium">[Your Address]</p>
+                            <p class="text-sm md:text-base font-medium editable-field" data-field="address">[Your Address]</p>
                         </div>
                         <div class="info-card p-4 rounded-lg">
                             <p class="text-xs text-gray-500 mb-1">Email</p>
-                            <p class="text-sm md:text-base font-medium">[Your Email]</p>
+                            <p class="text-sm md:text-base font-medium editable-field" data-field="email">[Your Email]</p>
                         </div>
                         <div class="info-card p-4 rounded-lg">
                             <p class="text-xs text-gray-500 mb-1">Contact Number</p>
-                            <p class="text-sm md:text-base font-medium">[Your Contact Number]</p>
+                            <p class="text-sm md:text-base font-medium editable-field" data-field="phone">[Your Contact Number]</p>
                         </div>
                         <div class="info-card p-4 rounded-lg">
                             <p class="text-xs text-gray-500 mb-1">Nationality</p>
-                            <p class="text-sm md:text-base font-medium">[Your Nationality]</p>
+                            <p class="text-sm md:text-base font-medium editable-field" data-field="nationality">[Your Nationality]</p>
                         </div>
                     </div>
 
@@ -1337,7 +1481,7 @@
                             style="font-family: 'Playfair Display', serif;">
                             Teaching Philosophy
                         </h3>
-                        <p class="text-sm md:text-base leading-relaxed text-gray-700">
+                        <p class="text-sm md:text-base leading-relaxed text-gray-700 editable-field" data-field="teachingPhilosophy">
                             [Write your teaching philosophy here.]
                         </p>
                     </div>
@@ -1364,7 +1508,7 @@
                     style="font-family: 'Playfair Display', serif;">
                     Educational Background
                 </h2>
-                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto editable-field" data-field="educationDescription">
                     [Write a brief description about your educational journey.]
                 </p>
             </div>
@@ -1391,10 +1535,10 @@
                                     style="font-family: 'Playfair Display', serif;">
                                     College
                                 </h3>
-                                <p class="text-base md:text-lg text-gray-600 mb-3">
+                                <p class="text-base md:text-lg text-gray-600 mb-3 editable-field" data-field="collegeInstitution">
                                     [Institution Name]
                                 </p>
-                                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                                <p class="text-sm md:text-base text-gray-700 leading-relaxed editable-field" data-field="collegeDescription">
                                     [Short description here.]
                                 </p>
                             </div>
@@ -1414,10 +1558,10 @@
                                     style="font-family: 'Playfair Display', serif;">
                                     Senior High School
                                 </h3>
-                                <p class="text-base md:text-lg text-gray-600 mb-3">
+                                <p class="text-base md:text-lg text-gray-600 mb-3 editable-field" data-field="seniorHighInstitution">
                                     [Institution Name]
                                 </p>
-                                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                                <p class="text-sm md:text-base text-gray-700 leading-relaxed editable-field" data-field="seniorHighDescription">
                                     [Short description here.]
                                 </p>
                             </div>
@@ -1439,10 +1583,10 @@
                                     style="font-family: 'Playfair Display', serif;">
                                     High School
                                 </h3>
-                                <p class="text-base md:text-lg text-gray-600 mb-3">
+                                <p class="text-base md:text-lg text-gray-600 mb-3 editable-field" data-field="highSchoolInstitution">
                                     [Institution Name]
                                 </p>
-                                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                                <p class="text-sm md:text-base text-gray-700 leading-relaxed editable-field" data-field="highSchoolDescription">
                                     [Short description here.]
                                 </p>
                             </div>
@@ -1462,10 +1606,10 @@
                                     style="font-family: 'Playfair Display', serif;">
                                     Elementary
                                 </h3>
-                                <p class="text-base md:text-lg text-gray-600 mb-3">
+                                <p class="text-base md:text-lg text-gray-600 mb-3 editable-field" data-field="elementaryInstitution">
                                     [Institution Name]
                                 </p>
-                                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                                <p class="text-sm md:text-base text-gray-700 leading-relaxed editable-field" data-field="elementaryDescription">
                                     [Short description here.]
                                 </p>
                             </div>
@@ -1501,7 +1645,7 @@
                     style="font-family: 'Playfair Display', serif;">
                     Skills & Creative Works
                 </h2>
-                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto editable-field" data-field="skillsIntroDescription">
                     [Brief introduction about your skills and teaching materials.]
                 </p>
             </div>
@@ -1523,7 +1667,7 @@
                             style="font-family: 'Playfair Display', serif;">
                             Classroom Management
                         </h4>
-                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed editable-field" data-field="classroomManagementDesc">
                             [Brief description here.]
                         </p>
                     </div>
@@ -1535,7 +1679,7 @@
                             style="font-family: 'Playfair Display', serif;">
                             Lesson Planning
                         </h4>
-                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed editable-field" data-field="lessonPlanningDesc">
                             [Brief description here.]
                         </p>
                     </div>
@@ -1547,7 +1691,7 @@
                             style="font-family: 'Playfair Display', serif;">
                             Instructional Material Design
                         </h4>
-                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed editable-field" data-field="materialDesignDesc">
                             [Brief description here.]
                         </p>
                     </div>
@@ -1559,7 +1703,7 @@
                             style="font-family: 'Playfair Display', serif;">
                             Canva
                         </h4>
-                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed editable-field" data-field="canvaDesc">
                             [Brief description here.]
                         </p>
                     </div>
@@ -1571,7 +1715,7 @@
                             style="font-family: 'Playfair Display', serif;">
                             Microsoft Office
                         </h4>
-                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed editable-field" data-field="microsoftOfficeDesc">
                             [Brief description here.]
                         </p>
                     </div>
@@ -1585,7 +1729,7 @@
                             style="font-family: 'Playfair Display', serif;">
                             Creativity
                         </h4>
-                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed editable-field" data-field="creativityDesc">
                             [Brief description here.]
                         </p>
                     </div>
@@ -1599,7 +1743,7 @@
                     <h3 class="text-2xl md:text-3xl font-semibold mb-4" style="font-family: 'Playfair Display', serif;">
                         Featured Teaching Materials
                     </h3>
-                    <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto mb-8">
+                    <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto mb-8 editable-field" data-field="worksDescription">
                         [A short description of your instructional materials.]
                     </p>
                 </div>
@@ -1818,7 +1962,7 @@
                     style="font-family: 'Playfair Display', serif;">
                     Let's Connect
                 </h2>
-                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto editable-field" data-field="contactDescription">
                     [Write a short message inviting visitors to get in touch.]
                 </p>
             </div>
@@ -1839,7 +1983,7 @@
                             <div class="contact-icon">📧</div>
                             <div>
                                 <p class="text-xs text-gray-500 mb-1">Email</p>
-                                <p class="text-sm md:text-base font-medium">[Your Email]</p>
+                                <p class="text-sm md:text-base font-medium editable-field" data-field="contactEmail">[Your Email]</p>
                             </div>
                         </div>
 
@@ -1847,7 +1991,7 @@
                             <div class="contact-icon">📱</div>
                             <div>
                                 <p class="text-xs text-gray-500 mb-1">Phone</p>
-                                <p class="text-sm md:text-base font-medium">[Your Phone Number]</p>
+                                <p class="text-sm md:text-base font-medium editable-field" data-field="contactPhone">[Your Phone Number]</p>
                             </div>
                         </div>
 
@@ -1855,7 +1999,7 @@
                             <div class="contact-icon">📍</div>
                             <div>
                                 <p class="text-xs text-gray-500 mb-1">Address</p>
-                                <p class="text-sm md:text-base font-medium">[Your Address]</p>
+                                <p class="text-sm md:text-base font-medium editable-field" data-field="contactAddress">[Your Address]</p>
                             </div>
                         </div>
 
@@ -1863,7 +2007,7 @@
                             <div class="contact-icon">👤</div>
                             <div>
                                 <p class="text-xs text-gray-500 mb-1">Facebook</p>
-                                <p class="text-sm md:text-base font-medium">[Facebook Profile]</p>
+                                <p class="text-sm md:text-base font-medium editable-field" data-field="facebook">[Facebook Profile]</p>
                             </div>
                         </div>
 
@@ -1871,7 +2015,7 @@
                             <div class="contact-icon">💼</div>
                             <div>
                                 <p class="text-xs text-gray-500 mb-1">LinkedIn</p>
-                                <p class="text-sm md:text-base font-medium">[LinkedIn Profile]</p>
+                                <p class="text-sm md:text-base font-medium editable-field" data-field="linkedin">[LinkedIn Profile]</p>
                             </div>
                         </div>
 
@@ -1941,7 +2085,7 @@
                 </h3>
                 <p class="text-base md:text-lg font-light mb-1">Bachelor of Education</p>
                 <p class="text-sm md:text-base text-gray-600 mb-6">Major in Filipino</p>
-                <p class="text-sm md:text-base text-gray-600 max-w-xl mx-auto leading-relaxed">
+                <p class="text-sm md:text-base text-gray-600 max-w-xl mx-auto leading-relaxed editable-field" data-field="closingMessage">
                     [Write a short closing message here.]
                 </p>
             </div>
@@ -2261,6 +2405,161 @@
 
             // Reset form
             contactForm.reset();
+        });
+
+        // ==================== EDITING FUNCTIONALITY ====================
+        const editToggle = document.getElementById('editToggle');
+        const saveIndicator = document.getElementById('saveIndicator');
+        let isEditMode = false;
+        let editableFields = [];
+
+        // Initialize editing system
+        function initEditingSystem() {
+            editableFields = document.querySelectorAll('.editable-field');
+            loadSavedData();
+            
+            // Edit toggle click
+            editToggle.addEventListener('click', toggleEditMode);
+            
+            // Add click listeners to editable fields
+            editableFields.forEach(field => {
+                field.addEventListener('click', () => {
+                    if (isEditMode) {
+                        startEditing(field);
+                    }
+                });
+            });
+        }
+
+        // Toggle edit mode
+        function toggleEditMode() {
+            isEditMode = !isEditMode;
+            document.body.classList.toggle('edit-mode', isEditMode);
+            
+            if (isEditMode) {
+                editToggle.textContent = '❌ Exit Edit';
+                editToggle.classList.add('active');
+            } else {
+                editToggle.textContent = '✏️ Edit';
+                editToggle.classList.remove('active');
+                // Stop any current editing
+                stopAllEditing();
+            }
+        }
+
+        // Start editing a field
+        function startEditing(field) {
+            if (field.classList.contains('editing')) return;
+            
+            // Stop other editing fields
+            stopAllEditing();
+            
+            field.classList.add('editing');
+            
+            const currentText = field.textContent.trim();
+            const isTextarea = currentText.length > 50;
+            
+            // Create input element
+            const input = document.createElement(isTextarea ? 'textarea' : 'input');
+            input.className = 'inline-edit';
+            input.value = currentText;
+            
+            if (isTextarea) {
+                input.rows = Math.max(3, Math.ceil(currentText.length / 50));
+            }
+            
+            // Replace field with input
+            field.innerHTML = '';
+            field.appendChild(input);
+            input.focus();
+            input.select();
+            
+            // Save on blur or Enter
+            const saveEdit = () => {
+                const newValue = input.value.trim() || currentText;
+                field.textContent = newValue;
+                field.classList.remove('editing');
+                
+                // Save to localStorage
+                saveFieldData(field.getAttribute('data-field'), newValue);
+                showSaveIndicator();
+            };
+            
+            input.addEventListener('blur', saveEdit);
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    input.blur();
+                }
+                if (e.key === 'Escape') {
+                    field.textContent = currentText;
+                    field.classList.remove('editing');
+                }
+            });
+        }
+
+        // Stop all editing
+        function stopAllEditing() {
+            editableFields.forEach(field => {
+                if (field.classList.contains('editing')) {
+                    const input = field.querySelector('.inline-edit');
+                    if (input) {
+                        input.blur();
+                    }
+                }
+            });
+        }
+
+        // Save field data to localStorage
+        function saveFieldData(fieldName, value) {
+            let portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '{}');
+            portfolioData[fieldName] = value;
+            localStorage.setItem('portfolioData', JSON.stringify(portfolioData));
+        }
+
+        // Load saved data from localStorage
+        function loadSavedData() {
+            const portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '{}');
+            
+            editableFields.forEach(field => {
+                const fieldName = field.getAttribute('data-field');
+                if (portfolioData[fieldName]) {
+                    field.textContent = portfolioData[fieldName];
+                }
+            });
+        }
+
+        // Show save indicator
+        function showSaveIndicator() {
+            saveIndicator.classList.add('show');
+            setTimeout(() => {
+                saveIndicator.classList.remove('show');
+            }, 2000);
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initEditingSystem);
+
+        // Export data functionality (optional)
+        function exportPortfolioData() {
+            const portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '{}');
+            const dataStr = JSON.stringify(portfolioData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'portfolio-data.json';
+            link.click();
+            
+            URL.revokeObjectURL(url);
+        }
+
+        // Add export functionality to edit button (double-click)
+        editToggle.addEventListener('dblclick', () => {
+            if (confirm('Export your portfolio data as JSON file?')) {
+                exportPortfolioData();
+            }
         });
     </script>
 
