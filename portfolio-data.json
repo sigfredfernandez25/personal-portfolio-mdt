@@ -3,13 +3,13 @@
     "name": "Maria Delly Tango-an",
     "degree": "Bachelor of Education",
     "major": "Major in Filipino",
-    "email": "[Your Email]",
+    "email": "gmail",
     "phone": "[Your Phone Number]",
     "address": "[Your Address]",
     "facebook": "[Facebook Profile]",
     "linkedin": "[LinkedIn Profile]",
     "nationality": "[Your Nationality]",
-    "age": "[Your Age]",
+    "age": "22",
     "introduction": "A passionate educator dedicated to inspiring young minds through the beauty of the Filipino language and culture. Committed to creating meaningful learning experiences that foster growth and understanding.",
     "teachingPhilosophy": "[Write your teaching philosophy here.]",
     "closingMessage": "[Write a short closing message here.]"
@@ -24,7 +24,7 @@
     },
     {
       "id": "senior-high",
-      "level": "Senior High School", 
+      "level": "Senior High School",
       "institution": "[Institution Name]",
       "years": "20XX - 20XX",
       "description": "[Short description here.]"
@@ -33,7 +33,7 @@
       "id": "high-school",
       "level": "High School",
       "institution": "[Institution Name]",
-      "years": "20XX - 20XX", 
+      "years": "20XX - 20XX",
       "description": "[Short description here.]"
     },
     {
@@ -50,7 +50,7 @@
       "description": "[Brief description here.]"
     },
     {
-      "name": "Lesson Planning", 
+      "name": "Lesson Planning",
       "description": "[Brief description here.]"
     },
     {
@@ -83,7 +83,10 @@
       "id": "alphabet-tracing",
       "title": "Alphabet Tracing Worksheet",
       "description": "A comprehensive tracing worksheet designed to help young learners master letter formation.",
-      "categories": ["Tracing Worksheet", "Alphabet"],
+      "categories": [
+        "Tracing Worksheet",
+        "Alphabet"
+      ],
       "image": "works/{765F517C-D519-4E12-8F7C-A70CB949C15F}.png",
       "pdf": "works/Alphabet Tracing Worksheet.pdf"
     },
@@ -91,23 +94,30 @@
       "id": "numbers-worksheet",
       "title": "[Worksheet Title]",
       "description": "[Short description here.]",
-      "categories": ["Numbers"],
+      "categories": [
+        "Numbers"
+      ],
       "image": null,
       "pdf": null
     },
     {
-      "id": "shapes-worksheet", 
+      "id": "shapes-worksheet",
       "title": "[Worksheet Title]",
       "description": "[Short description here.]",
-      "categories": ["Shapes", "Writing Practice"],
+      "categories": [
+        "Shapes",
+        "Writing Practice"
+      ],
       "image": null,
       "pdf": null
     },
     {
       "id": "animals-worksheet",
       "title": "[Worksheet Title]",
-      "description": "[Short description here.]", 
-      "categories": ["Animals"],
+      "description": "[Short description here.]",
+      "categories": [
+        "Animals"
+      ],
       "image": null,
       "pdf": null
     },
@@ -115,7 +125,10 @@
       "id": "plants-worksheet",
       "title": "[Worksheet Title]",
       "description": "[Short description here.]",
-      "categories": ["Plants", "Colors"],
+      "categories": [
+        "Plants",
+        "Colors"
+      ],
       "image": null,
       "pdf": null
     },
@@ -123,7 +136,10 @@
       "id": "writing-worksheet",
       "title": "[Worksheet Title]",
       "description": "[Short description here.]",
-      "categories": ["Tracing", "Writing Practice"],
+      "categories": [
+        "Tracing",
+        "Writing Practice"
+      ],
       "image": null,
       "pdf": null
     }

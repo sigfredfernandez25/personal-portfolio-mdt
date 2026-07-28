@@ -2510,23 +2510,206 @@
             });
         }
 
-        // Save field data to localStorage
-        function saveFieldData(fieldName, value) {
-            let portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '{}');
-            portfolioData[fieldName] = value;
-            localStorage.setItem('portfolioData', JSON.stringify(portfolioData));
+        // Save field data to JSON file via server
+        async function saveFieldData(fieldName, value) {
+            try {
+                // Update localStorage first (backup)
+                let portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '{}');
+                portfolioData[fieldName] = value;
+                localStorage.setItem('portfolioData', JSON.stringify(portfolioData));
+                
+                // Map field names to JSON structure
+                const updatedData = await loadPortfolioDataFromServer();
+                updateNestedField(updatedData, fieldName, value);
+                
+                // Save to server
+                const response = await fetch('/api/portfolio-data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(updatedData)
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to save to server');
+                }
+                
+                console.log('✅ Data saved to portfolio-data.json');
+            } catch (error) {
+                console.error('❌ Error saving data:', error);
+                alert('Failed to save to server. Make sure the server is running (npm start)');
+            }
         }
 
-        // Load saved data from localStorage
-        function loadSavedData() {
-            const portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '{}');
-            
-            editableFields.forEach(field => {
-                const fieldName = field.getAttribute('data-field');
-                if (portfolioData[fieldName]) {
-                    field.textContent = portfolioData[fieldName];
+        // Load saved data from server
+        async function loadSavedData() {
+            try {
+                const portfolioData = await loadPortfolioDataFromServer();
+                
+                editableFields.forEach(field => {
+                    const fieldName = field.getAttribute('data-field');
+                    const value = getNestedField(portfolioData, fieldName);
+                    if (value) {
+                        field.textContent = value;
+                    }
+                });
+                
+                console.log('✅ Data loaded from portfolio-data.json');
+            } catch (error) {
+                console.error('❌ Error loading data:', error);
+                // Fallback to localStorage
+                const localData = JSON.parse(localStorage.getItem('portfolioData') || '{}');
+                editableFields.forEach(field => {
+                    const fieldName = field.getAttribute('data-field');
+                    if (localData[fieldName]) {
+                        field.textContent = localData[fieldName];
+                    }
+                });
+            }
+        }
+
+        // Load portfolio data from server
+        async function loadPortfolioDataFromServer() {
+            const response = await fetch('/api/portfolio-data');
+            if (!response.ok) {
+                throw new Error('Failed to load from server');
+            }
+            return await response.json();
+        }
+
+        // Helper function to get nested field value from JSON structure
+        function getNestedField(data, fieldName) {
+            // Map flat field names to nested JSON structure
+            const fieldMap = {
+                'fullName': ['personal', 'name'],
+                'age': ['personal', 'age'],
+                'address': ['personal', 'address'],
+                'email': ['personal', 'email'],
+                'phone': ['personal', 'phone'],
+                'nationality': ['personal', 'nationality'],
+                'teachingPhilosophy': ['personal', 'teachingPhilosophy'],
+                'closingMessage': ['personal', 'closingMessage'],
+                'facebook': ['personal', 'facebook'],
+                'linkedin': ['personal', 'linkedin'],
+                'contactDescription': ['contact', 'sectionDescription'],
+                'skillsIntroDescription': ['contact', 'skillsDescription'],
+                'worksDescription': ['contact', 'worksDescription'],
+                'contactEmail': ['personal', 'email'],
+                'contactPhone': ['personal', 'phone'],
+                'contactAddress': ['personal', 'address']
+            };
+
+            // Education fields
+            if (fieldName.includes('college')) {
+                const key = fieldName.replace('college', '').toLowerCase();
+                return data.education?.find(e => e.id === 'college')?.[key === 'institution' ? 'institution' : key === 'description' ? 'description' : 'years'];
+            }
+            if (fieldName.includes('seniorHigh')) {
+                const key = fieldName.replace('seniorHigh', '').toLowerCase();
+                return data.education?.find(e => e.id === 'senior-high')?.[key === 'institution' ? 'institution' : key === 'description' ? 'description' : 'years'];
+            }
+            if (fieldName.includes('highSchool')) {
+                const key = fieldName.replace('highSchool', '').toLowerCase();
+                return data.education?.find(e => e.id === 'high-school')?.[key === 'institution' ? 'institution' : key === 'description' ? 'description' : 'years'];
+            }
+            if (fieldName.includes('elementary')) {
+                const key = fieldName.replace('elementary', '').toLowerCase();
+                return data.education?.find(e => e.id === 'elementary')?.[key === 'institution' ? 'institution' : key === 'description' ? 'description' : 'years'];
+            }
+
+            // Skill descriptions
+            if (fieldName.endsWith('Desc')) {
+                const skillName = fieldName.replace('Desc', '').replace(/([A-Z])/g, ' $1').trim();
+                const skill = data.skills?.find(s => s.name.toLowerCase().replace(/\s+/g, '') === skillName.toLowerCase().replace(/\s+/g, ''));
+                return skill?.description;
+            }
+
+            // Use field map for direct mappings
+            if (fieldMap[fieldName]) {
+                const [section, key] = fieldMap[fieldName];
+                return data[section]?.[key];
+            }
+
+            return null;
+        }
+
+        // Helper function to update nested field in JSON structure
+        function updateNestedField(data, fieldName, value) {
+            // Personal fields
+            const personalFields = ['fullName', 'age', 'address', 'email', 'phone', 'nationality', 'teachingPhilosophy', 'closingMessage', 'facebook', 'linkedin', 'contactEmail', 'contactPhone', 'contactAddress'];
+            if (personalFields.includes(fieldName)) {
+                if (fieldName === 'fullName') data.personal.name = value;
+                else if (fieldName === 'contactEmail') data.personal.email = value;
+                else if (fieldName === 'contactPhone') data.personal.phone = value;
+                else if (fieldName === 'contactAddress') data.personal.address = value;
+                else data.personal[fieldName] = value;
+                return;
+            }
+
+            // Contact section
+            if (fieldName === 'contactDescription') {
+                data.contact.sectionDescription = value;
+                return;
+            }
+            if (fieldName === 'skillsIntroDescription') {
+                data.contact.skillsDescription = value;
+                return;
+            }
+            if (fieldName === 'worksDescription') {
+                data.contact.worksDescription = value;
+                return;
+            }
+
+            // Education fields
+            if (fieldName.includes('college')) {
+                const edu = data.education.find(e => e.id === 'college');
+                if (fieldName === 'collegeInstitution') edu.institution = value;
+                else if (fieldName === 'collegeDescription') edu.description = value;
+                else if (fieldName === 'collegeYears') edu.years = value;
+                return;
+            }
+            if (fieldName.includes('seniorHigh')) {
+                const edu = data.education.find(e => e.id === 'senior-high');
+                if (fieldName === 'seniorHighInstitution') edu.institution = value;
+                else if (fieldName === 'seniorHighDescription') edu.description = value;
+                else if (fieldName === 'seniorHighYears') edu.years = value;
+                return;
+            }
+            if (fieldName.includes('highSchool')) {
+                const edu = data.education.find(e => e.id === 'high-school');
+                if (fieldName === 'highSchoolInstitution') edu.institution = value;
+                else if (fieldName === 'highSchoolDescription') edu.description = value;
+                else if (fieldName === 'highSchoolYears') edu.years = value;
+                return;
+            }
+            if (fieldName.includes('elementary')) {
+                const edu = data.education.find(e => e.id === 'elementary');
+                if (fieldName === 'elementaryInstitution') edu.institution = value;
+                else if (fieldName === 'elementaryDescription') edu.description = value;
+                else if (fieldName === 'elementaryYears') edu.years = value;
+                return;
+            }
+
+            // Skill descriptions
+            if (fieldName.endsWith('Desc')) {
+                const skillNameMap = {
+                    'classroomManagementDesc': 'Classroom Management',
+                    'lessonPlanningDesc': 'Lesson Planning',
+                    'materialDesignDesc': 'Instructional Material Design',
+                    'canvaDesc': 'Canva',
+                    'microsoftOfficeDesc': 'Microsoft Office',
+                    'googleWorkspaceDesc': 'Google Workspace',
+                    'publicSpeakingDesc': 'Public Speaking',
+                    'creativityDesc': 'Creativity'
+                };
+                const skillName = skillNameMap[fieldName];
+                if (skillName) {
+                    const skill = data.skills.find(s => s.name === skillName);
+                    if (skill) skill.description = value;
                 }
-            });
+                return;
+            }
         }
 
         // Show save indicator
@@ -2540,27 +2723,6 @@
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', initEditingSystem);
 
-        // Export data functionality (optional)
-        function exportPortfolioData() {
-            const portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '{}');
-            const dataStr = JSON.stringify(portfolioData, null, 2);
-            const dataBlob = new Blob([dataStr], {type: 'application/json'});
-            const url = URL.createObjectURL(dataBlob);
-            
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'portfolio-data.json';
-            link.click();
-            
-            URL.revokeObjectURL(url);
-        }
-
-        // Add export functionality to edit button (double-click)
-        editToggle.addEventListener('dblclick', () => {
-            if (confirm('Export your portfolio data as JSON file?')) {
-                exportPortfolioData();
-            }
-        });
     </script>
 
 </body>
