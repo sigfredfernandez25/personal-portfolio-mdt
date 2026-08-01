@@ -2520,6 +2520,14 @@
                 
                 // Map field names to JSON structure
                 const updatedData = await loadPortfolioDataFromServer();
+                
+                // Ensure all sections exist before updating
+                if (!updatedData.personal) updatedData.personal = {};
+                if (!updatedData.education) updatedData.education = [];
+                if (!updatedData.skills) updatedData.skills = [];
+                if (!updatedData.works) updatedData.works = [];
+                if (!updatedData.contact) updatedData.contact = {};
+                
                 updateNestedField(updatedData, fieldName, value);
                 
                 // Save to server
@@ -2575,7 +2583,16 @@
             if (!response.ok) {
                 throw new Error('Failed to load from server');
             }
-            return await response.json();
+            const data = await response.json();
+            
+            // Ensure all required sections exist
+            if (!data.personal) data.personal = {};
+            if (!data.education) data.education = [];
+            if (!data.skills) data.skills = [];
+            if (!data.works) data.works = [];
+            if (!data.contact) data.contact = {};
+            
+            return data;
         }
 
         // Helper function to get nested field value from JSON structure
@@ -2661,37 +2678,61 @@
                 return;
             }
 
-            // Education fields
+            // Education fields - ensure education array exists
+            if (!data.education) {
+                data.education = [];
+            }
+            
             if (fieldName.includes('college')) {
-                const edu = data.education.find(e => e.id === 'college');
+                let edu = data.education.find(e => e.id === 'college');
+                if (!edu) {
+                    edu = { id: 'college', level: 'College', institution: '', years: '', description: '' };
+                    data.education.push(edu);
+                }
                 if (fieldName === 'collegeInstitution') edu.institution = value;
                 else if (fieldName === 'collegeDescription') edu.description = value;
                 else if (fieldName === 'collegeYears') edu.years = value;
                 return;
             }
             if (fieldName.includes('seniorHigh')) {
-                const edu = data.education.find(e => e.id === 'senior-high');
+                let edu = data.education.find(e => e.id === 'senior-high');
+                if (!edu) {
+                    edu = { id: 'senior-high', level: 'Senior High School', institution: '', years: '', description: '' };
+                    data.education.push(edu);
+                }
                 if (fieldName === 'seniorHighInstitution') edu.institution = value;
                 else if (fieldName === 'seniorHighDescription') edu.description = value;
                 else if (fieldName === 'seniorHighYears') edu.years = value;
                 return;
             }
             if (fieldName.includes('highSchool')) {
-                const edu = data.education.find(e => e.id === 'high-school');
+                let edu = data.education.find(e => e.id === 'high-school');
+                if (!edu) {
+                    edu = { id: 'high-school', level: 'High School', institution: '', years: '', description: '' };
+                    data.education.push(edu);
+                }
                 if (fieldName === 'highSchoolInstitution') edu.institution = value;
                 else if (fieldName === 'highSchoolDescription') edu.description = value;
                 else if (fieldName === 'highSchoolYears') edu.years = value;
                 return;
             }
             if (fieldName.includes('elementary')) {
-                const edu = data.education.find(e => e.id === 'elementary');
+                let edu = data.education.find(e => e.id === 'elementary');
+                if (!edu) {
+                    edu = { id: 'elementary', level: 'Elementary', institution: '', years: '', description: '' };
+                    data.education.push(edu);
+                }
                 if (fieldName === 'elementaryInstitution') edu.institution = value;
                 else if (fieldName === 'elementaryDescription') edu.description = value;
                 else if (fieldName === 'elementaryYears') edu.years = value;
                 return;
             }
 
-            // Skill descriptions
+            // Skill descriptions - ensure skills array exists
+            if (!data.skills) {
+                data.skills = [];
+            }
+            
             if (fieldName.endsWith('Desc')) {
                 const skillNameMap = {
                     'classroomManagementDesc': 'Classroom Management',
@@ -2705,8 +2746,12 @@
                 };
                 const skillName = skillNameMap[fieldName];
                 if (skillName) {
-                    const skill = data.skills.find(s => s.name === skillName);
-                    if (skill) skill.description = value;
+                    let skill = data.skills.find(s => s.name === skillName);
+                    if (!skill) {
+                        skill = { name: skillName, description: '' };
+                        data.skills.push(skill);
+                    }
+                    skill.description = value;
                 }
                 return;
             }

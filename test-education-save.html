@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Education & Skills Save</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #555;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Education & Skills Save Test</h1>
+    <p>This page tests if education and skills fields are saving correctly to Supabase.</p>
+
+    <div class="test-section">
+        <h2>📚 Test Education Save</h2>
+        <label>College Institution:</label>
+        <input type="text" id="collegeInstitution" placeholder="e.g., University of Example">
+        
+        <label>College Years:</label>
+        <input type="text" id="collegeYears" placeholder="e.g., 2015 - 2019">
+        
+        <label>College Description:</label>
+        <textarea id="collegeDescription" rows="3" placeholder="e.g., Bachelor of Education Major in Filipino"></textarea>
+        
+        <button onclick="testEducationSave()">💾 Save College Info</button>
+        <div id="eduResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>🎯 Test Skills Save</h2>
+        <label>Classroom Management Description:</label>
+        <textarea id="classroomMgmt" rows="3" placeholder="Describe your classroom management skills"></textarea>
+        
+        <button onclick="testSkillSave()">💾 Save Skill</button>
+        <div id="skillResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📊 Current Data</h2>
+        <button onclick="loadCurrentData()">🔄 Load Current Data</button>
+        <div id="currentData"></div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000/api/portfolio-data';
+
+        async function getCurrentData() {
+            const response = await fetch(API_URL);
+            if (!response.ok) throw new Error('Failed to load data');
+            return await response.json();
+        }
+
+        async function saveData(data) {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            if (!response.ok) throw new Error('Failed to save data');
+            return await response.json();
+        }
+
+        async function testEducationSave() {
+            const resultDiv = document.getElementById('eduResult');
+            resultDiv.innerHTML = '<div class="info">⏳ Saving...</div>';
+            
+            try {
+                // Get current data
+                const data = await getCurrentData();
+                
+                // Ensure education array exists
+                if (!data.education) data.education = [];
+                
+                // Find or create college entry
+                let college = data.education.find(e => e.id === 'college');
+                if (!college) {
+                    college = { id: 'college', level: 'College', institution: '', years: '', description: '' };
+                    data.education.push(college);
+                }
+                
+                // Update with form values
+                college.institution = document.getElementById('collegeInstitution').value;
+                college.years = document.getElementById('collegeYears').value;
+                college.description = document.getElementById('collegeDescription').value;
+                
+                // Save
+                await saveData(data);
+                
+                resultDiv.innerHTML = `
+                    <div class="success">
+                        ✅ Success! College info saved.<br>
+                        Institution: ${college.institution}<br>
+                        Years: ${college.years}<br>
+                        Description: ${college.description}
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+
+        async function testSkillSave() {
+            const resultDiv = document.getElementById('skillResult');
+            resultDiv.innerHTML = '<div class="info">⏳ Saving...</div>';
+            
+            try {
+                // Get current data
+                const data = await getCurrentData();
+                
+                // Ensure skills array exists
+                if (!data.skills) data.skills = [];
+                
+                // Find or create skill
+                let skill = data.skills.find(s => s.name === 'Classroom Management');
+                if (!skill) {
+                    skill = { name: 'Classroom Management', description: '' };
+                    data.skills.push(skill);
+                }
+                
+                // Update with form value
+                skill.description = document.getElementById('classroomMgmt').value;
+                
+                // Save
+                await saveData(data);
+                
+                resultDiv.innerHTML = `
+                    <div class="success">
+                        ✅ Success! Skill saved.<br>
+                        Name: ${skill.name}<br>
+                        Description: ${skill.description}
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+
+        async function loadCurrentData() {
+            const resultDiv = document.getElementById('currentData');
+            resultDiv.innerHTML = '<div class="info">⏳ Loading...</div>';
+            
+            try {
+                const data = await getCurrentData();
+                
+                resultDiv.innerHTML = `
+                    <div class="success">
+                        <h3>📚 Education (${data.education?.length || 0} entries):</h3>
+                        <pre>${JSON.stringify(data.education, null, 2)}</pre>
+                        
+                        <h3>🎯 Skills (${data.skills?.length || 0} entries):</h3>
+                        <pre>${JSON.stringify(data.skills, null, 2)}</pre>
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+
+        // Load data on page load
+        window.addEventListener('DOMContentLoaded', loadCurrentData);
+    </script>
+</body>
+</html>
